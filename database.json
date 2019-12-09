@@ -1,0 +1,157 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Guy",
+      "lastName": "Cherkesky",
+      "email": "guy@cherkesky.com",
+      "password": "123456",
+      "gender": "male",
+      "genderInterested": "female",
+      "age": 39,
+      "ageRange": 3,
+      "avatarUrl": "http://www.1.com",
+      "approvedDrinkId": 1,
+      "barId": 1,
+      "chatId": 1,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0
+    },
+    {
+      "id": 2,
+      "firstName": "Caty",
+      "lastName": "Chapman",
+      "email": "caty@cherkesky.com",
+      "password": "123456",
+      "gender": "female",
+      "genderInterested": "male",
+      "age": 39,
+      "ageRange": 3,
+      "avatarUrl": "http://www.1.com",
+      "approvedDrinkId": 1,
+      "barId": 1,
+      "chatId": 1,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0
+    },
+    {
+      "id": 3,
+      "firstName": "Laika",
+      "lastName": "Cherkesky",
+      "email": "laika@cherkesky.com",
+      "password": "123456",
+      "gender": "female",
+      "genderInterested": "male",
+      "age": 3,
+      "ageRange": 1,
+      "avatarUrl": "http://www.1.com",   
+      "approvedDrinkId": 1,
+      "barId": 2,
+      "chatId": 2,
+      "timeOut": false,
+      "beenReported": 1,
+      "chaserCoinCredit": 0
+    }
+  ],
+  "drinks": [
+    {
+      "id": 1,
+      "loggedInUser": 1,
+      "userId": 2,
+      "status": "approved",
+      "drink_time": "2019-12-01"
+    },
+    {
+      "id": 2,
+      "loggedInUser": 1,
+      "userId": 3,
+      "status": "pending",
+      "drink_time": "2019-12-01"
+    },
+    {
+      "id": 2,
+      "loggedInUser": 2,
+      "userId": 3,
+      "status": "rejected",
+      "drink_time": "2019-12-01"
+    }
+  ],
+  "chats": [
+    { "id": 1,
+      "drinkId": 1,
+      "toggleUserA": false,
+      "toggleUserb": true,
+      "messageCounter": 2,
+      "chatActive": true
+    },
+    { "id": 2,
+      "drinkId": 2,
+      "toggleUserA": false,
+      "toggleUserb": true,
+      "messageCounter": 2,
+      "chatActive": false
+    }
+  ], 
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "chatId": 1,
+      "message": "Hi There",
+      "sent": "2019-12-01"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "chatId": 1,
+      "message": "Yo yo",
+      "sent": "2019-12-01"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "chatId": 2,
+      "message": "You're a good girl!",
+      "sent": "2019-12-01"
+    },
+    {
+      "id": 4,
+      "userId": 3,
+      "chatId": 2,
+      "message": "Woof Woof",
+      "sent": "2019-12-01"
+    }
+    
+  ],
+  "bars": [
+    {
+      "id": 1,
+      "apiPlaceId": "2123432",
+      "openNow": true,
+      "barName": "Firebirds",
+      "barPhone": "615-123-4567",
+      "barAddress": "123 1st St, Nashville TN 37203",
+      "chaserCoinCredit": 0
+    },
+    {
+      "id": 2,
+      "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",
+      "openNow": true,
+      "barName": "Double Dogs",
+      "barPhone": "615-123-4567",
+      "barAddress": "123 1st St, Nashville TN 37203",
+      "chaserCoinCredit": 0
+    },
+    {
+      "id": 3,
+      "apiapiPlaceIdId": "8657657",
+      "openNow": true,
+      "barName": "Double Dogs",
+      "barPhone": "615-123-4567",
+      "barAddress": "123 1st St, Nashville TN 37203",
+      "chaserCoinCredit": 0
+    }
+  ]
+}
