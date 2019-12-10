@@ -92,8 +92,8 @@ export class Register extends Component {
               type="password"
             /><br />
             <Button variant="contained" color="secondary" onClick={() => {
-              window.alert("Signed Up")
-            }}>
+            this.props.history.push("/checkin")
+          }}>
               Sign Up
           </Button>
           </FormGroup>

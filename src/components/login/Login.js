@@ -25,7 +25,7 @@ export class Login extends Component {
           autoComplete="current-password"
         /><br />
           <Button variant="contained" color="secondary" onClick={() => {
-            window.alert("Logged In")
+                        this.props.history.push("/checkin")
           }}>
            Login
           </Button>

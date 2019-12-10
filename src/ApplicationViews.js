@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import Welcome from "./components/welcome/Welcome"
 import Register from "./components/register/Register"
 import Login from "./components/login/Login"
-
+import CheckIn from "./components/checkin/CheckIn"
 
 export class ApplicationViews extends Component {
   render() {
@@ -24,6 +24,11 @@ export class ApplicationViews extends Component {
         <Route
           exact path="/login" render={props => {
             return <Login {...props} />
+          }}
+        />
+        <Route
+          exact path="/checkin" render={props => {
+            return <CheckIn {...props} />
           }}
         />
       </React.Fragment>
