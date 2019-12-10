@@ -19,7 +19,8 @@ export class Login extends Component {
   };
   
   handleLogin = (e) => {
-		e.preventDefault();
+    e.preventDefault();
+    console.log("props", this.props)
 		const { email, password } = this.state
 		ApiManager.getAll("users", `email=${email}&password=${password}`)
 		.then((user) => {
@@ -42,7 +43,6 @@ export class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Login</h1>
         <FormControl component="fieldset">
          <FormGroup>
          <TextField

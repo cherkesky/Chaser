@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 
 
 export class Register extends Component {
+  
+  
   render() {
     return (
       <div>
@@ -24,7 +26,6 @@ export class Register extends Component {
               id="last"
               label="Last Name"
             /><br />
-
             <TextField required
               id="age"
               label="Age"
