@@ -11,8 +11,9 @@
       "age": 39,
       "ageRange": 3,
       "avatarUrl": "http://www.1.com",
-      "approvedDrinkId": 1,
+      "tagLine": "yolo",
       "barId": 1,
+      "drinkId": 1,
       "chatId": 1,
       "timeOut": false,
       "beenReported": 0,
@@ -29,8 +30,9 @@
       "age": 39,
       "ageRange": 3,
       "avatarUrl": "http://www.1.com",
-      "approvedDrinkId": 1,
+      "tagLine": "yo yo",
       "barId": 1,
+      "drinkId": 1,
       "chatId": 1,
       "timeOut": false,
       "beenReported": 0,
@@ -46,9 +48,10 @@
       "genderInterested": "male",
       "age": 3,
       "ageRange": 1,
+      "tagLine": "always up for a walk",
       "avatarUrl": "http://www.1.com",   
-      "approvedDrinkId": 1,
       "barId": 2,
+      "drinkId": 2,
       "chatId": 2,
       "timeOut": false,
       "beenReported": 1,
@@ -60,59 +63,52 @@
       "id": 1,
       "loggedInUser": 1,
       "userId": 2,
+      "toggleUserA": false,
+      "toggleUserB": true,
       "status": "approved",
-      "drink_time": "2019-12-01"
+      "chatActive": true,
+      "matchTime": "2019-12-01"
     },
     {
       "id": 2,
       "loggedInUser": 1,
       "userId": 3,
+      "toggleUserA": false,
+      "toggleUserB": false,
       "status": "pending",
-      "drink_time": "2019-12-01"
+      "chatActive": false,
+      "matchTime": "2019-12-01"
     },
     {
       "id": 2,
       "loggedInUser": 2,
       "userId": 3,
+      "toggleUserA": false,
+      "toggleUserB": false,
       "status": "rejected",
-      "drink_time": "2019-12-01"
-    }
-  ],
-  "chats": [
-    { "id": 1,
-      "drinkId": 1,
-      "toggleUserA": false,
-      "toggleUserb": true,
-      "messageCounter": 2,
-      "chatActive": true
-    },
-    { "id": 2,
-      "drinkId": 2,
-      "toggleUserA": false,
-      "toggleUserb": true,
-      "messageCounter": 2,
-      "chatActive": false
+      "chatActive": false,
+      "matchTime": "2019-12-01"
     }
   ], 
   "messages": [
     {
       "id": 1,
       "userId": 1,
-      "chatId": 1,
+      "drinkId": 1,
       "message": "Hi There",
       "sent": "2019-12-01"
     },
     {
       "id": 2,
       "userId": 2,
-      "chatId": 1,
+      "drinkId": 1,
       "message": "Yo yo",
       "sent": "2019-12-01"
     },
     {
       "id": 3,
       "userId": 1,
-      "chatId": 2,
+      "drinkId": 2,
       "message": "You're a good girl!",
       "sent": "2019-12-01"
     },
