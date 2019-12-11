@@ -42,7 +42,7 @@ export class Chaser extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar user={this.state.user}/>
+        <NavBar user={this.state.user} userId={this.state.userId}/>
         <ApplicationViews user={this.state.user} setUser={this.setUser} />
       </React.Fragment>
     )

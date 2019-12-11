@@ -20,11 +20,9 @@ export class Login extends Component {
   
   handleLogin = (e) => {
     e.preventDefault();
-    console.log("props", this.props)
 		const { email, password } = this.state
 		ApiManager.getAll("users", `email=${email}&password=${password}`)
 		.then((user) => {
-			// console.log('user login test', user)
 			if (user.length > 0){
 				this.props.setUser({
 					email: email,
