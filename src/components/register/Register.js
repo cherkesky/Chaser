@@ -8,14 +8,19 @@ import TextField from '@material-ui/core/TextField';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio'
 import Button from '@material-ui/core/Button';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
+import IconButton from '@material-ui/core/IconButton';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+
+
 
 
 export class Register extends Component {
-
   state = {
     firstName: '',
     lastName: '',
     age: '',
+    tagLine: '',
     gender: '',
     genderInterested: '',
     email: '',
@@ -23,7 +28,7 @@ export class Register extends Component {
     passwordB: '',
     buttonDisabled: true
   };
- //*****************************************************************************************************
+  //*****************************************************************************************************
   // Handle Field Change
   //*****************************************************************************************************
   handleFieldChange = e => {
@@ -32,7 +37,7 @@ export class Register extends Component {
     this.setState(stateToChange)
   };
   // Seperatly handling the radio buttons
-  handleGenderChange = event => {   
+  handleGenderChange = event => {
     this.setState({ gender: event.target.value });
   };
   handleGenderInterestedChange = event => {
@@ -54,7 +59,7 @@ export class Register extends Component {
         email: this.state.email,
         password: this.state.password,
         ageRange: 0,
-        tagLine:"",
+        tagLine: this.state.tagLine,
         avatarUrl: "noimage.png",
         barId: 0,
         drinkId: 0,
@@ -113,7 +118,12 @@ export class Register extends Component {
               type="number"
               onChange={this.handleFieldChange}
             /><br />
-
+            <TextField required
+              id="tagLine"
+              label="Tagline"
+              type="text"
+              onChange={this.handleFieldChange}
+            /><br />
             <FormControl component="fieldset" name="gender">
               <FormLabel component="legend">Gender</FormLabel>
               <RadioGroup
@@ -123,7 +133,7 @@ export class Register extends Component {
                 onChange={this.handleGenderChange}
                 value={selected}
                 row>
-                <FormControlLabel 
+                <FormControlLabel
                   value="male"
                   control={<Radio color="primary" />}
                   label="Male"
@@ -192,12 +202,25 @@ export class Register extends Component {
               type="password"
               onChange={this.handleFieldChange}
             /><br />
-            <Button disabled={!isEnabled} variant="contained" color="secondary" 
-            onClick={() => {
-              this.handleRegister()
-            }}>
+           
+            <input
+              accept="image/*"
+              id="contained-button-file"
+              type="file"
+            />
+            <label htmlFor="contained-button-file">
+              <Button variant="contained" component="span">
+                Upload
+             </Button>
+            </label> <br/>
+
+            <Button disabled={!isEnabled} variant="contained" color="secondary"
+              onClick={() => {
+                this.handleRegister()
+              }}>
               Sign Up
           </Button>
+
           </FormGroup>
         </FormControl>
       </div>
