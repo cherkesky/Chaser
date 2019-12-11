@@ -42,8 +42,8 @@ export class Chaser extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar />
-        <ApplicationViews user={this.user} setUser={this.setUser} />
+        <NavBar user={this.state.user}/>
+        <ApplicationViews user={this.state.user} setUser={this.setUser} />
       </React.Fragment>
     )
   }
