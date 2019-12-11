@@ -42,9 +42,9 @@ export class Register extends Component {
   // Handle Register
   //*****************************************************************************************************
   handleRegister = e => {
-    e.preventDefault()
-    const { passwordA, passwordB } = this.state
-    if (passwordA === passwordB && passwordA !== "") {
+    //e.preventDefault()
+    const { password, passwordB } = this.state
+    if (password === passwordB && password !== "") {
       const newUser = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -52,7 +52,16 @@ export class Register extends Component {
         gender: this.state.gender,
         genderInterested: this.state.genderInterested,
         email: this.state.email,
-        password: this.state.passwordA,
+        password: this.state.password,
+        ageRange: 0,
+        tagLine:"",
+        avatarUrl: "noimage.png",
+        barId: 0,
+        drinkId: 0,
+        chatId: 0,
+        timeOut: false,
+        beenReported: 1,
+        chaserCoinCredit: 0
       }
       this.props.setUser({
         email: this.state.email,
@@ -68,7 +77,7 @@ export class Register extends Component {
             })
         })
         .then(() => {
-          this.props.history.push("/")
+          this.props.history.push("/checkin")
         })
     }
     else {
@@ -183,8 +192,9 @@ export class Register extends Component {
               type="password"
               onChange={this.handleFieldChange}
             /><br />
-            <Button disabled={!isEnabled} variant="contained" color="secondary" onClick={() => {
-              this.props.history.push("/checkin") // <-----------------------change to handleRegister
+            <Button disabled={!isEnabled} variant="contained" color="secondary" 
+            onClick={() => {
+              this.handleRegister()
             }}>
               Sign Up
           </Button>

@@ -17,7 +17,7 @@ export class ApplicationViews extends Component {
 
         <Route
           exact path="/register" render={props => {
-            return <Register {...props} />
+            return <Register setUser={this.props.setUser}{...props} />
           }}
         />
 

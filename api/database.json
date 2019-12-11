@@ -49,13 +49,32 @@
       "age": 3,
       "ageRange": 1,
       "tagLine": "always up for a walk",
-      "avatarUrl": "user3.png",   
+      "avatarUrl": "user3.png",
       "barId": 2,
       "drinkId": 2,
       "chatId": 2,
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0
+    },
+    {
+      "firstName": "Trey",
+      "lastName": "Suiter",
+      "age": "32",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "trey@trey.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "",
+      "avatarUrl": "user4.jpg",
+      "barId": 0,
+      "drinkId": 0,
+      "chatId": 0,
+      "timeOut": false,
+      "beenReported": 1,
+      "chaserCoinCredit": 0,
+      "id": 4
     }
   ],
   "drinks": [
@@ -89,7 +108,7 @@
       "chatActive": false,
       "matchTime": "2019-12-01"
     }
-  ], 
+  ],
   "messages": [
     {
       "id": 1,
@@ -119,7 +138,6 @@
       "message": "Woof Woof",
       "sent": "2019-12-01"
     }
-    
   ],
   "bars": [
     {
