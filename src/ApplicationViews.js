@@ -23,7 +23,7 @@ export class ApplicationViews extends Component {
 
         <Route
           exact path="/login" render={props => {
-            return <Login {...props} />
+            return <Login setUser={this.props.setUser} {...props} />
           }}
         />
         <Route
