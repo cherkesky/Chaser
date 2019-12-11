@@ -31,7 +31,13 @@ export class Register extends Component {
     stateToChange[e.target.id] = e.target.value
     this.setState(stateToChange)
   };
-
+  // Seperatly handling the radio buttons
+  handleGenderChange = event => {   
+    this.setState({ gender: event.target.value });
+  };
+  handleGenderInterestedChange = event => {
+    this.setState({ genderInterested: event.target.value });
+  };
   //*****************************************************************************************************
   // Handle Register
   //*****************************************************************************************************
@@ -73,9 +79,8 @@ export class Register extends Component {
   //*****************************************************************************************************
   // Render()
   //*****************************************************************************************************
-
   render() {
-
+    const { selected } = this.state;
     const { email, password, passwordB } = this.state;
     const isEnabled = email.length > 0 && password.length > 0 && passwordB.length > 0 && password === passwordB;
 
@@ -99,15 +104,17 @@ export class Register extends Component {
               type="number"
               onChange={this.handleFieldChange}
             /><br />
-            <FormControl component="fieldset" id="gender">
+
+            <FormControl component="fieldset" name="gender">
               <FormLabel component="legend">Gender</FormLabel>
               <RadioGroup
                 id="gender"
                 aria-label="position"
                 name="gender"
-                onChange={this.handleFieldChange}
+                onChange={this.handleGenderChange}
+                value={selected}
                 row>
-                <FormControlLabel
+                <FormControlLabel 
                   value="male"
                   control={<Radio color="primary" />}
                   label="Male"
@@ -127,13 +134,15 @@ export class Register extends Component {
                 />
               </RadioGroup>
             </FormControl>
-            <FormControl component="fieldset" id="genderInterested">
+
+            <FormControl component="fieldset" name="genderInterested">
               <FormLabel component="legend">Gender interested in</FormLabel>
               <RadioGroup
                 id="genderInterested"
                 aria-label="position"
                 name="genderInterested"
-                onChange={this.handleFieldChange}
+                onChange={this.handleGenderInterestedChange}
+                value={selected}
                 row>
                 <FormControlLabel
                   value="male"
@@ -153,9 +162,9 @@ export class Register extends Component {
                   label="Other"
                   labelPlacement="bottom"
                 />
-
               </RadioGroup>
             </FormControl>
+
             <TextField required
               id="email"
               label="Email"
