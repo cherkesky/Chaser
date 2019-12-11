@@ -10,7 +10,7 @@
       "genderInterested": "female",
       "age": 39,
       "ageRange": 3,
-      "avatarUrl": "../../assets/user1.png",
+      "avatarUrl": "user1.png",
       "tagLine": "yolo",
       "barId": 1,
       "drinkId": 1,

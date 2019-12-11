@@ -18,28 +18,33 @@ const useStyles = theme => ({
 
 export class Navbar extends Component {
   state = {
-    users: []
+    users: {}
   }
+  loggedInUserId() {return parseInt(localStorage.getItem("userId"))}
 
-   loggedInUserId() {return parseInt(localStorage.getItem("userId"))}
-    getAvatar = ApiManager.get("users", this.loggedInUserId())
-     .then((usersArr) => {
-        this.setState(
-          {
-            users: usersArr
-          }
-        )
-      })
+  componentDidMount(){
+    ApiManager.get("users", this.loggedInUserId())
+      .then((usersArr) => {
+         this.setState(
+           {
+             users: usersArr
+           }
+         )
+       })
+  }
 
 
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props; 
+
+    const profileImageUrl = this.state.users.avatarUrl ? this.state.users.avatarUrl : "noimage.png" 
+    console.log(this.state)
      return (
       <>
         {
           (this.props.user)
             ? <div className={classes.root}>
-              <Avatar alt="Avatar" src={require('../../assets/user1.png')} variant="circle"
+              <Avatar alt="Avatar" src={require(`./../../assets/${profileImageUrl}`)} variant="circle"
                 className={classes.bigAvatar}
                 onClick={()=> {window.alert("AVATAR CLICKED")}}
                  />
