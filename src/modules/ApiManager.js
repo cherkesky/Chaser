@@ -9,7 +9,7 @@ export default {
   getAll(endpoint, params = "") {
     return fetch(`${baseUrl}/${endpoint}?${params}`).then((result) => result.json());
   },
-  getLoggedInuser(params = "") {
+  getLoggedInUser(params = "") {
     return fetch(`${baseUrl}/users?email=${params}`).then((result) => result.json());
   },
   delete(endpoint, id) {
@@ -29,7 +29,7 @@ export default {
   update(endpoint, editedObj) {
     // make sure to pass in the ID in the 'editedObj' so you can access it in the fetch call
     return fetch(`${baseUrl}/${endpoint}/${editedObj.id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },

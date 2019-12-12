@@ -10,13 +10,19 @@ import Radio from '@material-ui/core/Radio'
 import Button from '@material-ui/core/Button';
 
 export class EditProfile extends Component {
+
+loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
+
   state = {
+    id: '',
+    email: '',
     firstName: '',
     lastName: '',
     age: '',
     tagLine: '',
     gender: '',
     genderInterested: '',
+    loadingStatus: true,
     buttonDisabled: true
   };
 
@@ -35,60 +41,55 @@ export class EditProfile extends Component {
   handleGenderInterestedChange = event => {
     this.setState({ genderInterested: event.target.value });
   };
-  //*****************************************************************************************************
-  // Handle Save
-  //*****************************************************************************************************
-  handleSave = e => {
-    //e.preventDefault()
-    const { password, passwordB } = this.state
-    if (password === passwordB && password !== "") {
-      const newUser = {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        age: this.state.age,
-        gender: this.state.gender,
-        genderInterested: this.state.genderInterested,
-        email: this.state.email,
-        password: this.state.password,
-        ageRange: 0,
-        tagLine: this.state.tagLine,
-        avatarUrl: this.state.avatarUrl,
-        barId: 0,
-        drinkId: 0,
-        chatId: 0,
-        timeOut: false,
-        beenReported: 1,
-        chaserCoinCredit: 0
-      }
-      this.props.setUser({
-        email: this.state.email,
-        password: this.state.passwordA,
+//******************************************************************************
+//UPDATE existing profile
+//******************************************************************************
+updateExistingProfile = () => {
+    // e.preventDefault()
+  this.setState({ loadingStatus: true });
+  const editedProfile = {
+    id: this.state.id,
+    userId: this.loggedInUserId(),
+    firstName: this.state.firstName,
+    lastName: this.state.lastName,
+    age: this.state.age,
+    tagLine: this.state.tagLine,
+    gender: this.state.gender,
+    genderInterested: this.state.genderInterested,
+  };
+
+  ApiManager.update("users", (editedProfile)) // API PUT call
+  .then(() => this.props.history.push("/checkin"))  // re-routing
+}
+
+//******************************************************************************
+//componentDidMount()
+//******************************************************************************
+componentDidMount() {
+  console.log(this.props)
+  ApiManager.get("users", this.loggedInUserId())
+  .then(user => {
+      this.setState({
+        id: user.id,
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        age: user.age,
+        tagLine: user.tagLine,
+        gender: user.gender,
+        genderInterested: user.genderInterested,
+        loadingStatus: false,
       })
-      ApiManager.post("users", newUser)
-        .then(() => {
-          ApiManager.getLoggedInuser(this.state.email)
-            .then((user) => {
-              // console.log('user registration', user)
-              const userId = user[0].id
-              localStorage.setItem("userId", parseInt(userId))
-            })
-        })
-        .then(() => {
-          this.props.history.push("/checkin")
-        })
-    }
-    else {
-      window.alert("Please make sure your passwords match")
-    }
-  }
+    })}
+
 
   //*****************************************************************************************************
   // Render()
   //*****************************************************************************************************
   render() {
-    const { selected } = this.state;
+    //const { selected } = this.state;
     const { firstName, lastName, age, tagLine, gender, genderInterested } = this.state;
-    const isEnabled = firstName.length !=="" && lastName.length!=="" && age.length!=="" && tagLine.lenght!=="" && gender.lenght!=="" && genderInterested!==""
+    const isEnabled = firstName !=="" && lastName !=="" && age !=="" && tagLine !=="" && gender !=="" && genderInterested!==""
 
     return (
       <div>
@@ -97,23 +98,27 @@ export class EditProfile extends Component {
             <TextField required
               id="firstName"
               label="First Name"
+              value ={this.state.firstName}
               onChange={this.handleFieldChange}
             /><br />
             <TextField required
               id="lastName"
               label="Last Name"
+              value ={this.state.lastName}
               onChange={this.handleFieldChange}
             /><br />
             <TextField required
               id="age"
               label="Age"
               type="number"
+              value ={this.state.age}
               onChange={this.handleFieldChange}
             /><br />
             <TextField required
               id="tagLine"
               label="Tagline"
               type="text"
+              value ={this.state.tagLine}
               onChange={this.handleFieldChange}
             /><br />
             <FormControl component="fieldset" name="gender">
@@ -123,7 +128,7 @@ export class EditProfile extends Component {
                 aria-label="position"
                 name="gender"
                 onChange={this.handleGenderChange}
-                value={selected}
+                value ={this.state.gender}
                 row>
                 <FormControlLabel
                   value="male"
@@ -153,7 +158,7 @@ export class EditProfile extends Component {
                 aria-label="position"
                 name="genderInterested"
                 onChange={this.handleGenderInterestedChange}
-                value={selected}
+                value ={this.state.genderInterested}
                 row>
                 <FormControlLabel
                   value="male"
@@ -178,7 +183,7 @@ export class EditProfile extends Component {
 
             <Button disabled={!isEnabled} variant="contained" color="secondary"
               onClick={() => {
-                this.handleSave()
+                this.updateExistingProfile()
               }}>
               SAVE
           </Button>

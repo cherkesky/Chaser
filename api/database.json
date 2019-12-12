@@ -94,6 +94,26 @@
       "beenReported": 1,
       "chaserCoinCredit": 0,
       "id": 6
+    },
+    {
+      "firstName": "Mr",
+      "lastName": "Dude",
+      "age": "33",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "dude@dude.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Im the dude",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576175605/avatars/u1p5rbpdor6h9gfbqd9s.png",
+      "barId": 0,
+      "drinkId": 0,
+      "chatId": 0,
+      "timeOut": false,
+      "beenReported": 1,
+      "chaserCoinCredit": 0,
+      "id": 7,
+      "userId": 7
     }
   ],
   "drinks": [
