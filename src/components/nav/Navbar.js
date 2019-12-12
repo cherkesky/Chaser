@@ -61,7 +61,7 @@ export class Navbar extends Component {
                   onClick={() => { window.alert("AVATAR CLICKED") }}
                 />
                 <img alt="logo" src={require("../../assets/ChaserLogo.png")} width="200px" height="40px" onClick={() => { this.props.history.push("/checkin")}}></img> 
-                <img alt="gears" src={require("../../assets/gears.svg")} width="20px" height="20px" onClick={() => { window.alert("PREFERENCES CLICKED") }}></img>
+                <img alt="gears" src={require("../../assets/gears.svg")} width="20px" height="20px" onClick={() => { this.props.history.push("/editprofile") }}></img>
               </div>
               </Toolbar>
             </AppBar>
