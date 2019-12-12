@@ -9,7 +9,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio'
 import Button from '@material-ui/core/Button';
 
-export class Register extends Component {
+export class EditProfile extends Component {
   state = {
     firstName: '',
     lastName: '',
@@ -17,43 +17,9 @@ export class Register extends Component {
     tagLine: '',
     gender: '',
     genderInterested: '',
-    email: '',
-    password: '',
-    passwordB: '',
-    selectedFile: null,
-    avatarUrl: '',
     buttonDisabled: true
   };
-  //*****************************************************************************************************
-  // File Selector Handler
-  //*****************************************************************************************************
-  fileSelectorHandler = event=>{
-    this.setState({
-      selectedFile: event.target.files[0]
-    })
-  }
-//*****************************************************************************************************
-  // File Upload Handler
-  //*****************************************************************************************************
-  fileUploadHandler = async (e) =>{
-    console.log("UPLOAD")
-    e.preventDefault()
-    const files = this.state.selectedFile
-    const data = new FormData()
-    data.append('file', files)
-    data.append('upload_preset', 'Chaser')
-    const res = await fetch(
-      'https://api.cloudinary.com/v1_1/datyxctgm/image/upload',
-      {
-        method: 'POST',
-        body: data
-      })
 
-      const file = await res.json()
-      this.setState({
-        avatarUrl: file.secure_url
-      })
-  }
   //*****************************************************************************************************
   // Handle Field Change
   //*****************************************************************************************************
@@ -70,9 +36,9 @@ export class Register extends Component {
     this.setState({ genderInterested: event.target.value });
   };
   //*****************************************************************************************************
-  // Handle Register
+  // Handle Save
   //*****************************************************************************************************
-  handleRegister = e => {
+  handleSave = e => {
     //e.preventDefault()
     const { password, passwordB } = this.state
     if (password === passwordB && password !== "") {
@@ -121,8 +87,8 @@ export class Register extends Component {
   //*****************************************************************************************************
   render() {
     const { selected } = this.state;
-    const { email, password, passwordB, avatarUrl } = this.state;
-    const isEnabled = email.length > 0 && password.length > 0 && passwordB.length > 0 && password === passwordB  && avatarUrl !== "" && avatarUrl !== undefined;
+    const { firstName, lastName, age, tagLine, gender, genderInterested } = this.state;
+    const isEnabled = firstName.length !=="" && lastName.length!=="" && age.length!=="" && tagLine.lenght!=="" && gender.lenght!=="" && genderInterested!==""
 
     return (
       <div>
@@ -181,7 +147,7 @@ export class Register extends Component {
             </FormControl>
 
             <FormControl component="fieldset" name="genderInterested">
-              <FormLabel component="legend">Gender interested in</FormLabel>
+              <FormLabel component="legend">Interested in</FormLabel>
               <RadioGroup
                 id="genderInterested"
                 aria-label="position"
@@ -208,56 +174,19 @@ export class Register extends Component {
                   labelPlacement="bottom"
                 />
               </RadioGroup>
-            </FormControl>
-
-            <TextField required
-              id="email"
-              label="Email"
-              type="email required"
-              onChange={this.handleFieldChange}
-            /><br />
-            <TextField required
-              id="password"
-              label="Password"
-              type="password"
-              onChange={this.handleFieldChange}
-            /><br />
-            <TextField required
-              id="passwordB"
-              label="Password again"
-              type="password"
-              onChange={this.handleFieldChange}
-            /><br />
-          
-            <input
-              accept="image/*" 
-              id="contained-button-file"
-              type="file"
-              onChange={this.fileSelectorHandler}
-            />
-            <label htmlFor="contained-button-file">
-              <Button variant="contained" 
-              component="span"
-              onClick={this.fileUploadHandler}
-              >
-                Upload
-             </Button>
-            </label> <br/>
+            </FormControl> <br />
 
             <Button disabled={!isEnabled} variant="contained" color="secondary"
               onClick={() => {
-                this.handleRegister()
+                this.handleSave()
               }}>
-              Sign Up
+              SAVE
           </Button>
-
           </FormGroup>
         </FormControl>
       </div>
-
-
-  ) // return() closer
-  } // render() closer
+    )
+  }
 }
 
-export default Register
+export default EditProfile
