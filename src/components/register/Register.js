@@ -73,8 +73,8 @@ export class Register extends Component {
   //*****************************************************************************************************
   handleRegister = e => {
     //e.preventDefault()
-    const { password, passwordB, avatarUrl } = this.state
-    if (password === passwordB && password !== "" && avatarUrl!=="") {
+    const { password, passwordB } = this.state
+    if (password === passwordB && password !== "") {
       const newUser = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -120,8 +120,8 @@ export class Register extends Component {
   //*****************************************************************************************************
   render() {
     const { selected } = this.state;
-    const { email, password, passwordB } = this.state;
-    const isEnabled = email.length > 0 && password.length > 0 && passwordB.length > 0 && password === passwordB;
+    const { email, password, passwordB, avatarUrl } = this.state;
+    const isEnabled = email.length > 0 && password.length > 0 && passwordB.length > 0 && password === passwordB  && avatarUrl !== "" && avatarUrl !== undefined;
 
     return (
       <div>
@@ -227,9 +227,9 @@ export class Register extends Component {
               type="password"
               onChange={this.handleFieldChange}
             /><br />
-           
+          
             <input
-              accept="image/*"
+              accept="image/*" 
               id="contained-button-file"
               type="file"
               onChange={this.fileSelectorHandler}

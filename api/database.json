@@ -94,6 +94,25 @@
       "beenReported": 1,
       "chaserCoinCredit": 0,
       "id": 5
+    },
+    {
+      "firstName": "C36",
+      "lastName": "36",
+      "age": "36",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "111",
+      "password": "111",
+      "ageRange": 0,
+      "tagLine": "Go 36",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576125827/avatars/eno6bseprwrszuvy1rha.png",
+      "barId": 0,
+      "drinkId": 0,
+      "chatId": 0,
+      "timeOut": false,
+      "beenReported": 1,
+      "chaserCoinCredit": 0,
+      "id": 6
     }
   ],
   "drinks": [
