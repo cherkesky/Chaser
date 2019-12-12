@@ -6,7 +6,8 @@ export class CheckIn extends Component {
   
   state = {
     xCord: '',
-    yCord: ''
+    yCord: '',
+    bars: []
   }
 
    displayLocationInfo=(position)=> {
@@ -16,7 +17,10 @@ export class CheckIn extends Component {
    })
    console.log(`longitude: ${ this.state.yCord } | latitude: ${ this.state.xCord }`);
    ApiManager.getBars(this.state.xCord,this.state.yCord)
-
+   .then((bars)=>{
+     this.setState({bars: bars.results})
+     console.log(bars.results)
+   })
   }
   
   //*****************************************************************************************************
@@ -27,15 +31,7 @@ export class CheckIn extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
     }
-    
-    
-      
-
   } // componentDidMount closer
-
-
-
-
 
   //*****************************************************************************************************
   // Render()
@@ -44,14 +40,10 @@ export class CheckIn extends Component {
     return (
       <div>
       <img alt="checkin" src={require("../../assets/checkin.png")}width="400px" height="650px"></img>
-
-
       </div>
     )
     
   } // render closer
-
-
 } // component closer
 
 export default CheckIn
