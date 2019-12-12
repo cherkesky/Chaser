@@ -4,7 +4,7 @@ export class CheckIn extends Component {
   render() {
     return (
       <div>
-        <h1>Check In Component</h1>
+                <img alt="checkin" src={require("../../assets/checkin.png")}width="400px" height="650px"></img>
       </div>
     )
   }
