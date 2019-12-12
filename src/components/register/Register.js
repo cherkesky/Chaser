@@ -35,8 +35,9 @@ export class Register extends Component {
 //*****************************************************************************************************
   // File Upload Handler
   //*****************************************************************************************************
-  fileUploadHandler = async () =>{
+  fileUploadHandler = async (e) =>{
     console.log("UPLOAD")
+    e.preventDefault()
     const files = this.state.selectedFile
     const data = new FormData()
     data.append('file', files)

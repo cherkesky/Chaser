@@ -28,10 +28,10 @@ export class Navbar extends Component {
   //*****************************************************************************************************
   componentDidMount() {
     ApiManager.get("users", this.loggedInUserId())
-      .then((usersArr) => {
+      .then((usersObj) => {
         this.setState(
           {
-            users: usersArr
+            users: usersObj
           }
         )
       })
@@ -44,7 +44,7 @@ export class Navbar extends Component {
   render() {
     const { classes } = this.props; // material ui styling dependency
 
-    const profileImageUrl = this.state.users.avatarUrl ? this.state.users.avatarUrl : "noimage.png"
+    const profileImageUrl = this.state.users.avatarUrl ? this.state.users.avatarUrl : "https://res.cloudinary.com/datyxctgm/image/upload/v1576165373/avatars/ofnmyyqseai0ho13jo4s.png"
     console.log(this.state)
     return (
       <>
@@ -54,7 +54,7 @@ export class Navbar extends Component {
             <AppBar position="static" style={{ background: 'transparent'}}>
               <Toolbar>
               <div className={classes.root}>
-                <Avatar alt="Avatar" src={require(`./../../assets/${profileImageUrl}`)} variant="circle"
+                <Avatar alt="Avatar" src={(profileImageUrl)} variant="circle" 
                   className={classes.bigAvatar}
                   onClick={() => { window.alert("AVATAR CLICKED") }}
                 />
