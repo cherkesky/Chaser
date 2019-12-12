@@ -75,6 +75,25 @@
       "beenReported": 1,
       "chaserCoinCredit": 0,
       "id": 4
+    },
+    {
+      "firstName": "Frida",
+      "lastName": "Labow",
+      "age": "42",
+      "gender": "other",
+      "genderInterested": "other",
+      "email": "frida@frida.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "yolo",
+      "avatarUrl": "noimage.png",
+      "barId": 0,
+      "drinkId": 0,
+      "chatId": 0,
+      "timeOut": false,
+      "beenReported": 1,
+      "chaserCoinCredit": 0,
+      "id": 5
     }
   ],
   "drinks": [

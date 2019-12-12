@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 import ApiManager from '../../modules/ApiManager';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -8,12 +8,6 @@ import TextField from '@material-ui/core/TextField';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio'
 import Button from '@material-ui/core/Button';
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
-import IconButton from '@material-ui/core/IconButton';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-
-
-
 
 export class Register extends Component {
   state = {
@@ -26,8 +20,39 @@ export class Register extends Component {
     email: '',
     password: '',
     passwordB: '',
+    selectedFile: null,
+    avatarUrl: '',
     buttonDisabled: true
   };
+  //*****************************************************************************************************
+  // File Selector Handler
+  //*****************************************************************************************************
+  fileSelectorHandler = event=>{
+    this.setState({
+      selectedFile: event.target.files[0]
+    })
+  }
+//*****************************************************************************************************
+  // File Upload Handler
+  //*****************************************************************************************************
+  fileUploadHandler = async () =>{
+    console.log("UPLOAD")
+    const files = this.state.selectedFile
+    const data = new FormData()
+    data.append('file', files)
+    data.append('upload_preset', 'Chaser')
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/datyxctgm/image/upload',
+      {
+        method: 'POST',
+        body: data
+      })
+
+      const file = await res.json()
+      this.setState({
+        avatarUrl: file.secure_url
+      })
+  }
   //*****************************************************************************************************
   // Handle Field Change
   //*****************************************************************************************************
@@ -48,8 +73,8 @@ export class Register extends Component {
   //*****************************************************************************************************
   handleRegister = e => {
     //e.preventDefault()
-    const { password, passwordB } = this.state
-    if (password === passwordB && password !== "") {
+    const { password, passwordB, avatarUrl } = this.state
+    if (password === passwordB && password !== "" && avatarUrl!=="") {
       const newUser = {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -60,7 +85,7 @@ export class Register extends Component {
         password: this.state.password,
         ageRange: 0,
         tagLine: this.state.tagLine,
-        avatarUrl: "noimage.png",
+        avatarUrl: this.state.avatarUrl,
         barId: 0,
         drinkId: 0,
         chatId: 0,
@@ -207,9 +232,13 @@ export class Register extends Component {
               accept="image/*"
               id="contained-button-file"
               type="file"
+              onChange={this.fileSelectorHandler}
             />
             <label htmlFor="contained-button-file">
-              <Button variant="contained" component="span">
+              <Button variant="contained" 
+              component="span"
+              onClick={this.fileUploadHandler}
+              >
                 Upload
              </Button>
             </label> <br/>
@@ -224,8 +253,10 @@ export class Register extends Component {
           </FormGroup>
         </FormControl>
       </div>
-    )
-  }
+
+
+  ) // return() closer
+  } // render() closer
 }
 
 export default Register
