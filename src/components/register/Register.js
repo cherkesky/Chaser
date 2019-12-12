@@ -100,7 +100,7 @@ export class Register extends Component {
       })
       ApiManager.post("users", newUser)
         .then(() => {
-          ApiManager.getLoggedInuser(this.state.email)
+          ApiManager.getLoggedInUser(this.state.email)
             .then((user) => {
               // console.log('user registration', user)
               const userId = user[0].id
