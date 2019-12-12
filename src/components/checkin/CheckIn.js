@@ -1,33 +1,37 @@
 import React, { Component } from 'react'
 import ApiManager from '../../modules/ApiManager';
-
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import Button from '@material-ui/core/Button';
+import apikeys from '../../apikeys'
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 export class CheckIn extends Component {
-  
+
   state = {
     xCord: '',
     yCord: '',
     bars: []
   }
 
-   displayLocationInfo=(position)=> {
-   this.setState({ 
-     xCord: position.coords.latitude,
-     yCord: position.coords.longitude
-   })
-   console.log(`longitude: ${ this.state.yCord } | latitude: ${ this.state.xCord }`);
-   ApiManager.getBars(this.state.xCord,this.state.yCord)
-   .then((bars)=>{
-     this.setState({bars: bars.results})
-     console.log(bars.results)
-   })
+  displayLocationInfo = (position) => {
+    this.setState({
+      xCord: position.coords.latitude,
+      yCord: position.coords.longitude
+    })
+    console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
+    ApiManager.getBars(this.state.xCord, this.state.yCord)
+      .then((bars) => {
+        this.setState({ bars: bars.results })
+        console.log(bars.results)
+      })
   }
-  
+
   //*****************************************************************************************************
   // ComponentDidMount()
   //*****************************************************************************************************
-  componentDidMount(){
-    
+  componentDidMount() {
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
     }
@@ -39,11 +43,53 @@ export class CheckIn extends Component {
   render() {
     return (
       <div>
-      <img alt="checkin" src={require("../../assets/checkin.png")}width="400px" height="650px"></img>
+        <Map 
+        google={this.props.google} 
+        initialCenter={{
+          lat: 36.1531133,
+          lng: -86.783721
+        }}
+        zoom={18}
+        >
+          <Marker onClick={this.onMarkerClick}
+            name={'Current location'} />
+          <InfoWindow onClose={this.onInfoWindowClose}>
+            {/* <div>
+              <h1>{this.state.selectedPlace.name}</h1>
+            </div> */}
+          </InfoWindow>
+        </Map>
+        
+        <FormControl component="fieldset">
+          <FormGroup>
+
+            <Button variant="contained" color="secondary" onClick={() => {
+
+              window.alert("CHECK IN")
+            }
+              //this.handleCheckIn
+            }>
+              Check In
+          </Button>
+            <Button variant="contained" color="default" onClick={() => {
+
+              window.alert("LOG OUT")
+            }
+              // this.handleLogOut
+
+            }>
+              Log Out
+          </Button>
+          </FormGroup>
+        </FormControl>
+
       </div>
     )
-    
+
   } // render closer
 } // component closer
 
-export default CheckIn
+export default GoogleApiWrapper({
+  apiKey: (`${apikeys.googleMapsApiKey}`)
+})(CheckIn)
+//export default CheckIn
