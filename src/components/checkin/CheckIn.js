@@ -4,7 +4,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import Button from '@material-ui/core/Button';
 import apikeys from '../../apikeys'
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 export class CheckIn extends Component {
 
@@ -20,6 +20,7 @@ export class CheckIn extends Component {
       yCord: position.coords.longitude
     })
     console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
+    console.log("yCord:" , this.state.yCord, ".is a", typeof this.state.yCord)
     ApiManager.getBars(this.state.xCord, this.state.yCord)
       .then((bars) => {
         this.setState({ bars: bars.results })
@@ -51,13 +52,6 @@ export class CheckIn extends Component {
         }}
         zoom={18}
         >
-          <Marker onClick={this.onMarkerClick}
-            name={'Current location'} />
-          <InfoWindow onClose={this.onInfoWindowClose}>
-            {/* <div>
-              <h1>{this.state.selectedPlace.name}</h1>
-            </div> */}
-          </InfoWindow>
         </Map>
         
         <FormControl component="fieldset">
