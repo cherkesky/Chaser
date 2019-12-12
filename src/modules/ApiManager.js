@@ -1,6 +1,9 @@
+import apikeys from '../apikeys'
+
 const baseUrl = 'http://localhost:5002';
 
 export default {
+  
   get(endpoint, id, params = "") {
     // pass extra optional 'params' to be included after the '?' in the fetch call
     // ex. "_embed=user" or "sort=timestamp"
@@ -35,5 +38,9 @@ export default {
       },
       body: JSON.stringify(editedObj)
     }).then(data => data.json());
+  }, 
+  getBars (xCord, yCord) {
+    return fetch (`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${xCord},${yCord}&radius=20&type=bar&key=${apikeys.googlePlaceApiKey}`)
+    .then((result) => result.json());
   }
 };

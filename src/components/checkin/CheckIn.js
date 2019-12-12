@@ -1,34 +1,37 @@
 import React, { Component } from 'react'
+import ApiManager from '../../modules/ApiManager';
+
 
 export class CheckIn extends Component {
+  
+  state = {
+    xCord: '',
+    yCord: ''
+  }
+
+   displayLocationInfo=(position)=> {
+   this.setState({ 
+     xCord: position.coords.latitude,
+     yCord: position.coords.longitude
+   })
+   console.log(`longitude: ${ this.state.yCord } | latitude: ${ this.state.xCord }`);
+   ApiManager.getBars(this.state.xCord,this.state.yCord)
+
+  }
+  
   //*****************************************************************************************************
   // ComponentDidMount()
   //*****************************************************************************************************
   componentDidMount(){
-    const getLocationX=()=> {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((showPositionX));
-      } else { 
-        console.log ("Geolocation is not supported by this browser.")
-      }
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
     }
-    function showPositionX(position) {
-      console.log("Latitude: ", position.coords.latitude) 
-    }
-    const getLocationY=()=> {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((showPositionY));
-      } else { 
-        console.log ("Geolocation is not supported by this browser.")
-      }
-    }
-    function showPositionY(position) {
-      console.log("Longitude: ", position.coords.longitude) 
-    }
+    
+    
+      
 
-    getLocationX()
-    getLocationY()
-  }
+  } // componentDidMount closer
 
 
 
@@ -40,10 +43,15 @@ export class CheckIn extends Component {
   render() {
     return (
       <div>
-                <img alt="checkin" src={require("../../assets/checkin.png")}width="400px" height="650px"></img>
+      <img alt="checkin" src={require("../../assets/checkin.png")}width="400px" height="650px"></img>
+
+
       </div>
     )
-  }
-}
+    
+  } // render closer
+
+
+} // component closer
 
 export default CheckIn
