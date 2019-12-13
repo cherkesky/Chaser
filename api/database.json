@@ -66,7 +66,7 @@
       "email": "trey@trey.com",
       "password": "123",
       "ageRange": 0,
-      "tagLine": "ATT is the best",
+      "tagLine": "ATT is the best!!!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576167917/avatars/u81xwalofezcpwamlyzt.jpg",
       "barId": 0,
       "drinkId": 0,
@@ -74,7 +74,8 @@
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
-      "id": 4
+      "id": 4,
+      "userId": 4
     },
     {
       "firstName": "C36",
@@ -114,6 +115,26 @@
       "chaserCoinCredit": 0,
       "id": 7,
       "userId": 7
+    },
+    {
+      "firstName": "Caty",
+      "lastName": "Cherkesky",
+      "age": "35",
+      "gender": "female",
+      "genderInterested": "male",
+      "email": "caty@caty.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Stich Bitch",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576207308/avatars/asprq33pq2bjpveymllw.jpg",
+      "barId": 0,
+      "drinkId": 0,
+      "chatId": 0,
+      "timeOut": false,
+      "beenReported": 1,
+      "chaserCoinCredit": 0,
+      "id": 8,
+      "userId": 8
     }
   ],
   "drinks": [

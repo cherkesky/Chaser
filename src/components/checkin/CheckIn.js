@@ -21,6 +21,8 @@ export class CheckIn extends Component {
     })
     console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
     console.log("yCord:" , this.state.yCord, ".is a", typeof this.state.yCord)
+    console.log("xCord:" , this.state.xCord, ".is a", typeof this.state.xCord)
+
     ApiManager.getBars(this.state.xCord, this.state.yCord)
       .then((bars) => {
         this.setState({ bars: bars.results })
@@ -47,8 +49,8 @@ export class CheckIn extends Component {
         <Map 
         google={this.props.google} 
         initialCenter={{
-          lat: 36.1531133,
-          lng: -86.783721
+          lat: this.state.xCord,
+          lng: this.state.yCord
         }}
         zoom={18}
         >
@@ -66,11 +68,9 @@ export class CheckIn extends Component {
               Check In
           </Button>
             <Button variant="contained" color="default" onClick={() => {
-
-              window.alert("LOG OUT")
+              this.props.clearUser()     // log out
+              this.props.history.push("/") // go back to main screen
             }
-              // this.handleLogOut
-
             }>
               Log Out
           </Button>
