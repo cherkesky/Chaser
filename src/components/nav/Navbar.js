@@ -58,7 +58,7 @@ export class Navbar extends Component {
               <div className={classes.root}>
                 <Avatar alt="Avatar" src={(profileImageUrl)} variant="circle" 
                   className={classes.bigAvatar}
-                  onClick={() => { window.alert("AVATAR CLICKED") }}
+                  onClick={() => { window.alert("No pending drinks") }}
                 />
                 <img alt="logo" src={require("../../assets/ChaserLogo.png")} width="200px" height="40px" onClick={() => { this.props.history.push("/checkin")}}></img> 
                 <img alt="gears" src={require("../../assets/gears.svg")} width="20px" height="20px" onClick={() => { this.props.history.push("/editprofile") }}></img>

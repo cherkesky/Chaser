@@ -29,7 +29,7 @@ export class ApplicationViews extends Component {
         />
         <Route
           exact path="/checkin" render={props => {
-            return <CheckIn {...props} />
+            return <CheckIn clearUser={this.props.clearUser}{...props} />
           }}
         />
         <Route
