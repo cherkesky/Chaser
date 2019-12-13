@@ -206,7 +206,7 @@
       "ageRange": 0,
       "tagLine": "NSS is the best",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576266987/avatars/jdlu96b6lxanwrlfumad.png",
-      "barId": 0,
+      "barId": 2,
       "drinkId": 0,
       "chatId": 0,
       "timeOut": false,
@@ -300,39 +300,20 @@
   ],
   "bars": [
     {
-      "id": 1,
-      "apiPlaceId": "2123432",
-      "openNow": true,
-      "barName": "Firebirds",
-      "barPhone": "615-123-4567",
-      "barAddress": "123 1st St, Nashville TN 37203",
-      "chaserCoinCredit": 0
-    },
-    {
-      "id": 2,
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",
       "openNow": true,
-      "barName": "Double Dogs",
-      "barPhone": "615-123-4567",
-      "barAddress": "123 1st St, Nashville TN 37203",
-      "chaserCoinCredit": 0
-    },
-    {
-      "id": 3,
-      "apiPlaceIdId": "8657657",
-      "openNow": true,
-      "barName": "Double Dogs",
-      "barPhone": "615-123-4567",
-      "barAddress": "123 1st St, Nashville TN 37203",
-      "chaserCoinCredit": 0
-    },
-    {
-      "apiPlaceId": "ChIJmUfCrotmZIgR26Qv7ecU6LQ",
-      "openNow": true,
-      "barName": "Gertie's Bar",
-      "barAddress": "507 12th Avenue South Fl 1, Nashville",
+      "barName": "Bar Louie - The Gulch",
+      "barAddress": "314 11th Avenue South, Nashville",
       "chaserCoinCredit": 0,
-      "id": 4
+      "id": 1
+    },
+    {
+      "apiPlaceId": "ChIJj_hz54pmZIgRn5QViEJT9I4",
+      "openNow": true,
+      "barName": "L.A. Jackson",
+      "barAddress": "Rooftop of the Thompson Nashville Hotel, 401 11th Avenue South, Nashville",
+      "chaserCoinCredit": 0,
+      "id": 2
     }
   ]
 }

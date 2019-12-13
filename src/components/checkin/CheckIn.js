@@ -8,21 +8,29 @@ import MenuItem from '@material-ui/core/MenuItem';
 import apikeys from '../../apikeys'
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
-export class CheckIn extends Component {
 
+// let whatUser = this.loggedInUserId()
+// let toWhatBar = ''
+
+export class CheckIn extends Component {
+  
   state = {
     xCord: '',
     yCord: '',
     selectedBar: '',
     bars: []
   }
-
+  
+  //*****************************************************************************************************
+  // Get Current User ID
+  //*****************************************************************************************************
+  loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
+  
+  
   //*****************************************************************************************************
   // Handle Check In
   //*****************************************************************************************************
-      // grab places id from the database
-      // .getall request to the database to get all the bars ?apiPlaceid=this.state.selectedBar
-      // emptyarray => call the createBar function
+      
       // else grab the user id and set the user's barId to whatever that bars.id is
 
     handleCheckIn = () => {
@@ -37,7 +45,7 @@ export class CheckIn extends Component {
       })
     }
   //*****************************************************************************************************
-  // Create New Bar (If not exist in the database)
+  // Create New Bar (If doesn't exists in the database)
   //*****************************************************************************************************
   createBar = () => {
     console.log("New Bar Created")
@@ -45,9 +53,8 @@ export class CheckIn extends Component {
     
     let filteredBar = this.state.bars.filter(bar=>   // filtering the bars to get only the selected one
       bar.place_id === this.state.selectedBar)
-
-      
-      const newBar = {
+    
+      const newBar = {  // creating a new object 
         apiPlaceId: filteredBar[0].place_id,
         openNow: filteredBar[0].opening_hours.open_now,
         barName: filteredBar[0].name,
@@ -55,15 +62,28 @@ export class CheckIn extends Component {
         chaserCoinCredit: 0
       }
 
-      ApiManager.post("bars", newBar)
-      .then(()=>this.checkInUser())
+      ApiManager.post("bars", newBar) // POSTing that object to the database
+      .then(()=>this.checkInUser())  // and now lets check in 
   }
  //*****************************************************************************************************
   // Check The User In To The selected Bar
   //*****************************************************************************************************
   checkInUser = () => {
 
-    console.log("Checked In")
+    ApiManager.getAll("bars",`apiPlaceId=${this.state.selectedBar}`)
+    .then((res)=>{
+      let toWhatBar = res[0].id
+      let whatUser = this.loggedInUserId()
+      console.log("check user",whatUser,"to bar:", toWhatBar)
+      const checkinObj = {
+        id: whatUser,
+        barId: toWhatBar
+      }
+      ApiManager.update("users", checkinObj)
+      
+    })
+
+   // console.log("Check In USER:", whatUser, "To BAR #:",toWhatBar)
 
   }
   //*****************************************************************************************************
@@ -90,7 +110,6 @@ export class CheckIn extends Component {
     ApiManager.getBars(this.state.xCord, this.state.yCord)
       .then((bars) => {
         this.setState({ bars: bars.results })
-        console.log(bars.results)
       })
   }
   //*****************************************************************************************************
