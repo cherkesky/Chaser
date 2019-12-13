@@ -40,7 +40,7 @@ export default {
     }).then(data => data.json());
   }, 
   getBars (xCord, yCord) {
-    return fetch (`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${xCord},${yCord}&radius=200&type=bar&key=${apikeys.googlePlaceApiKey}`)
+    return fetch (`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${xCord},${yCord}&radius=20&type=bar&key=${apikeys.googlePlaceApiKey}`)
     .then((result) => result.json());
   }
 };
