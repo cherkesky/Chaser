@@ -48,7 +48,7 @@ export class CheckIn extends Component {
       <div>
         <Map 
         google={this.props.google} 
-        initialCenter={{
+        center={{
           lat: this.state.xCord,
           lng: this.state.yCord
         }}
