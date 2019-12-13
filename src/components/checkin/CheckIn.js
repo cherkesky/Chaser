@@ -40,9 +40,23 @@ export class CheckIn extends Component {
   // Create New Bar (If not exist in the database)
   //*****************************************************************************************************
   createBar = () => {
-
     console.log("New Bar Created")
+    
+    
+    let filteredBar = this.state.bars.filter(bar=>   // filtering the bars to get only the selected one
+      bar.place_id === this.state.selectedBar)
 
+      
+      const newBar = {
+        apiPlaceId: filteredBar[0].place_id,
+        openNow: filteredBar[0].opening_hours.open_now,
+        barName: filteredBar[0].name,
+        barAddress:filteredBar[0].vicinity,
+        chaserCoinCredit: 0
+      }
+
+      ApiManager.post("bars", newBar)
+      .then(()=>this.checkInUser())
   }
  //*****************************************************************************************************
   // Check The User In To The selected Bar

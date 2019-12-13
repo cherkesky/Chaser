@@ -319,12 +319,20 @@
     },
     {
       "id": 3,
-      "apiapiPlaceIdId": "8657657",
+      "apiPlaceIdId": "8657657",
       "openNow": true,
       "barName": "Double Dogs",
       "barPhone": "615-123-4567",
       "barAddress": "123 1st St, Nashville TN 37203",
       "chaserCoinCredit": 0
+    },
+    {
+      "apiPlaceId": "ChIJmUfCrotmZIgR26Qv7ecU6LQ",
+      "openNow": true,
+      "barName": "Gertie's Bar",
+      "barAddress": "507 12th Avenue South Fl 1, Nashville",
+      "chaserCoinCredit": 0,
+      "id": 4
     }
   ]
 }
