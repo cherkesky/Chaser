@@ -16,6 +16,30 @@ export class CheckIn extends Component {
     selectedBar: '',
     bars: []
   }
+
+  //*****************************************************************************************************
+  // Handle Check In
+  //*****************************************************************************************************
+      // grab places id from the database
+      // .getall request to the database to get all the bars ?apiPlaceid=this.state.selectedBar
+      // emptyarray => call the createBar function
+      // else grab the user id and set the user's barId to whatever that bars.id is
+
+    handleCheckIn = () => {
+      let selectedBar = this.state.selectedBar
+      ApiManager.getAll("bars",`apiPlaceId=${selectedBar}`)
+      .then((res)=>{
+
+        if (res.length>0){
+          console.log ("THE BAR EXISTS!")
+        }else {
+          console.log ("NO BAR!")
+        }
+      })
+    }
+
+
+
   //*****************************************************************************************************
   // Handle Bar Dropdown
   //*****************************************************************************************************
@@ -88,9 +112,8 @@ export class CheckIn extends Component {
             </FormControl>
 
             <Button variant="contained" color="secondary" onClick={() => {
-              window.alert("CHECK IN")
+              this.handleCheckIn()
             }
-              //this.handleCheckIn
             }>
               Check In
           </Button>
