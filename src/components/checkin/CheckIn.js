@@ -91,7 +91,7 @@ export class CheckIn extends Component {
             <Select
               labelId="demo-simple-select-helper-label"
               id="demo-simple-select-helper"
-              value={this.state.bars.id}
+              value={this.state.selectedBar}
               name="bar"
               onChange={this.handleBarDropdown}
             >
