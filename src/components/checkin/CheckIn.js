@@ -28,18 +28,30 @@ export class CheckIn extends Component {
     handleCheckIn = () => {
       let selectedBar = this.state.selectedBar
       ApiManager.getAll("bars",`apiPlaceId=${selectedBar}`)
-      .then((res)=>{
-
-        if (res.length>0){
-          console.log ("THE BAR EXISTS!")
+      .then((barsArr)=>{
+        if (barsArr.length>0){
+          this.checkInUser()
         }else {
-          console.log ("NO BAR!")
+          this.createBar()
         }
       })
     }
+  //*****************************************************************************************************
+  // Create New Bar (If not exist in the database)
+  //*****************************************************************************************************
+  createBar = () => {
 
+    console.log("New Bar Created")
 
+  }
+ //*****************************************************************************************************
+  // Check The User In To The selected Bar
+  //*****************************************************************************************************
+  checkInUser = () => {
 
+    console.log("Checked In")
+
+  }
   //*****************************************************************************************************
   // Handle Bar Dropdown
   //*****************************************************************************************************
