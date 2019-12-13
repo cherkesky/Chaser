@@ -60,20 +60,34 @@ export class CheckIn extends Component {
     return (
       <div>
         <Map
-          google={this.props.google}
+          google={this.props.google}  // Show map
           center={{
-            lat: this.state.xCord,
+            lat: this.state.xCord, 
             lng: this.state.yCord
           }}
-          zoom={18}
+          zoom={18} 
         >
-        </Map>
+        </Map> 
 
         <FormControl component="fieldset">
           <FormGroup>
+          <FormControl variant="filled">
+          <Select
+              labelId="bar-dropdown-label"
+              id="bar-dropdown"
+              value={this.state.selectedBar}
+              name="bar"
+              onChange={this.handleBarDropdown}
+            >
+              {this.state.bars.map((bar) => {
+                return <MenuItem key={bar.id} value={bar.place_id}>
+                  {bar.name}
+                </MenuItem>
+              })}
+            </Select>
+            </FormControl>
 
             <Button variant="contained" color="secondary" onClick={() => {
-
               window.alert("CHECK IN")
             }
               //this.handleCheckIn
@@ -87,21 +101,6 @@ export class CheckIn extends Component {
             }>
               Log Out
           </Button>
-
-            <Select
-              labelId="demo-simple-select-helper-label"
-              id="demo-simple-select-helper"
-              value={this.state.selectedBar}
-              name="bar"
-              onChange={this.handleBarDropdown}
-            >
-              {this.state.bars.map((bar) => {
-                return <MenuItem key={bar.id} value={bar.place_id}>
-                  {bar.name}
-                </MenuItem>
-              })}
-            </Select>
-
 
           </FormGroup>
         </FormControl>
