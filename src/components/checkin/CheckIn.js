@@ -13,9 +13,19 @@ export class CheckIn extends Component {
   state = {
     xCord: '',
     yCord: '',
+    selectedBar: '',
     bars: []
   }
+  //*****************************************************************************************************
+  // Handle Bar Dropdown
+  //*****************************************************************************************************
 
+  handleBarDropdown = event => {
+    this.setState({ selectedBar: event.target.value });
+  };
+  //*****************************************************************************************************
+  // Show Map
+  //*****************************************************************************************************
   displayLocationInfo = (position) => {
     this.setState({
       xCord: position.coords.latitude,
@@ -24,14 +34,15 @@ export class CheckIn extends Component {
     console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
     console.log("yCord:", this.state.yCord, ".is a", typeof this.state.yCord)
     console.log("xCord:", this.state.xCord, ".is a", typeof this.state.xCord)
-
+    //*****************************************************************************************************
+    // Get all the nearby bars (20m) and set them in state
+    //*****************************************************************************************************
     ApiManager.getBars(this.state.xCord, this.state.yCord)
       .then((bars) => {
         this.setState({ bars: bars.results })
         console.log(bars.results)
       })
   }
-
   //*****************************************************************************************************
   // ComponentDidMount()
   //*****************************************************************************************************
@@ -82,11 +93,12 @@ export class CheckIn extends Component {
               id="demo-simple-select-helper"
               value={this.state.bars.id}
               name="bar"
-              onChange={console.log("Changes to the dropdown")}
+              onChange={this.handleBarDropdown}
             >
               {this.state.bars.map((bar) => {
-                console.log(bar)
-                return <MenuItem key={bar.id} value={bar.place_id}>{bar.name}</MenuItem>
+                return <MenuItem key={bar.id} value={bar.place_id}>
+                  {bar.name}
+                </MenuItem>
               })}
             </Select>
 
