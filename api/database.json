@@ -141,19 +141,20 @@
       "lastName": "Long",
       "age": "46",
       "gender": "male",
-      "genderInterested": "female",
+      "genderInterested": "male",
       "email": "john@john.com",
       "password": "123",
       "ageRange": 0,
       "tagLine": "Yolo",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576251883/avatars/br5msx6qzvhdh89tolvw.jpg",
-      "barId": 0,
+      "barId": 8,
       "drinkId": 0,
       "chatId": 0,
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
-      "id": 9
+      "id": 9,
+      "userId": 9
     },
     {
       "firstName": "Julian",
