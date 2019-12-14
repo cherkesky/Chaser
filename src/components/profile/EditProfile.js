@@ -60,6 +60,8 @@ updateExistingProfile = () => {
 
   ApiManager.update("users", (editedProfile)) // API PUT call
   .then(() => this.props.history.push("/checkin"))  // re-routing
+    // .then(() => this.props.history.goback())  // NEED TO TRY WITH GOBACK() INSTEAD
+
 }
 
 //******************************************************************************

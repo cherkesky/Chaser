@@ -10,6 +10,7 @@ export class SendDrink extends Component {
 
   state = {
     activeUsers: [],
+    buttonDisabled: true,
     selectedUser: 0
   }
 
@@ -36,6 +37,8 @@ export class SendDrink extends Component {
   // Render()
   //*****************************************************************************************************
   render() {
+    const isEnabled = this.state.selectedUser !==0
+
     return (
       <>
         <Coverflow
@@ -45,7 +48,6 @@ export class SendDrink extends Component {
           navigation={false}
           infiniteScroll={true}
           enableHeading={false}
-          // active={this.state.active}
           clickable={true}
         >
           {this.state.activeUsers.map((activeUser) => { // populating the images
@@ -59,7 +61,7 @@ export class SendDrink extends Component {
 
         </Coverflow>
 
-        <Button variant="contained" color="secondary" onClick={() => {
+        <Button variant="contained" color="secondary" disabled={!isEnabled} onClick={() => {
           console.log("Drink with user:", this.state.selectedUser)
         }}>
           {<LocalBarOutlinedIcon />}
