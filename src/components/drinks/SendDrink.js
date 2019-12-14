@@ -34,7 +34,6 @@ export class SendDrink extends Component {
       matchTime: createDateTimeToISO()
     }
     ApiManager.post("drinks",newDrinkObj)   // creating a new drink entity in the database
-    // ApiManager.update(`users/${this.state.userId}`,{drinkId: })
   }
 
   
