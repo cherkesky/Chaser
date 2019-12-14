@@ -14,14 +14,14 @@ export class Chaser extends Component {
 
    //add entered or unentered user info into localStorage and calls isAuthenticated
    setUser = (authObj) => {
- 
+      console.log("AUTHOBJ", authObj)
      localStorage.setItem(
        "credentials",
        JSON.stringify(authObj)
      )
      this.setState({
        user: this.isAuthenticated(),
-       userId: authObj.id,
+       userId: authObj.userId,
      })
    }
  

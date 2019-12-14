@@ -12,7 +12,7 @@
       "ageRange": 3,
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576167916/avatars/zezgggkbsq9gedutqbjr.png",
       "tagLine": "yolo",
-      "barId": 1,
+      "barId": 8,
       "drinkId": 1,
       "chatId": 1,
       "timeOut": false,
@@ -354,6 +354,14 @@
       "barAddress": "319 12th Avenue South, Nashville",
       "chaserCoinCredit": 0,
       "id": 7
+    },
+    {
+      "apiPlaceId": "ChIJ36iSAYtmZIgRgj1NDXtDrqs",
+      "openNow": true,
+      "barName": "The Station Inn",
+      "barAddress": "402 12th Avenue South, Nashville",
+      "chaserCoinCredit": 0,
+      "id": 8
     }
   ]
 }

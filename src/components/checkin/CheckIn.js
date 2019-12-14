@@ -94,7 +94,7 @@ export class CheckIn extends Component {
     this.setState({ selectedBar: event.target.value });
   };
   //*****************************************************************************************************
-  // Show Map
+  // Set Coordinates In State
   //*****************************************************************************************************
   displayLocationInfo = (position) => {
     this.setState({
@@ -138,6 +138,7 @@ export class CheckIn extends Component {
             lng: this.state.yCord
           }}
           zoom={18} 
+          
         >
         </Map> 
 
