@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import ApiManager from '../../modules/ApiManager';
+import { createDateTimeToISO } from '../../modules/DateTime'
 import Coverflow from 'react-coverflow';
 import Button from '@material-ui/core/Button';
 import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
-
 
 
 export class SendDrink extends Component {
@@ -16,6 +16,28 @@ export class SendDrink extends Component {
     userId: 0,
     selectedUser: 0
   }
+
+  //*****************************************************************************************************
+  // Send Drink
+  //*****************************************************************************************************
+
+  sendDrink() {
+    console.log("Drink with user:", this.state.selectedUser)
+    
+    const newDrinkObj = {
+      loggedInUser: this.state.userId,
+      userId: this.state.selectedUser,
+      toggleUserA: false,
+      toggleUserB: true,
+      chatActive: false,
+      status: "pending",
+      matchTime: createDateTimeToISO()
+    }
+    ApiManager.post("drinks",newDrinkObj)   // creating a new drink entity in the database
+    // ApiManager.update(`users/${this.state.userId}`,{drinkId: })
+  }
+
+  
 
 
   //*****************************************************************************************************
@@ -39,11 +61,8 @@ export class SendDrink extends Component {
         let usersThatArentMe = this.state.activeUsers    // exclude the logged im user from the array
         usersThatArentMe = usersThatArentMe.filter((user) =>
           user.id !== parseInt(this.state.userId))
-
-        console.log("Filtered Array: ", usersThatArentMe)
-
         this.setState({
-          activeUsers: usersThatArentMe
+          activeUsers: usersThatArentMe  // setting the state accordinglly
         })
       })
 
@@ -53,9 +72,7 @@ export class SendDrink extends Component {
           barName: BarInfoArr.barName
         })
       })
-
   }
-
 
   //*****************************************************************************************************
   // Render()
@@ -89,7 +106,7 @@ export class SendDrink extends Component {
         </Coverflow>
 
         <Button variant="contained" color="secondary" disabled={!isEnabled} onClick={() => {
-          console.log("Drink with user:", this.state.selectedUser)
+          this.sendDrink()
         }}>
           {<LocalBarOutlinedIcon />}
         </Button>

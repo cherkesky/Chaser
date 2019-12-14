@@ -202,34 +202,24 @@
   ],
   "drinks": [
     {
-      "id": 1,
-      "loggedInUser": 1,
-      "userId": 2,
+      "loggedInUser": "12",
+      "userId": 8,
       "toggleUserA": false,
       "toggleUserB": true,
-      "status": "approved",
-      "chatActive": true,
-      "matchTime": "2019-12-01"
-    },
-    {
-      "id": 2,
-      "loggedInUser": 1,
-      "userId": 3,
-      "toggleUserA": false,
-      "toggleUserB": false,
+      "chatActive": false,
       "status": "pending",
-      "chatActive": false,
-      "matchTime": "2019-12-01"
+      "matchTime": "2019-12-14T23:33:45.187Z",
+      "id": 1
     },
     {
-      "id": 2,
-      "loggedInUser": 2,
-      "userId": 3,
+      "loggedInUser": "12",
+      "userId": 7,
       "toggleUserA": false,
-      "toggleUserB": false,
-      "status": "rejected",
+      "toggleUserB": true,
       "chatActive": false,
-      "matchTime": "2019-12-01"
+      "status": "pending",
+      "matchTime": "2019-12-14T23:33:51.531Z",
+      "id": 2
     }
   ],
   "messages": [
