@@ -91,7 +91,7 @@ export class Register extends Component {
         drinkId: 0,
         chatId: 0,
         timeOut: false,
-        beenReported: 1,
+        beenReported: 0,
         chaserCoinCredit: 0
       }
       this.props.setUser({

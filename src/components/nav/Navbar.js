@@ -47,7 +47,7 @@ export class Navbar extends Component {
     const { classes } = this.props; // material ui styling dependency
 
     const profileImageUrl = this.state.users.avatarUrl ? this.state.users.avatarUrl : "https://res.cloudinary.com/datyxctgm/image/upload/v1576165373/avatars/ofnmyyqseai0ho13jo4s.png" // noimage avatar
-    console.log(this.state)
+    console.log(this.state)    // <------------------------ run 3 times onload???
     return (
       <>
         {

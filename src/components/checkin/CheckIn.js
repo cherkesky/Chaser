@@ -9,8 +9,6 @@ import apikeys from '../../apikeys'
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 
-// let whatUser = this.loggedInUserId()
-// let toWhatBar = ''
 
 export class CheckIn extends Component {
   
@@ -18,6 +16,7 @@ export class CheckIn extends Component {
     xCord: '',
     yCord: '',
     selectedBar: '',
+    buttonDisabled: true,
     bars: []
   }
   
@@ -74,16 +73,19 @@ export class CheckIn extends Component {
     .then((res)=>{
       let toWhatBar = res[0].id
       let whatUser = this.loggedInUserId()
-      console.log("check user",whatUser,"to bar:", toWhatBar)
+      console.log("checking in user",whatUser,"to bar:", toWhatBar)
       const checkinObj = {
         id: whatUser,
         barId: toWhatBar
       }
+      localStorage.setItem(
+        "active-bar",
+        JSON.stringify(checkinObj.barId)
+      )
       ApiManager.update("users", checkinObj)
+      .then(this.props.history.push("/senddrinks"))
       
     })
-
-   // console.log("Check In USER:", whatUser, "To BAR #:",toWhatBar)
 
   }
   //*****************************************************************************************************
@@ -94,7 +96,7 @@ export class CheckIn extends Component {
     this.setState({ selectedBar: event.target.value });
   };
   //*****************************************************************************************************
-  // Show Map
+  // Set Coordinates In State
   //*****************************************************************************************************
   displayLocationInfo = (position) => {
     this.setState({
@@ -102,8 +104,8 @@ export class CheckIn extends Component {
       yCord: position.coords.longitude
     })
     console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
-    console.log("yCord:", this.state.yCord, ".is a", typeof this.state.yCord)
-    console.log("xCord:", this.state.xCord, ".is a", typeof this.state.xCord)
+    console.log("yCord:", this.state.yCord, "is a", typeof this.state.yCord)
+    console.log("xCord:", this.state.xCord, "is a", typeof this.state.xCord)
     //*****************************************************************************************************
     // Get all the nearby bars (20m) and set them in state
     //*****************************************************************************************************
@@ -126,6 +128,9 @@ export class CheckIn extends Component {
   // Render()
   //*****************************************************************************************************
   render() {
+
+    const isEnabled = this.state.selectedBar !==''
+
     return (
       <div>
         <Map
@@ -135,6 +140,7 @@ export class CheckIn extends Component {
             lng: this.state.yCord
           }}
           zoom={18} 
+          
         >
         </Map> 
 
@@ -148,15 +154,15 @@ export class CheckIn extends Component {
               name="bar"
               onChange={this.handleBarDropdown}
             >
-              {this.state.bars.map((bar) => {
-                return <MenuItem key={bar.id} value={bar.place_id}>
+              {this.state.bars.map((bar) => { // populating the drop down menu
+                return <MenuItem key={bar.id} value={bar.place_id}>  
                   {bar.name}
                 </MenuItem>
               })}
             </Select>
             </FormControl>
 
-            <Button variant="contained" color="secondary" onClick={() => {
+            <Button variant="contained" color="secondary"  disabled={!isEnabled} onClick={() => {
               this.handleCheckIn()
             }
             }>

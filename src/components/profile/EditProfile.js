@@ -49,8 +49,8 @@ updateExistingProfile = () => {
   this.setState({ loadingStatus: true });
   const editedProfile = {
     id: this.state.id,
-    userId: this.loggedInUserId(),
-    firstName: this.state.firstName,
+    // userId: this.loggedInUserId(),  <---- REDUNDANCY
+    firstName: this.state.firstName, 
     lastName: this.state.lastName,
     age: this.state.age,
     tagLine: this.state.tagLine,
@@ -60,6 +60,8 @@ updateExistingProfile = () => {
 
   ApiManager.update("users", (editedProfile)) // API PUT call
   .then(() => this.props.history.push("/checkin"))  // re-routing
+    // .then(() => this.props.history.goback())  // NEED TO TRY WITH GOBACK() INSTEAD
+
 }
 
 //******************************************************************************

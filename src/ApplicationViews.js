@@ -5,6 +5,7 @@ import Register from "./components/register/Register"
 import Login from "./components/login/Login"
 import CheckIn from "./components/checkin/CheckIn"
 import EditProfile from "./components/profile/EditProfile"
+import SendDrink from "./components/drinks/SendDrink"
 
 export class ApplicationViews extends Component {
   render() {
@@ -35,6 +36,11 @@ export class ApplicationViews extends Component {
         <Route
           exact path="/editprofile" render={props => {
             return <EditProfile {...props} />
+          }}
+        />
+         <Route
+          exact path="/senddrinks" render={props => {
+            return <SendDrink {...props} />
           }}
         />
       </React.Fragment>
