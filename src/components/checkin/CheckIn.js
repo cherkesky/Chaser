@@ -18,6 +18,7 @@ export class CheckIn extends Component {
     xCord: '',
     yCord: '',
     selectedBar: '',
+    buttonDisabled: true,
     bars: []
   }
   
@@ -74,16 +75,15 @@ export class CheckIn extends Component {
     .then((res)=>{
       let toWhatBar = res[0].id
       let whatUser = this.loggedInUserId()
-      console.log("check user",whatUser,"to bar:", toWhatBar)
+      console.log("checking in user",whatUser,"to bar:", toWhatBar)
       const checkinObj = {
         id: whatUser,
         barId: toWhatBar
       }
       ApiManager.update("users", checkinObj)
+      .then(this.props.history.push("/senddrinks"))
       
     })
-
-   // console.log("Check In USER:", whatUser, "To BAR #:",toWhatBar)
 
   }
   //*****************************************************************************************************
@@ -102,8 +102,8 @@ export class CheckIn extends Component {
       yCord: position.coords.longitude
     })
     console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
-    console.log("yCord:", this.state.yCord, ".is a", typeof this.state.yCord)
-    console.log("xCord:", this.state.xCord, ".is a", typeof this.state.xCord)
+    console.log("yCord:", this.state.yCord, "is a", typeof this.state.yCord)
+    console.log("xCord:", this.state.xCord, "is a", typeof this.state.xCord)
     //*****************************************************************************************************
     // Get all the nearby bars (20m) and set them in state
     //*****************************************************************************************************
@@ -126,6 +126,9 @@ export class CheckIn extends Component {
   // Render()
   //*****************************************************************************************************
   render() {
+
+    const isEnabled = this.state.selectedBar !==''
+
     return (
       <div>
         <Map
@@ -156,7 +159,7 @@ export class CheckIn extends Component {
             </Select>
             </FormControl>
 
-            <Button variant="contained" color="secondary" onClick={() => {
+            <Button variant="contained" color="secondary"  disabled={!isEnabled} onClick={() => {
               this.handleCheckIn()
             }
             }>

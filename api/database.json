@@ -206,7 +206,7 @@
       "ageRange": 0,
       "tagLine": "NSS is the best",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576266987/avatars/jdlu96b6lxanwrlfumad.png",
-      "barId": 2,
+      "barId": 8,
       "drinkId": 0,
       "chatId": 0,
       "timeOut": false,
@@ -314,6 +314,46 @@
       "barAddress": "Rooftop of the Thompson Nashville Hotel, 401 11th Avenue South, Nashville",
       "chaserCoinCredit": 0,
       "id": 2
+    },
+    {
+      "apiPlaceId": "ChIJ5U6AU4pmZIgRTy9MRPVw2r8",
+      "openNow": true,
+      "barName": "Sambuca",
+      "barAddress": "601 12th Avenue South, Nashville",
+      "chaserCoinCredit": 0,
+      "id": 3
+    },
+    {
+      "apiPlaceId": "ChIJLU_-6ZtLHRUR3RtsoSVeXAA",
+      "openNow": true,
+      "barName": "ביר גארדן שרונה - בר במתחם שרונה",
+      "barAddress": "Aluf Albert Mendler Street 3 street, Tel Aviv-Yafo",
+      "chaserCoinCredit": 0,
+      "id": 4
+    },
+    {
+      "apiPlaceId": "ChIJz7RdCxlnZIgR-f4Y0fzpgkw",
+      "openNow": true,
+      "barName": "Bar Otaku",
+      "barAddress": "505 12th Avenue South, Nashville",
+      "chaserCoinCredit": 0,
+      "id": 5
+    },
+    {
+      "apiPlaceId": "ChIJM5Blv_FmZIgRQwbFmO_3iR0",
+      "openNow": true,
+      "barName": "The Pub Nashville",
+      "barAddress": "400 11th Avenue South, Nashville",
+      "chaserCoinCredit": 0,
+      "id": 6
+    },
+    {
+      "apiPlaceId": "ChIJE-1HDItmZIgRJUFNkkXg14Y",
+      "openNow": true,
+      "barName": "Hops & Crafts",
+      "barAddress": "319 12th Avenue South, Nashville",
+      "chaserCoinCredit": 0,
+      "id": 7
     }
   ]
 }
