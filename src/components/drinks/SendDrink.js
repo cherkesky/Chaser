@@ -26,40 +26,33 @@ export class SendDrink extends Component {
     const barId = localStorage.getItem("active-bar")
     const userId = localStorage.getItem("userId")
 
-    ApiManager.get("bars", barId, `_embed=users`)
-      .then((activeUsersArr) => { 
+    ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
+      .then((activeUsersArr) => {
         this.setState({
           activeUsers: activeUsersArr.users,
           barId: barId,
           userId: userId
         })
       })
-      .then (()=> {
-        
-              let usersThatArentMe = this.state.activeUsers
-              usersThatArentMe = usersThatArentMe.filter((user) => 
-              user.id !== parseInt(this.state.userId))
-                console.log("Filtered Array: ", usersThatArentMe)        
-                
+      .then(() => {
+
+        let usersThatArentMe = this.state.activeUsers    // exclude the logged im user from the array
+        usersThatArentMe = usersThatArentMe.filter((user) =>
+          user.id !== parseInt(this.state.userId))
+
+        console.log("Filtered Array: ", usersThatArentMe)
+
+        this.setState({
+          activeUsers: usersThatArentMe
+        })
       })
-
-      // ApiManager.get("bars", barId, "_embed=users")    //backup
-      // .then((activeUsersArr) => {     
-      //   this.setState({
-      //     activeUsers: usersThatArentMe.users,
-      //     barId: barId,
-      //     userId: userId
-      //   })
-      // })
-
-
 
     ApiManager.get("bars", barId)
-    .then((BarInfoArr)=> {
-      this.setState({
-        barName: BarInfoArr.barName
+      .then((BarInfoArr) => {    // get the bar name for the header
+        this.setState({
+          barName: BarInfoArr.barName
+        })
       })
-    })
 
   }
 
@@ -68,12 +61,12 @@ export class SendDrink extends Component {
   // Render()
   //*****************************************************************************************************
   render() {
-    const isEnabled = this.state.selectedUser !==0
+    const isEnabled = this.state.selectedUser !== 0
 
     return (
       <>
 
-      <h3>{this.state.barName}</h3> 
+        <h3>{this.state.barName}</h3>
 
         <Coverflow                // Image carousel initialization
           width={600}
