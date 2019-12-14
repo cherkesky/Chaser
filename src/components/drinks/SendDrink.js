@@ -9,7 +9,8 @@ import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
 export class SendDrink extends Component {
  
   state = {
-    activeUsers: []
+    activeUsers: [],
+    selectedUser: 0
   }
 
  
@@ -26,9 +27,6 @@ componentDidMount(){
       this.setState({
         activeUsers: activeUsersArr.users
           })
-
-
-      console.log(activeUsersArr)
     })
 
 }
@@ -51,9 +49,10 @@ componentDidMount(){
           clickable ={true}
         >
             {this.state.activeUsers.map((activeUser) => { // populating the images
-            console.log(activeUser)
                 return <img key={activeUser.id} id={activeUser.id} src={activeUser.avatarUrl} alt={activeUser.tagLine} onClick={()=>{
-                  console.log("Selected User", activeUser.id)
+                  this.setState({
+                    selectedUser: activeUser.id  // setting the selected user in state
+                      })
                 }}/>  
               })} 
 
@@ -61,7 +60,7 @@ componentDidMount(){
         </Coverflow>
 
         <Button variant="contained" color="secondary" startIcon={<LocalBarOutlinedIcon/>} onClick={()=>{
-          console.log("DRINK!!!!")
+          console.log("Drink with user:", this.state.selectedUser)
                 }
           }>
             Drink
