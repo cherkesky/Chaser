@@ -26,14 +26,33 @@ export class SendDrink extends Component {
     const barId = localStorage.getItem("active-bar")
     const userId = localStorage.getItem("userId")
 
-    ApiManager.get("bars", barId, "_embed=users")
-      .then((activeUsersArr) => {     ////////// NEED TO FILTER THE ARRAY FOR USERS THAT ARE NOT ME
+    ApiManager.get("bars", barId, `_embed=users`)
+      .then((activeUsersArr) => { 
         this.setState({
           activeUsers: activeUsersArr.users,
           barId: barId,
           userId: userId
         })
       })
+      .then (()=> {
+        
+              let usersThatArentMe = this.state.activeUsers
+              usersThatArentMe = usersThatArentMe.filter((user) => 
+              user.id !== parseInt(this.state.userId))
+                console.log("Filtered Array: ", usersThatArentMe)        
+                
+      })
+
+      // ApiManager.get("bars", barId, "_embed=users")    //backup
+      // .then((activeUsersArr) => {     
+      //   this.setState({
+      //     activeUsers: usersThatArentMe.users,
+      //     barId: barId,
+      //     userId: userId
+      //   })
+      // })
+
+
 
     ApiManager.get("bars", barId)
     .then((BarInfoArr)=> {
