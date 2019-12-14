@@ -9,8 +9,6 @@ import apikeys from '../../apikeys'
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 
-// let whatUser = this.loggedInUserId()
-// let toWhatBar = ''
 
 export class CheckIn extends Component {
   
@@ -80,6 +78,10 @@ export class CheckIn extends Component {
         id: whatUser,
         barId: toWhatBar
       }
+      localStorage.setItem(
+        "active-bar",
+        JSON.stringify(checkinObj.barId)
+      )
       ApiManager.update("users", checkinObj)
       .then(this.props.history.push("/senddrinks"))
       
@@ -152,8 +154,8 @@ export class CheckIn extends Component {
               name="bar"
               onChange={this.handleBarDropdown}
             >
-              {this.state.bars.map((bar) => {
-                return <MenuItem key={bar.id} value={bar.place_id}>
+              {this.state.bars.map((bar) => { // populating the drop down menu
+                return <MenuItem key={bar.id} value={bar.place_id}>  
                   {bar.name}
                 </MenuItem>
               })}
