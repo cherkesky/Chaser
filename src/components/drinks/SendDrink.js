@@ -22,7 +22,7 @@ export class SendDrink extends Component {
   //*****************************************************************************************************
 
   sendDrink() {
-    console.log("Drink with user:", this.state.selectedUser)
+    console.log("User:", this.state.userId, "sent a drink to:", this.state.selectedUser)
     
     const newDrinkObj = {
       userId: this.state.userId,
