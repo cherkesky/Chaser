@@ -168,11 +168,10 @@ export class CheckIn extends Component {
               Check In
           </Button>
             <Button variant="contained" color="default" onClick={() => {
-              this.props.clearUser()     // log out
-              this.props.history.push("/") // go back to main screen
+             window.alert("DONE WITH THAT BAR - CHECK OUT")
             }
             }>
-              Log Out
+              Check Out
           </Button>
 
           </FormGroup>

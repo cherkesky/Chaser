@@ -81,7 +81,12 @@ export class Navbar extends Component {
                   {/* Logo */}
                   <img alt="logo" src={require("../../assets/ChaserLogo.png")} width="200px" height="40px" onClick={() => { this.props.history.push("/checkin") }}></img>  
                   {/* Preferences */}      
-                  <img alt="gears" src={require("../../assets/gears.svg")} width="20px" height="20px" onClick={() => { this.props.history.push("/editprofile") }}></img>
+                  <img alt="gears" src={require("../../assets/gears.png")} width="20px" height="20px" onClick={() => { this.props.history.push("/editprofile") }}></img>
+                   {/* logout */}     
+                  <img alt="logout" src={require("../../assets/logout.png")} width="20px" height="20px" onClick={() => { 
+                     this.props.clearUser()     // log out
+                     this.props.history.push("/") // go back to main screen
+                  }}></img>
                 </div>
               </Toolbar>
             </AppBar>

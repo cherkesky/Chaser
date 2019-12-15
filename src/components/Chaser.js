@@ -32,7 +32,7 @@ export class Chaser extends Component {
      this.setState({ user: this.isAuthenticated() })
    }
  
-   //check for logged in user on rerender
+   //check for logged in user
    componentDidMount() {
      this.setState({
        user: this.isAuthenticated()
@@ -42,8 +42,8 @@ export class Chaser extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar user={this.state.user} userId={this.state.userId} />
-        <ApplicationViews user={this.state.user} setUser={this.setUser} clearUser={this.clearUser}/>
+        <NavBar user={this.state.user} userId={this.state.userId}clearUser={this.clearUser} />
+        <ApplicationViews user={this.state.user} setUser={this.setUser} />
       </React.Fragment>
     )
   }

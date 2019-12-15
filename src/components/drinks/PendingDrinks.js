@@ -60,7 +60,7 @@ export class PendingDrinks extends Component {
           clickable={true}
         >
           {this.state.pendingDrinks.map((pendingDrink) => { // populating the images
-            return <img key={pendingDrink.user.id} id={pendingDrink.user.id} src={pendingDrink.user.avatarUrl} alt={pendingDrink.user.tagLine} enableHeading={true} onClick={() => {
+            return <img key={pendingDrink.user.id} id={pendingDrink.user.id} src={pendingDrink.user.avatarUrl} alt={pendingDrink.user.tagLine} onClick={() => {
               this.setState({
                 selectedUser: pendingDrink.user.id  // setting the selected user in state
               })
