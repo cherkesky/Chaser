@@ -29,7 +29,13 @@ export class CheckIn extends Component {
   //*****************************************************************************************************
   // Get Current Checked In Active Bar 
   //*****************************************************************************************************
-  checkedInBar() { return parseInt(localStorage.getItem("active-bar")) }
+  checkedInBar() { 
+      if (isNaN(parseInt(localStorage.getItem("active-bar")))){
+        return 0
+      } else{
+        return parseInt(localStorage.getItem("active-bar")) 
+      }
+}
   
   //*****************************************************************************************************
   // Handle Checkout
@@ -139,10 +145,13 @@ export class CheckIn extends Component {
       navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
     }
 
+    
     this.setState({
       activeBar: this.checkedInBar()
       
     })
+    console.log("setState: activeBar")
+
   } // componentDidMount closer
 
   //*****************************************************************************************************
@@ -151,7 +160,7 @@ export class CheckIn extends Component {
   render() {
 
     const isEnabled = this.state.selectedBar !==''
-    const isCheckedIn = this.state.activeBar !==0
+    const isCheckedIn = this.state.activeBar !==0 
 
     return (
       <div>
