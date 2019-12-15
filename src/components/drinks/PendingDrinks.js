@@ -31,7 +31,6 @@ export class PendingDrinks extends Component {
 
     ApiManager.getAll("drinks", `sentTo=${sentFrom}&status=pending&_expand=user`) // get all pending drinks
       .then((pendingDrinksArr) => {
-        console.log("Pending Drinks",pendingDrinksArr)
         this.setState({
           pendingDrinks: pendingDrinksArr
         })

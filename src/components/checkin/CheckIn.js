@@ -30,10 +30,10 @@ export class CheckIn extends Component {
   // Get Current Checked In Active Bar 
   //*****************************************************************************************************
   checkedInBar() { 
-      if (isNaN(parseInt(localStorage.getItem("active-bar")))){
+      if (isNaN(parseInt(localStorage.getItem("active-bar")))){ // no active bars in local storage
         return 0
       } else{
-        return parseInt(localStorage.getItem("active-bar")) 
+        return parseInt(localStorage.getItem("active-bar")) // there is an active bar
       }
 }
   
@@ -150,8 +150,6 @@ export class CheckIn extends Component {
       activeBar: this.checkedInBar()
       
     })
-    console.log("setState: activeBar")
-
   } // componentDidMount closer
 
   //*****************************************************************************************************

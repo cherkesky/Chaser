@@ -202,84 +202,14 @@
   ],
   "drinks": [
     {
-      "loggedInUser": "12",
-      "userId": 8,
+      "userId": "1",
+      "sentTo": 11,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-14T23:33:45.187Z",
+      "matchTime": "2019-12-15T23:53:54.008Z",
       "id": 1
-    },
-    {
-      "loggedInUser": "12",
-      "userId": 7,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-14T23:33:51.531Z",
-      "id": 2
-    },
-    {
-      "loggedInUser": "12",
-      "userId": 8,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-14T23:49:02.217Z",
-      "id": 3
-    },
-    {
-      "loggedInUser": "8",
-      "userId": 11,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T00:17:33.446Z",
-      "id": 4
-    },
-    {
-      "loggedInUser": "12",
-      "userId": 8,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T01:54:26.562Z",
-      "id": 5
-    },
-    {
-      "userId": "11",
-      "sentFrom": 1,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T01:57:46.648Z",
-      "id": 6
-    },
-    {
-      "userId": "8",
-      "sentTo": 12,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T02:18:19.257Z",
-      "id": 7
-    },
-    {
-      "userId": "12",
-      "sentTo": 8,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T02:19:58.165Z",
-      "id": 8
     },
     {
       "userId": "1",
@@ -288,28 +218,8 @@
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-15T02:31:35.864Z",
-      "id": 9
-    },
-    {
-      "userId": "8",
-      "sentTo": 1,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T03:00:27.156Z",
-      "id": 10
-    },
-    {
-      "userId": "11",
-      "sentTo": 1,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T03:37:04.755Z",
-      "id": 11
+      "matchTime": "2019-12-15T23:53:57.759Z",
+      "id": 2
     },
     {
       "userId": "11",
@@ -318,48 +228,38 @@
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-15T03:38:10.878Z",
-      "id": 12
+      "matchTime": "2019-12-15T23:54:57.593Z",
+      "id": 3
     },
     {
-      "userId": "11",
-      "sentTo": 9,
+      "userId": "1",
+      "sentTo": 7,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-15T03:38:29.174Z",
-      "id": 13
-    }
-  ],
-  "messages": [
-    {
-      "id": 1,
-      "userId": 1,
-      "drinkId": 1,
-      "message": "Hi There",
-      "sent": "2019-12-01"
+      "matchTime": "2019-12-15T23:55:53.530Z",
+      "id": 4
     },
     {
-      "id": 2,
-      "userId": 2,
-      "drinkId": 1,
-      "message": "Yo yo",
-      "sent": "2019-12-01"
+      "userId": "11",
+      "sentTo": 8,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-15T23:56:19.455Z",
+      "id": 5
     },
     {
-      "id": 3,
-      "userId": 1,
-      "drinkId": 2,
-      "message": "You're a good girl!",
-      "sent": "2019-12-01"
-    },
-    {
-      "id": 4,
-      "userId": 3,
-      "chatId": 2,
-      "message": "Woof Woof",
-      "sent": "2019-12-01"
+      "userId": "11",
+      "sentTo": 12,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-15T23:56:34.642Z",
+      "id": 6
     }
   ],
   "bars": [
