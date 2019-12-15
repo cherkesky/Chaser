@@ -220,6 +220,16 @@
       "status": "pending",
       "matchTime": "2019-12-14T23:33:51.531Z",
       "id": 2
+    },
+    {
+      "loggedInUser": "12",
+      "userId": 8,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-14T23:49:02.217Z",
+      "id": 3
     }
   ],
   "messages": [

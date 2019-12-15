@@ -104,8 +104,7 @@ export class CheckIn extends Component {
       yCord: position.coords.longitude
     })
     console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
-    console.log("yCord:", this.state.yCord, "is a", typeof this.state.yCord)
-    console.log("xCord:", this.state.xCord, "is a", typeof this.state.xCord)
+    
     //*****************************************************************************************************
     // Get all the nearby bars (20m) and set them in state
     //*****************************************************************************************************
