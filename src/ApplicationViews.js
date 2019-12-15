@@ -6,6 +6,7 @@ import Login from "./components/login/Login"
 import CheckIn from "./components/checkin/CheckIn"
 import EditProfile from "./components/profile/EditProfile"
 import SendDrink from "./components/drinks/SendDrink"
+import PendingDrinks from "./components/drinks/PendingDrinks"
 
 export class ApplicationViews extends Component {
   render() {
@@ -41,6 +42,11 @@ export class ApplicationViews extends Component {
          <Route
           exact path="/senddrinks" render={props => {
             return <SendDrink {...props} />
+          }}
+        />
+        <Route
+          exact path="/pendingdrinks" render={props => {
+            return <PendingDrinks {...props} />
           }}
         />
       </React.Fragment>

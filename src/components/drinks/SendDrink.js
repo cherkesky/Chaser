@@ -9,7 +9,7 @@ import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
 export class SendDrink extends Component {
 
   state = {
-    activeUsers: [],
+    activeUsers: [], 
     buttonDisabled: true,
     barId: 0,
     barName: '',
@@ -25,8 +25,8 @@ export class SendDrink extends Component {
     console.log("Drink with user:", this.state.selectedUser)
     
     const newDrinkObj = {
-      loggedInUser: this.state.userId,
-      userId: this.state.selectedUser,
+      userId: this.state.userId,
+      sentTo: this.state.selectedUser,
       toggleUserA: false,
       toggleUserB: true,
       chatActive: false,

@@ -44,7 +44,8 @@ export class Navbar extends Component {
             users: usersObj
           }
         )
-        ApiManager.getAll("drinks", `userId=${this.loggedInUserId()}&status=pending&_expand=user`)
+        // http://localhost:5002/drinks?sentTo=8&status=pending&_expand=user
+        ApiManager.getAll("drinks", `sentTo=${this.loggedInUserId()}&status=pending&_expand=user`)
           .then((pendingDrinksArr) => {
             this.setState({
               drinkNotif: pendingDrinksArr.length
@@ -58,10 +59,10 @@ export class Navbar extends Component {
   //*****************************************************************************************************
 
   render() {
+    const profileImageUrl = this.state.users.avatarUrl ? this.state.users.avatarUrl : "https://res.cloudinary.com/datyxctgm/image/upload/v1576165373/avatars/ofnmyyqseai0ho13jo4s.png" // noimage avatar
     const { classes } = this.props; // material ui styling dependency
 
-    const profileImageUrl = this.state.users.avatarUrl ? this.state.users.avatarUrl : "https://res.cloudinary.com/datyxctgm/image/upload/v1576165373/avatars/ofnmyyqseai0ho13jo4s.png" // noimage avatar
-    console.log(this.state)    // <------------------------ run 3 times onload???
+    // console.log(this.state)    // <------------------------ run 3 times onload???
     return (
       <>
         {
@@ -70,14 +71,16 @@ export class Navbar extends Component {
             <AppBar position="static" style={{ background: 'transparent' }}>
               <Toolbar>
                 <div className={classes.root}>
-
+                  {/* Avatar */}
                   <Badge className={classes.margin} badgeContent={this.state.drinkNotif} color="secondary">
                     <Avatar alt="Avatar" src={(profileImageUrl)} variant="circle" // Show avatar with notif
                       className={classes.bigAvatar}
-                      onClick={() => { window.alert("No pending drinks") }}
+                      onClick={() => { 
+                        (this.state.drinkNotif===0) ? window.alert("No pending drinks") : this.props.history.push("/pendingdrinks") }}
                     /></Badge>
-
-                  <img alt="logo" src={require("../../assets/ChaserLogo.png")} width="200px" height="40px" onClick={() => { this.props.history.push("/checkin") }}></img>
+                  {/* Logo */}
+                  <img alt="logo" src={require("../../assets/ChaserLogo.png")} width="200px" height="40px" onClick={() => { this.props.history.push("/checkin") }}></img>  
+                  {/* Preferences */}      
                   <img alt="gears" src={require("../../assets/gears.svg")} width="20px" height="20px" onClick={() => { this.props.history.push("/editprofile") }}></img>
                 </div>
               </Toolbar>
