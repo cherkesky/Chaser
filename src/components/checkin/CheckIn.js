@@ -8,8 +8,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import apikeys from '../../apikeys'
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
-
-
 export class CheckIn extends Component {
   
   state = {
@@ -216,4 +214,3 @@ export class CheckIn extends Component {
 export default GoogleApiWrapper({
   apiKey: (`${apikeys.googleMapsApiKey}`)
 })(CheckIn)
-//export default CheckIn

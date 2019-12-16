@@ -30,6 +30,7 @@ export class Chaser extends Component {
      localStorage.removeItem("credentials")
      localStorage.removeItem("userId")
      localStorage.removeItem("active-bar")
+     localStorage.removeItem("active-chat")
      this.setState({ user: this.isAuthenticated() })
    }
  
