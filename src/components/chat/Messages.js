@@ -18,21 +18,17 @@ const useStyles = theme => ({
   },
 })
 
-
-
 export class Messages extends Component {
-
   state = {
     currentUserAvatar: '',
   }
-
 
  //*****************************************************************************************************
  // componentDidMount()
  //*****************************************************************************************************
   componentDidMount(){
 
-    const userId = this.props.message.userId // the current user 
+    const userId = this.props.message.userId // getting the current user from props
 
     let currentUser = {}  // initialiing the variable
   
@@ -43,14 +39,12 @@ export class Messages extends Component {
         currentUserAvatar: currentUser.avatarUrl // setting the avatar in state
       })
     })
-
   }
 //*****************************************************************************************************
  // render()
  //*****************************************************************************************************
   render() {
     const { classes } = this.props; // material ui styling dependency
-
     return (
       <div>
         <Paper >

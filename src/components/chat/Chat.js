@@ -9,7 +9,9 @@ export class Chat extends Component {
     activeChatId: 0,
     messages: []
   }
-
+//*****************************************************************************************************
+ // componentDidMount()
+ //*****************************************************************************************************
   componentDidMount() {
     this.setState({
       activeChatId: parseInt(localStorage.getItem("active-chat"))
@@ -25,7 +27,9 @@ export class Chat extends Component {
     }, 100)
   } // componentDidMount() closer 
 
-
+//*****************************************************************************************************
+ // render()
+ //*****************************************************************************************************
   render() {
     return (
       <>
@@ -39,7 +43,7 @@ export class Chat extends Component {
           )
         }
         <Button variant="contained" color="secondary" onClick={() => {
-          window.alert("Compose")
+          this.props.history.push("/compose")
         }}>
           Compose
           </Button>
