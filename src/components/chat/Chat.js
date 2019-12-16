@@ -7,8 +7,6 @@ export class Chat extends Component {
 
   state = {
     activeChatId: 0,
-    userA: 0,
-    userB: 0,
     messages: []
   }
 
