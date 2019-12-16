@@ -55,11 +55,12 @@ export class Messages extends Component {
       <div>
         <Paper >
           <Typography variant="h5" component="h3">
-          <Avatar alt="Avatar" src={(this.state.currentUserAvatar)} variant="circle" // Show avatar with notif
-                      className={classes.smallAvatar} />
+          <Avatar alt="Avatar" src={(this.state.currentUserAvatar)} variant="circle" // Show avatar 
+            className={classes.smallAvatar} />
           </Typography>
-          <Typography component="p">
-            {this.props.message.message}
+          <Typography component="p"> 
+          {/* show message */}
+            {this.props.message.message}  
          </Typography>
         </Paper>
       </div>
