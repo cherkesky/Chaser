@@ -32,7 +32,7 @@ export class SendDrink extends Component {
         console.log("User:", this.state.userId, "sent a drink to:", this.state.selectedUser)
     
         const newDrinkObj = {
-          userId: this.state.userId,
+          userId: parseInt(this.state.userId),
           sentTo: this.state.selectedUser,
           toggleUserA: false,
           toggleUserB: true,

@@ -89,7 +89,6 @@ export class Register extends Component {
         avatarUrl: this.state.avatarUrl,
         barId: 0,
         drinkId: 0,
-        chatId: 0,
         timeOut: false,
         beenReported: 0,
         chaserCoinCredit: 0
