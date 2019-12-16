@@ -182,23 +182,23 @@
   ],
   "drinks": [
     {
-      "userId": "8",
+      "userId": 8,
       "sentTo": 14,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-16T00:03:50.154Z",
+      "matchTime": "2019-12-16T00:22:46.360Z",
       "id": 1
     },
     {
-      "userId": "8",
-      "sentTo": 10,
+      "userId": 8,
+      "sentTo": 14,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-16T00:04:41.690Z",
+      "matchTime": "2019-12-16T00:22:46.360Z",
       "id": 2
     }
   ],

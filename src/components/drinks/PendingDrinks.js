@@ -5,28 +5,81 @@ import Coverflow from 'react-coverflow';
 import Container from '@material-ui/core/Container';
 
 export class PendingDrinks extends Component {
-  // getting all the pending drinks from the db
-  // http://localhost:5002/drinks?userId=8&status=pending&_expand=user
-  // setting the array in pendingDrinks state
-  // populate the carousel with the images of who sent the drink
+  // click reject
+  // get the right drink id
+  // api post to set drinkid status as rejected
+  // set state to rejected
+  //drinks/?sentTo=14&userId=8&status=pending
 
+
+  state = {
+    pendingDrinks: [],
+    selectedUser: 0,
+    selectedDrinkRequest: 0,
+    currentResponse: 'pending'
+  }
+  //*****************************************************************************************************
+  // Rerenderer
+  //*****************************************************************************************************
+  rerenderer = () => {
+
+    const sentFrom = localStorage.getItem("userId")
+
+    console.log("RERENDERER")
+
+    ApiManager.getAll("drinks", `sentTo=${sentFrom}&status=pending&_expand=user`)
+          .then((pendingDrinksArr) => {
+        console.log("pendingDrinksArr:", pendingDrinksArr)
+        this.setState({
+          pendingDrinks: pendingDrinksArr
+        })
+      })
+  }
 
   //*****************************************************************************************************
   // Get Current User ID
   //*****************************************************************************************************
   loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
 
+  //*****************************************************************************************************
+  // Handle Reject
+  //*****************************************************************************************************
+  handleReject() {
+    const userId = this.loggedInUserId()
+    let drinkToReject = {}
 
-  state = {
-    pendingDrinks: [],
-    selectedUser: 0,
-    currentResponse: 'pending'
+    ApiManager.getAll("drinks", `userId=${this.state.selectedUser}&sentTo=${userId}&status=pending`)
+      .then((drinkRequestArr) => {  // fetch the relevant drink to reject and set it in state
+        this.setState({
+          selectedDrinkRequest: drinkRequestArr[0].id
+        })
+        console.log("selectedDrinkRequest: drinkRequestArr[0].id", drinkRequestArr[0].id)
+      })
+      .then(() => {
+        drinkToReject = {
+          id: this.state.selectedDrinkRequest,  // prepare the object for the PATCH call
+          status: "rejected"
+        }
+        ApiManager.update("drinks", drinkToReject)  // PATCH
+        console.log("PATCH")
+      })
+      .then(()=>{
+        setTimeout(()=>{ this.rerenderer() }, 100); // refresh the screen
+      })
+      .then(() => {
+        this.setState({
+          selectedDrinkRequest: 0  // reset the state
+        })
+        console.log("selectedDrinkRequest: 0")
+      })
   }
 
   //*****************************************************************************************************
   //ComponentDidMount()
   //*****************************************************************************************************
   componentDidMount() {
+
+    console.log("ComponentDidMount()")
 
     const sentFrom = localStorage.getItem("userId")
 
@@ -42,31 +95,33 @@ export class PendingDrinks extends Component {
   // Render()
   //*****************************************************************************************************
   render() {
-    
-    const isEnabled = this.state.selectedUser !==0
+
+    console.log("render()")
+
+    const isEnabled = this.state.selectedUser !== 0
 
     return (
       <div>
         <h3>Pending Drink Requests</h3>
         <Container>
           <hr />
-        <Coverflow                // Image carousel initialization
-          width={600}
-          height={300}
-          displayQuantityOfSide={0.5}
-          navigation={false}
-          infiniteScroll={true}
-          enableHeading={false}
-          clickable={true}
-        >
-          {this.state.pendingDrinks.map((pendingDrink) => { // populating the images
-            return <img key={pendingDrink.user.id} id={pendingDrink.user.id} src={pendingDrink.user.avatarUrl} alt={pendingDrink.user.tagLine} onClick={() => {
-              this.setState({
-                selectedUser: pendingDrink.user.id  // setting the selected user in state
-              })
-            }} />
-          })}
-        </Coverflow>
+          <Coverflow                // Image carousel initialization
+            width={600}
+            height={300}
+            displayQuantityOfSide={0.5}
+            navigation={false}
+            infiniteScroll={true}
+            enableHeading={false}
+            clickable={true}
+          >
+            {this.state.pendingDrinks.map((pendingDrink) => { // populating the images
+              return <img key={pendingDrink.user.id} id={pendingDrink.user.id} src={pendingDrink.user.avatarUrl} alt={pendingDrink.user.tagLine} onClick={() => {
+                this.setState({
+                  selectedUser: pendingDrink.user.id  // setting the selected user in state
+                })
+              }} />
+            })}
+          </Coverflow>
           <hr />
         </Container>
         <Container>
@@ -76,7 +131,7 @@ export class PendingDrinks extends Component {
             Accept
           </Button>
           <Button variant="contained" color="default" disabled={!isEnabled} onClick={() => {
-            window.alert("REJECT")
+            this.handleReject()
           }}>
             Reject
           </Button>
