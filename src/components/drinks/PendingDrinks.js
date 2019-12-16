@@ -79,13 +79,14 @@ export class PendingDrinks extends Component {
   handleAccept() {
     const userId = this.loggedInUserId()
     let drinkToAccept = {}
+    let setChatUserA = {}
+    let setChatUserB = {}
 
     ApiManager.getAll("drinks", `userId=${this.state.selectedUser}&sentTo=${userId}&status=pending`)
       .then((drinkRequestArr) => {  // fetch the relevant drink to reject and set it in state
         this.setState({
           selectedDrinkRequest: drinkRequestArr[0].id
         })
-        // console.log("selectedDrinkRequest: drinkRequestArr[0].id", drinkRequestArr[0].id)
       })
       .then(() => {
         drinkToAccept = {
@@ -93,7 +94,20 @@ export class PendingDrinks extends Component {
           status: "accepted"
         }
         ApiManager.update("drinks", drinkToAccept)  // PATCH
-        // console.log("PATCH")
+      })
+      .then(()=>{
+        setChatUserA = {   // updating the approved drinkId with the loggedin user
+          id: userId,
+          drinkId: this.state.selectedDrinkRequest
+        }
+        ApiManager.update("users", setChatUserA) // PATCH
+      })
+      .then(()=>{
+        setChatUserB = {
+          id: this.state.selectedUser, // updating the approved drinkId with the user that sent the drink
+          drinkId:  this.state.selectedDrinkRequest
+        }
+        ApiManager.update("users", setChatUserB) // PATCH
       })
       .then(()=>{
         setTimeout(()=>{ this.rerenderer() }, 100); // refresh the screen
@@ -102,7 +116,9 @@ export class PendingDrinks extends Component {
         this.setState({
           selectedDrinkRequest: 0  // reset the state
         })
-        // console.log("selectedDrinkRequest: 0")
+      })
+      .then(()=>{
+        this.props.history.push("/chat")
       })
   }
 

@@ -7,6 +7,7 @@ import CheckIn from "./components/checkin/CheckIn"
 import EditProfile from "./components/profile/EditProfile"
 import SendDrink from "./components/drinks/SendDrink"
 import PendingDrinks from "./components/drinks/PendingDrinks"
+import Chat from "./components/chat/Chat"
 
 export class ApplicationViews extends Component {
   render() {
@@ -49,6 +50,11 @@ export class ApplicationViews extends Component {
             return <PendingDrinks {...props} />
           }}
         />
+        <Route
+        exact path="/chat" render={props => {
+          return <Chat {...props} />
+        }}
+      />
       </React.Fragment>
 
     )
