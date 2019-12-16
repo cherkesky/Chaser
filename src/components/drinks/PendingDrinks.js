@@ -29,7 +29,7 @@ export class PendingDrinks extends Component {
 
     ApiManager.getAll("drinks", `sentTo=${sentFrom}&status=pending&_expand=user`)
           .then((pendingDrinksArr) => {
-        console.log("pendingDrinksArr:", pendingDrinksArr)
+        // console.log("pendingDrinksArr:", pendingDrinksArr)
         this.setState({
           pendingDrinks: pendingDrinksArr
         })
@@ -53,7 +53,7 @@ export class PendingDrinks extends Component {
         this.setState({
           selectedDrinkRequest: drinkRequestArr[0].id
         })
-        console.log("selectedDrinkRequest: drinkRequestArr[0].id", drinkRequestArr[0].id)
+        // console.log("selectedDrinkRequest: drinkRequestArr[0].id", drinkRequestArr[0].id)
       })
       .then(() => {
         drinkToReject = {
@@ -61,7 +61,7 @@ export class PendingDrinks extends Component {
           status: "rejected"
         }
         ApiManager.update("drinks", drinkToReject)  // PATCH
-        console.log("PATCH")
+        // console.log("PATCH")
       })
       .then(()=>{
         setTimeout(()=>{ this.rerenderer() }, 100); // refresh the screen
@@ -70,7 +70,7 @@ export class PendingDrinks extends Component {
         this.setState({
           selectedDrinkRequest: 0  // reset the state
         })
-        console.log("selectedDrinkRequest: 0")
+        // console.log("selectedDrinkRequest: 0")
       })
   }
 
@@ -79,7 +79,7 @@ export class PendingDrinks extends Component {
   //*****************************************************************************************************
   componentDidMount() {
 
-    console.log("ComponentDidMount()")
+    // console.log("ComponentDidMount()")
 
     const sentFrom = localStorage.getItem("userId")
 
@@ -96,7 +96,7 @@ export class PendingDrinks extends Component {
   //*****************************************************************************************************
   render() {
 
-    console.log("render()")
+    // console.log("render()")
 
     const isEnabled = this.state.selectedUser !== 0
 
