@@ -16,6 +16,7 @@ export class CheckIn extends Component {
     xCord: '',
     yCord: '',
     selectedBar: '',
+    activeBar: 0,
     buttonDisabled: true,
     bars: []
   }
@@ -25,7 +26,27 @@ export class CheckIn extends Component {
   //*****************************************************************************************************
   loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
   
+  //*****************************************************************************************************
+  // Get Current Checked In Active Bar 
+  //*****************************************************************************************************
+  checkedInBar() { 
+      if (isNaN(parseInt(localStorage.getItem("active-bar")))){ // no active bars in local storage
+        return 0
+      } else{
+        return parseInt(localStorage.getItem("active-bar")) // there is an active bar
+      }
+}
   
+  //*****************************************************************************************************
+  // Handle Checkout
+  //*****************************************************************************************************
+  handleCheckOut = () => {
+    localStorage.removeItem("active-bar")
+    this.setState({
+      activeBar: 0
+    })
+
+  }
   //*****************************************************************************************************
   // Handle Check In
   //*****************************************************************************************************
@@ -82,7 +103,9 @@ export class CheckIn extends Component {
         "active-bar",
         JSON.stringify(checkinObj.barId)
       )
+        
       ApiManager.update("users", checkinObj)
+      .then ()
       .then(this.props.history.push("/senddrinks"))
       
     })
@@ -121,6 +144,12 @@ export class CheckIn extends Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
     }
+
+    
+    this.setState({
+      activeBar: this.checkedInBar()
+      
+    })
   } // componentDidMount closer
 
   //*****************************************************************************************************
@@ -129,6 +158,7 @@ export class CheckIn extends Component {
   render() {
 
     const isEnabled = this.state.selectedBar !==''
+    const isCheckedIn = this.state.activeBar !==0 
 
     return (
       <div>
@@ -167,12 +197,11 @@ export class CheckIn extends Component {
             }>
               Check In
           </Button>
-            <Button variant="contained" color="default" onClick={() => {
-              this.props.clearUser()     // log out
-              this.props.history.push("/") // go back to main screen
+            <Button variant="contained" color="default" disabled={!isCheckedIn} onClick={() => {
+             this.handleCheckOut()
             }
             }>
-              Log Out
+              Check Out
           </Button>
 
           </FormGroup>

@@ -1,45 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "firstName": "Guy",
-      "lastName": "Cherkesky",
-      "email": "guy@cherkesky.com",
-      "password": "123456",
-      "gender": "male",
-      "genderInterested": "female",
-      "age": 39,
-      "ageRange": 3,
-      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576167916/avatars/zezgggkbsq9gedutqbjr.png",
-      "tagLine": "yolo",
-      "barId": 8,
-      "drinkId": 1,
-      "chatId": 1,
-      "timeOut": false,
-      "beenReported": 0,
-      "chaserCoinCredit": 0,
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "firstName": "Caty",
-      "lastName": "Chapman",
-      "email": "caty@cherkesky.com",
-      "password": "123456",
-      "gender": "female",
-      "genderInterested": "male",
-      "age": 39,
-      "ageRange": 3,
-      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576167916/avatars/zezgggkbsq9gedutqbjr.png",
-      "tagLine": "yo yo",
-      "barId": 0,
-      "drinkId": 1,
-      "chatId": 1,
-      "timeOut": false,
-      "beenReported": 0,
-      "chaserCoinCredit": 0
-    },
-    {
       "firstName": "Trey",
       "lastName": "Suiter",
       "age": "32",
@@ -108,7 +69,7 @@
       "email": "john@john.com",
       "password": "123",
       "ageRange": 0,
-      "tagLine": "Yolo",
+      "tagLine": "John",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576251883/avatars/br5msx6qzvhdh89tolvw.jpg",
       "barId": 8,
       "drinkId": 0,
@@ -128,7 +89,7 @@
       "email": "julian@julian.com",
       "password": "123",
       "ageRange": 0,
-      "tagLine": "Im a buffet",
+      "tagLine": "Julian",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576252577/avatars/xk134igeabbelyeawysa.jpg",
       "barId": 8,
       "drinkId": 0,
@@ -148,7 +109,7 @@
       "email": "caroline@gmail.com",
       "password": "123",
       "ageRange": 0,
-      "tagLine": "chaser is the best",
+      "tagLine": "Caroline",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576263135/avatars/oddkuacqfrtcydfuqvj1.jpg",
       "barId": 8,
       "drinkId": 0,
@@ -168,7 +129,7 @@
       "email": "charles@mail.com",
       "password": "123",
       "ageRange": 0,
-      "tagLine": "NSS is the best",
+      "tagLine": "Charles",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576266987/avatars/jdlu96b6lxanwrlfumad.png",
       "barId": 8,
       "drinkId": 0,
@@ -188,7 +149,7 @@
       "email": "john@mail.com",
       "password": "123",
       "ageRange": 0,
-      "tagLine": "Chaser is Awesome",
+      "tagLine": "John",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576267129/avatars/iucqafu4tr9rddsq35hi.png",
       "barId": 0,
       "drinkId": 0,
@@ -198,78 +159,47 @@
       "chaserCoinCredit": 0,
       "id": 13,
       "userId": 13
+    },
+    {
+      "firstName": "Guy",
+      "lastName": "Cherkesky",
+      "age": "39",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "guy@cherkesky.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Guy",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576454414/avatars/xftnrqywcasuffzax0gi.jpg",
+      "barId": 8,
+      "drinkId": 0,
+      "chatId": 0,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 14
     }
   ],
   "drinks": [
     {
-      "loggedInUser": "12",
-      "userId": 8,
+      "userId": "8",
+      "sentTo": 14,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-14T23:33:45.187Z",
+      "matchTime": "2019-12-16T00:03:50.154Z",
       "id": 1
     },
     {
-      "loggedInUser": "12",
-      "userId": 7,
+      "userId": "8",
+      "sentTo": 10,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-14T23:33:51.531Z",
+      "matchTime": "2019-12-16T00:04:41.690Z",
       "id": 2
-    },
-    {
-      "loggedInUser": "12",
-      "userId": 8,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-14T23:49:02.217Z",
-      "id": 3
-    },
-    {
-      "loggedInUser": "8",
-      "userId": 11,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T00:17:33.446Z",
-      "id": 4
-    }
-  ],
-  "messages": [
-    {
-      "id": 1,
-      "userId": 1,
-      "drinkId": 1,
-      "message": "Hi There",
-      "sent": "2019-12-01"
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "drinkId": 1,
-      "message": "Yo yo",
-      "sent": "2019-12-01"
-    },
-    {
-      "id": 3,
-      "userId": 1,
-      "drinkId": 2,
-      "message": "You're a good girl!",
-      "sent": "2019-12-01"
-    },
-    {
-      "id": 4,
-      "userId": 3,
-      "chatId": 2,
-      "message": "Woof Woof",
-      "sent": "2019-12-01"
     }
   ],
   "bars": [

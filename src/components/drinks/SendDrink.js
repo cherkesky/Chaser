@@ -9,7 +9,7 @@ import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
 export class SendDrink extends Component {
 
   state = {
-    activeUsers: [],
+    activeUsers: [], 
     buttonDisabled: true,
     barId: 0,
     barName: '',
@@ -22,18 +22,33 @@ export class SendDrink extends Component {
   //*****************************************************************************************************
 
   sendDrink() {
-    console.log("Drink with user:", this.state.selectedUser)
+
+    // /drinks?sentFrom=1&userId=11&status=pending
+
+    ApiManager.getAll("drinks",`sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
+    .then((pendingDrinksArr)=>{
+      console.log("pendingDrinksArr",pendingDrinksArr)
+      if (pendingDrinksArr.length === 0) {
+        console.log("User:", this.state.userId, "sent a drink to:", this.state.selectedUser)
     
-    const newDrinkObj = {
-      loggedInUser: this.state.userId,
-      userId: this.state.selectedUser,
-      toggleUserA: false,
-      toggleUserB: true,
-      chatActive: false,
-      status: "pending",
-      matchTime: createDateTimeToISO()
-    }
-    ApiManager.post("drinks",newDrinkObj)   // creating a new drink entity in the database
+        const newDrinkObj = {
+          userId: this.state.userId,
+          sentTo: this.state.selectedUser,
+          toggleUserA: false,
+          toggleUserB: true,
+          chatActive: false,
+          status: "pending",
+          matchTime: createDateTimeToISO()
+        }
+        ApiManager.post("drinks",newDrinkObj)   // creating a new drink entity in the database
+      }else{
+        window.alert("You already sent this user a drink")
+      }
+      
+    })
+
+
+   
   }
 
   
