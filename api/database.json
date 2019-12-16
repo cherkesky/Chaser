@@ -163,12 +163,30 @@
       "ageRange": 0,
       "tagLine": "Guy!!!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576454414/avatars/xftnrqywcasuffzax0gi.jpg",
-      "barId": 9,
-      "drinkId": 4,
+      "barId": 8,
+      "drinkId": 2,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
       "id": 14
+    },
+    {
+      "firstName": "John",
+      "lastName": "Wark",
+      "age": "21",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "wark@wark.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "NSS is the best",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576531245/avatars/xyrkozacwexil3ot4uuf.png",
+      "barId": 0,
+      "drinkId": 0,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 15
     }
   ],
   "drinks": [
@@ -188,7 +206,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "accepted",
       "matchTime": "2019-12-16T00:22:46.360Z",
       "id": 2
     },
@@ -251,6 +269,16 @@
       "status": "pending",
       "matchTime": "2019-12-16T16:25:30.862Z",
       "id": 8
+    },
+    {
+      "userId": 14,
+      "sentTo": 12,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-16T21:22:35.068Z",
+      "id": 9
     }
   ],
   "messages": [
@@ -267,6 +295,20 @@
       "drinkId": 2,
       "message": "Bye!",
       "sent": "2019-12-16T02:44:50.241Z"
+    },
+    {
+      "userId": 14,
+      "drinkId": 2,
+      "message": "bla bla",
+      "sent": "2019-12-16T22:21:15.970Z",
+      "id": 3
+    },
+    {
+      "userId": 14,
+      "drinkId": 2,
+      "message": "ryan look at this",
+      "sent": "2019-12-16T22:21:34.393Z",
+      "id": 4
     }
   ],
   "bars": [
