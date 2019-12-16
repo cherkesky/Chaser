@@ -187,7 +187,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "rejected",
       "matchTime": "2019-12-16T00:22:46.360Z",
       "id": 1
     },
@@ -200,6 +200,26 @@
       "status": "pending",
       "matchTime": "2019-12-16T00:22:46.360Z",
       "id": 2
+    },
+    {
+      "userId": 14,
+      "sentTo": 9,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-16T01:37:10.506Z",
+      "id": 3
+    },
+    {
+      "userId": 11,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-16T01:38:50.344Z",
+      "id": 4
     }
   ],
   "bars": [

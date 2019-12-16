@@ -73,6 +73,38 @@ export class PendingDrinks extends Component {
         // console.log("selectedDrinkRequest: 0")
       })
   }
+  //*****************************************************************************************************
+  // Handle Accept
+  //*****************************************************************************************************
+  handleAccept() {
+    const userId = this.loggedInUserId()
+    let drinkToAccept = {}
+
+    ApiManager.getAll("drinks", `userId=${this.state.selectedUser}&sentTo=${userId}&status=pending`)
+      .then((drinkRequestArr) => {  // fetch the relevant drink to reject and set it in state
+        this.setState({
+          selectedDrinkRequest: drinkRequestArr[0].id
+        })
+        // console.log("selectedDrinkRequest: drinkRequestArr[0].id", drinkRequestArr[0].id)
+      })
+      .then(() => {
+        drinkToAccept = {
+          id: this.state.selectedDrinkRequest,  // prepare the object for the PATCH call
+          status: "accepted"
+        }
+        ApiManager.update("drinks", drinkToAccept)  // PATCH
+        // console.log("PATCH")
+      })
+      .then(()=>{
+        setTimeout(()=>{ this.rerenderer() }, 100); // refresh the screen
+      })
+      .then(() => {
+        this.setState({
+          selectedDrinkRequest: 0  // reset the state
+        })
+        // console.log("selectedDrinkRequest: 0")
+      })
+  }
 
   //*****************************************************************************************************
   //ComponentDidMount()
@@ -126,7 +158,7 @@ export class PendingDrinks extends Component {
         </Container>
         <Container>
           <Button variant="contained" color="secondary" disabled={!isEnabled} onClick={() => {
-            window.alert("ACCEPT")
+            this.handleAccept()
           }} >
             Accept
           </Button>
