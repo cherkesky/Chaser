@@ -5,13 +5,7 @@ import Coverflow from 'react-coverflow';
 import Container from '@material-ui/core/Container';
 
 export class PendingDrinks extends Component {
-  // click reject
-  // get the right drink id
-  // api post to set drinkid status as rejected
-  // set state to rejected
-  //drinks/?sentTo=14&userId=8&status=pending
-
-
+  
   state = {
     pendingDrinks: [],
     selectedUser: 0,
@@ -53,7 +47,6 @@ export class PendingDrinks extends Component {
         this.setState({
           selectedDrinkRequest: drinkRequestArr[0].id
         })
-        // console.log("selectedDrinkRequest: drinkRequestArr[0].id", drinkRequestArr[0].id)
       })
       .then(() => {
         drinkToReject = {
@@ -61,7 +54,6 @@ export class PendingDrinks extends Component {
           status: "rejected"
         }
         ApiManager.update("drinks", drinkToReject)  // PATCH
-        // console.log("PATCH")
       })
       .then(()=>{
         setTimeout(()=>{ this.rerenderer() }, 100); // refresh the screen
@@ -70,7 +62,6 @@ export class PendingDrinks extends Component {
         this.setState({
           selectedDrinkRequest: 0  // reset the state
         })
-        // console.log("selectedDrinkRequest: 0")
       })
   }
   //*****************************************************************************************************
@@ -113,6 +104,10 @@ export class PendingDrinks extends Component {
         setTimeout(()=>{ this.rerenderer() }, 100); // refresh the screen
       })
       .then(() => {
+        localStorage.setItem(
+          "active-chat",
+          JSON.stringify(this.state.selectedDrinkRequest)
+        )
         this.setState({
           selectedDrinkRequest: 0  // reset the state
         })
@@ -121,13 +116,11 @@ export class PendingDrinks extends Component {
         this.props.history.push("/chat")
       })
   }
-
+ 
   //*****************************************************************************************************
   //ComponentDidMount()
   //*****************************************************************************************************
   componentDidMount() {
-
-    // console.log("ComponentDidMount()")
 
     const sentFrom = localStorage.getItem("userId")
 
@@ -143,8 +136,6 @@ export class PendingDrinks extends Component {
   // Render()
   //*****************************************************************************************************
   render() {
-
-    // console.log("render()")
 
     const isEnabled = this.state.selectedUser !== 0
 
