@@ -12,27 +12,26 @@ export class Chat extends Component {
     messages: []
   }
 
-componentDidMount(){
-this.setState({
-  activeChatId: parseInt(localStorage.getItem("active-chat"))
-})
-
-setTimeout(()=>{ 
-  ApiManager.getAll("messages",`drinkId=${this.state.activeChatId}&_expand=drink&_sort=sent`)  
-  .then((messagesArr)=>{
+  componentDidMount() {
     this.setState({
-      messages: messagesArr
+      activeChatId: parseInt(localStorage.getItem("active-chat"))
     })
-  })
- }, 100) 
-} // componentDidMount() closer 
+
+    setTimeout(() => {
+      ApiManager.getAll("messages", `drinkId=${this.state.activeChatId}&_expand=drink&_sort=sent`)
+        .then((messagesArr) => {
+          this.setState({
+            messages: messagesArr
+          })
+        })
+    }, 100)
+  } // componentDidMount() closer 
 
 
   render() {
     return (
       <>
-
-{
+        {
           this.state.messages.map(message =>
             <Messages
               key={message.id}
@@ -41,12 +40,10 @@ setTimeout(()=>{
             />
           )
         }
-
-
-          <Button variant="contained" color="secondary" onClick={() => {
-            window.alert("Compose")
-          }}>
-            Compose
+        <Button variant="contained" color="secondary" onClick={() => {
+          window.alert("Compose")
+        }}>
+          Compose
           </Button>
       </>
     )
