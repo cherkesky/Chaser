@@ -1,45 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "firstName": "Guy",
-      "lastName": "Cherkesky",
-      "email": "guy@cherkesky.com",
-      "password": "123",
-      "gender": "male",
-      "genderInterested": "female",
-      "age": 39,
-      "ageRange": 3,
-      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576167916/avatars/zezgggkbsq9gedutqbjr.png",
-      "tagLine": "Guy",
-      "barId": 8,
-      "drinkId": 1,
-      "chatId": 1,
-      "timeOut": false,
-      "beenReported": 0,
-      "chaserCoinCredit": 0,
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "firstName": "Caty",
-      "lastName": "Chapman",
-      "email": "caty@cherkesky.com",
-      "password": "123456",
-      "gender": "female",
-      "genderInterested": "male",
-      "age": 39,
-      "ageRange": 3,
-      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576167916/avatars/zezgggkbsq9gedutqbjr.png",
-      "tagLine": "yo yo",
-      "barId": 0,
-      "drinkId": 1,
-      "chatId": 1,
-      "timeOut": false,
-      "beenReported": 0,
-      "chaserCoinCredit": 0
-    },
-    {
       "firstName": "Trey",
       "lastName": "Suiter",
       "age": "32",
@@ -198,68 +159,47 @@
       "chaserCoinCredit": 0,
       "id": 13,
       "userId": 13
+    },
+    {
+      "firstName": "Guy",
+      "lastName": "Cherkesky",
+      "age": "39",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "guy@cherkesky.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Guy",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576454414/avatars/xftnrqywcasuffzax0gi.jpg",
+      "barId": 8,
+      "drinkId": 0,
+      "chatId": 0,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 14
     }
   ],
   "drinks": [
     {
-      "userId": "1",
-      "sentTo": 11,
+      "userId": "8",
+      "sentTo": 14,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-15T23:53:54.008Z",
+      "matchTime": "2019-12-16T00:03:50.154Z",
       "id": 1
     },
     {
-      "userId": "1",
-      "sentTo": 8,
+      "userId": "8",
+      "sentTo": 10,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-15T23:53:57.759Z",
+      "matchTime": "2019-12-16T00:04:41.690Z",
       "id": 2
-    },
-    {
-      "userId": "11",
-      "sentTo": 9,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T23:54:57.593Z",
-      "id": 3
-    },
-    {
-      "userId": "1",
-      "sentTo": 7,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T23:55:53.530Z",
-      "id": 4
-    },
-    {
-      "userId": "11",
-      "sentTo": 8,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T23:56:19.455Z",
-      "id": 5
-    },
-    {
-      "userId": "11",
-      "sentTo": 12,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-15T23:56:34.642Z",
-      "id": 6
     }
   ],
   "bars": [

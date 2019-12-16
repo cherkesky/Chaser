@@ -42,7 +42,7 @@ export class SendDrink extends Component {
         }
         ApiManager.post("drinks",newDrinkObj)   // creating a new drink entity in the database
       }else{
-        window.alert("You already send this user a drink")
+        window.alert("You already sent this user a drink")
       }
       
     })

@@ -19,7 +19,8 @@ export class PendingDrinks extends Component {
 
   state = {
     pendingDrinks: [],
-    selectedUser: 0
+    selectedUser: 0,
+    currentResponse: 'pending'
   }
 
   //*****************************************************************************************************
