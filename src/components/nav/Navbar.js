@@ -44,7 +44,6 @@ export class Navbar extends Component {
             users: usersObj
           }
         )
-        // http://localhost:5002/drinks?sentTo=8&status=pending&_expand=user
         ApiManager.getAll("drinks", `sentTo=${this.loggedInUserId()}&status=pending&_expand=user`)
           .then((pendingDrinksArr) => {
             this.setState({
@@ -90,7 +89,7 @@ export class Navbar extends Component {
                 </div>
               </Toolbar>
             </AppBar>
-            : null // no? dont show the nav bar
+            : null // no one logged in? dont show the nav bar
         }
       </>
     )
