@@ -55,7 +55,7 @@ export class Messages extends Component {
       <div>
         <Paper >
           <Typography variant="h5" component="h3">
-          <Avatar alt="Avatar" src={("../../assets/gears.png")} variant="circle" // Show avatar with notif
+          <Avatar alt="Avatar" src={(this.state.currentUserAvatar)} variant="circle" // Show avatar with notif
                       className={classes.smallAvatar} />
           </Typography>
           <Typography component="p">
