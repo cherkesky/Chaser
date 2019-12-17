@@ -88,6 +88,13 @@
       "message": "4",
       "sent": "2019-12-17T18:48:47.321Z",
       "id": 4
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "werewr",
+      "sent": "2019-12-17T19:15:49.645Z",
+      "id": 5
     }
   ],
   "bars": [

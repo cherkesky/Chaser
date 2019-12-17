@@ -25,14 +25,14 @@ export class SendDrink extends Component {
 
     localStorage.getItem("active-chat") === null // checking if there is no active chat first
 
-      ?
+      ?  // no active chat
       ApiManager.getAll("drinks", `sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
         .then((pendingDrinksArr) => {
           console.log("pendingDrinksArr", pendingDrinksArr)
           if (pendingDrinksArr.length === 0) {
             console.log("User:", this.state.userId, "sent a drink to:", this.state.selectedUser)
 
-            const newDrinkObj = {
+            const newDrinkObj = { // preparing the new drink obj
               userId: parseInt(this.state.userId),
               sentTo: this.state.selectedUser,
               toggleUserA: false,
@@ -41,13 +41,14 @@ export class SendDrink extends Component {
               status: "pending",
               matchTime: createDateTimeToISO()
             }
-            ApiManager.post("drinks", newDrinkObj)   // creating a new drink entity in the database
+            ApiManager.post("drinks", newDrinkObj)   // POSTing a new drink entity in the database
           } else {
             window.alert("You already sent this user a drink")
           }
         })
 
-      : this.props.history.push("/chat") // hijacking the user to Chat if there is chat 
+      : window.alert("SOMEONE APPROVED YOUR DRINK!")
+      this.props.history.push("/chat") // hijacking the user to Chat if there is chat 
 
   }
 
