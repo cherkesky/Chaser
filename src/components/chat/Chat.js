@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Button from '@material-ui/core/Button';
 import ApiManager from '../../modules/ApiManager';
 import Messages from '../chat/Messages'
+import apikeys from '../../apikeys';
 
 export class Chat extends Component {
 
@@ -13,10 +14,26 @@ export class Chat extends Component {
     messages: []
   }
 
+  //*****************************************************************************************************
+  // Handle Close
+  //*****************************************************************************************************
+   handleClose () {
 
-//*****************************************************************************************************
- // componentDidMount()
- //*****************************************************************************************************
+        
+
+    window.alert("Close")
+
+      // for  (let i=0; i<6; i++){
+      //   ApiManager.delete("messages", "id"=i)
+      // }
+    
+      //  console.log('End')
+    
+  }
+
+  //*****************************************************************************************************
+  // componentDidMount()
+  //*****************************************************************************************************
   componentDidMount() {
 
 
@@ -31,7 +48,7 @@ export class Chat extends Component {
       ApiManager.getAll("messages", `drinkId=${this.state.activeChatId}&_expand=drink&_sort=sent`)
         .then((messagesArr) => {
           console.log("messagesArr", messagesArr)
-          let messagesSentArr = messagesArr.filter(message=> 
+          let messagesSentArr = messagesArr.filter(message =>
             message.userId === this.state.activeUserId)
           this.setState({
             messages: messagesArr,
@@ -42,9 +59,9 @@ export class Chat extends Component {
     }, 100)
   } // componentDidMount() closer 
 
-//*****************************************************************************************************
- // render()
- //*****************************************************************************************************
+  //*****************************************************************************************************
+  // render()
+  //*****************************************************************************************************
   render() {
     return (
       <>
@@ -58,22 +75,20 @@ export class Chat extends Component {
           )
         }
 
-{        (this.state.messagesSentCounter + this.state.messagesReceivedCounter) === 6 
+        {(this.state.messagesSentCounter + this.state.messagesReceivedCounter) === 6
 
-? <Button variant="contained" color="secondary" onClick={() => { // reached 6 messages
-  this.handleClose()
-}}>
-  Close
+          ? <Button variant="contained" color="secondary" onClick={() => { // reached 6 messages
+            this.handleClose()
+          }}>
+            Close
   </Button>
 
-: <Button variant="contained" color="secondary" onClick={() => { // chat is still active
-  this.props.history.push("/compose")
-}}>
-  Compose
+          : <Button variant="contained" color="secondary" onClick={() => { // chat is still active
+            this.props.history.push("/compose")
+          }}>
+            Compose
   </Button>
-}
-       
-       
+        }
       </>
     )
   }
