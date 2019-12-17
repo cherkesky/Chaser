@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Button from '@material-ui/core/Button';
 import ApiManager from '../../modules/ApiManager';
 import Messages from '../chat/Messages'
-import apikeys from '../../apikeys';
 
 export class Chat extends Component {
 
@@ -19,13 +18,26 @@ export class Chat extends Component {
   //*****************************************************************************************************
    handleClose () {
 
+     // the party is over. time to clean up the mess....
+
+      let resetDrinkId = {}
+   
+      resetDrinkId = {   // resetting drinkId for the active user
+        id: this.state.activeUserId,
+        drinkId: 0
+      }
+      console.log("resetDrinkId", resetDrinkId)
+      
+       ApiManager.update("users", resetDrinkId) // PATCH
+       .then(()=>{
+         localStorage.removeItem("active-chat") // remove chat from local storage
+        this.props.history.push("/senddrinks") // go back to the SendDrinks view
+       })
+
       for  (let i=0; i<this.state.messages.length; i++){
-        ApiManager.delete("messages", this.state.messages[i].id)
+        ApiManager.delete("messages", this.state.messages[i].id)// looping and deleting all messages
         console.log('Message ID:', this.state.messages[i].id )
       }
-      this.props.history.push("/senddrinks")
-    
-    
   }
 
   //*****************************************************************************************************

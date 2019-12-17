@@ -9,7 +9,7 @@ import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
 export class SendDrink extends Component {
 
   state = {
-    activeUsers: [], 
+    activeUsers: [],
     buttonDisabled: true,
     barId: 0,
     barName: '',
@@ -23,26 +23,32 @@ export class SendDrink extends Component {
 
   sendDrink() {
 
-    ApiManager.getAll("drinks",`sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
-    .then((pendingDrinksArr)=>{
-      console.log("pendingDrinksArr",pendingDrinksArr)
-      if (pendingDrinksArr.length === 0) {
-        console.log("User:", this.state.userId, "sent a drink to:", this.state.selectedUser)
-    
-        const newDrinkObj = {
-          userId: parseInt(this.state.userId),
-          sentTo: this.state.selectedUser,
-          toggleUserA: false,
-          toggleUserB: true,
-          chatActive: false,
-          status: "pending",
-          matchTime: createDateTimeToISO()
-        }
-        ApiManager.post("drinks",newDrinkObj)   // creating a new drink entity in the database
-      }else{
-        window.alert("You already sent this user a drink")
-      } 
-    })
+    localStorage.getItem("active-chat") === null // checking if there is no active chat first
+
+      ?
+      ApiManager.getAll("drinks", `sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
+        .then((pendingDrinksArr) => {
+          console.log("pendingDrinksArr", pendingDrinksArr)
+          if (pendingDrinksArr.length === 0) {
+            console.log("User:", this.state.userId, "sent a drink to:", this.state.selectedUser)
+
+            const newDrinkObj = {
+              userId: parseInt(this.state.userId),
+              sentTo: this.state.selectedUser,
+              toggleUserA: false,
+              toggleUserB: true,
+              chatActive: false,
+              status: "pending",
+              matchTime: createDateTimeToISO()
+            }
+            ApiManager.post("drinks", newDrinkObj)   // creating a new drink entity in the database
+          } else {
+            window.alert("You already sent this user a drink")
+          }
+        })
+
+      : this.props.history.push("/chat") // hijacking the user to Chat if there is chat 
+
   }
 
   //*****************************************************************************************************
@@ -54,20 +60,16 @@ export class SendDrink extends Component {
     const userId = localStorage.getItem("userId")
 
 
-      // check if there is an active chat 
-          // http://localhost:5002/users/?userId=8&drinkId_ne=0   check if there is an active chat
-
-    ApiManager.getAll("users",`userID=${userId},&drinkId_ne=0`)
-    .then((res)=>{
-      if (res.length!==0){
-        localStorage.setItem(
-          "active-chat",
-          JSON.stringify(res[0].drinkId)
-        )
-      }
-    })
-
-
+    // check if there is an active chat that skipped local storage
+    ApiManager.getAll("users", `id=${userId}&drinkId_ne=0`)
+      .then((res) => {
+        if (res.length !== 0) {
+          localStorage.setItem(
+            "active-chat",
+            JSON.stringify(res[0].drinkId)
+          )
+        }
+      })
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
       .then((activeUsersArr) => {
