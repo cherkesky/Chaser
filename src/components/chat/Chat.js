@@ -21,22 +21,32 @@ export class Chat extends Component {
     // the party is over. time to clean up the mess....
 
     let resetActiveChat = {}
+    let setChatCompleted = {}
+
+    setChatCompleted = {
+      id: this.state.activeChatId,
+      status: "completed"
+    }
+
+    ApiManager.update("drinks", setChatCompleted) // PATCH drinks
 
     resetActiveChat = {   // resetting drinkId for the active user
       id: this.state.activeUserId,
       activeChat: false
     }
     console.log("resetActiveChat", resetActiveChat)
-
-    ApiManager.update("users", resetActiveChat) // PATCH
+    ApiManager.update("users", resetActiveChat) // PATCH user
      .then(()=>{
 
       for  (let i=0; i<this.state.messages.length; i++){
         ApiManager.delete("messages", this.state.messages[i].id)// looping and deleting all messages
           console.log('Message ID:', this.state.messages[i].id )}
      })
-     localStorage.removeItem("active-chat") // remove chat from local storage
-     this.props.history.push("/senddrinks") // go back to the SendDrinks view
+     .then(()=>{
+      localStorage.removeItem("active-chat") // remove chat from local storage
+      this.props.history.push("/senddrinks") // go back to the SendDrinks view
+     })
+     
   }
 
   //*****************************************************************************************************

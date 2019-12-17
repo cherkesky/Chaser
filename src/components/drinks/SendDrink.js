@@ -68,8 +68,10 @@ export class SendDrink extends Component {
     // debugger
     ApiManager.getAll("users", `id=${userId}&activeChat=true`)
       .then((activeUsersArr) => {
+        console.log("activeUsersArr", activeUsersArr)
+
         if (activeUsersArr.length !== 0) {
-          ApiManager.getAll("drinks", `sentTo=${userId}&status=accepted`)
+          ApiManager.getAll("drinks", `userId=${userId}&status=accepted`)
             .then((activeChatsArr) => {
               console.log("activeChatsArr", activeChatsArr)
               localStorage.setItem(
@@ -89,7 +91,6 @@ export class SendDrink extends Component {
         })
       })
       .then(() => {
-
         let usersThatArentMe = this.state.activeUsers    // exclude the logged im user from the array
         usersThatArentMe = usersThatArentMe.filter((user) =>
           user.id !== parseInt(this.state.userId))

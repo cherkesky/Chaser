@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
-      "activeChat": true,
+      "activeChat": false,
       "id": 8
     },
     {
@@ -33,16 +33,43 @@
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
-      "activeChat": false,
+      "activeChat": true,
       "id": 14
     }
   ],
   "drinks": [
-    
+    {
+      "userId": 14,
+      "sentTo": 8,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-17T23:25:27.013Z",
+      "id": 1
+    },
+    {
+      "userId": 8,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-17T23:25:48.109Z",
+      "id": 2
+    },
+    {
+      "userId": 14,
+      "sentTo": 8,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-17T23:31:15.637Z",
+      "id": 3
+    }
   ],
-  "messages": [
-   
-  ],
+  "messages": [],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",
