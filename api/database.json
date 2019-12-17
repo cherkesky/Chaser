@@ -12,12 +12,11 @@
       "tagLine": "Stich Bitch",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576207308/avatars/asprq33pq2bjpveymllw.jpg",
       "barId": 8,
-      "drinkId": 3,
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
-      "id": 8,
-      "userId": 8
+      "activeChat": true,
+      "id": 8
     },
     {
       "firstName": "Guy",
@@ -31,29 +30,11 @@
       "tagLine": "Guy!!!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576454414/avatars/xftnrqywcasuffzax0gi.jpg",
       "barId": 8,
-      "drinkId": 1,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
+      "activeChat": true,
       "id": 14
-    },
-    {
-      "firstName": "Chase",
-      "lastName": "Fite",
-      "age": "31",
-      "gender": "male",
-      "genderInterested": "female",
-      "email": "chase@chase.com",
-      "password": "123",
-      "ageRange": 0,
-      "tagLine": "Im Chase",
-      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576614852/avatars/lejbmobqlf9e0njoxfzc.png",
-      "barId": 8,
-      "drinkId": 3,
-      "timeOut": false,
-      "beenReported": 0,
-      "chaserCoinCredit": 0,
-      "id": 15
     }
   ],
   "drinks": [
@@ -64,33 +45,21 @@
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-17T18:47:57.233Z",
+      "matchTime": "2019-12-17T21:26:36.722Z",
       "id": 1
     },
     {
-      "userId": 14,
-      "sentTo": 8,
+      "userId": 8,
+      "sentTo": 14,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-17T18:49:08.027Z",
+      "status": "accepted",
+      "matchTime": "2019-12-17T21:26:55.137Z",
       "id": 2
-    },
-    {
-      "userId": 15,
-      "sentTo": 8,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-17T20:35:01.498Z",
-      "id": 3
     }
   ],
-  "messages": [
-   
-  ],
+  "messages": [],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",

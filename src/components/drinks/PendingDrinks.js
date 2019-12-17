@@ -43,7 +43,7 @@ export class PendingDrinks extends Component {
     let drinkToReject = {}
 
     ApiManager.getAll("drinks", `userId=${this.state.selectedUser}&sentTo=${userId}&status=pending`)
-      .then((drinkRequestArr) => {  // fetch the relevant drink to reject and set it in state
+      .then((drinkRequestArr) => {  // fetch the relevant drink to REJECT and set it in state
         this.setState({
           selectedDrinkRequest: drinkRequestArr[0].id
         })
@@ -74,7 +74,7 @@ export class PendingDrinks extends Component {
     let setChatUserB = {}
 
     ApiManager.getAll("drinks", `userId=${this.state.selectedUser}&sentTo=${userId}&status=pending`)
-      .then((drinkRequestArr) => {  // fetch the relevant drink to reject and set it in state
+      .then((drinkRequestArr) => {  // fetch the relevant drink to ACCEPT and set it in state
         this.setState({
           selectedDrinkRequest: drinkRequestArr[0].id
         })
@@ -89,14 +89,14 @@ export class PendingDrinks extends Component {
       .then(()=>{
         setChatUserA = {   // updating the approved drinkId with the loggedin user
           id: userId,
-          drinkId: this.state.selectedDrinkRequest
+          activeChat: true
         }
         ApiManager.update("users", setChatUserA) // PATCH
       })
       .then(()=>{
         setChatUserB = {
           id: this.state.selectedUser, // updating the approved drinkId with the user that sent the drink
-          drinkId:  this.state.selectedDrinkRequest
+          activeChat:  true
         }
         ApiManager.update("users", setChatUserB) // PATCH
       })
