@@ -19,15 +19,11 @@ export class Chat extends Component {
   //*****************************************************************************************************
    handleClose () {
 
-        
-
-    window.alert("Close")
-
-      // for  (let i=0; i<6; i++){
-      //   ApiManager.delete("messages", "id"=i)
-      // }
+      for  (let i=0; i<this.state.messages.length; i++){
+        ApiManager.delete("messages", this.state.messages[i].id)
+        console.log('Message ID:', this.state.messages[i].id )
+      }
     
-      //  console.log('End')
     
   }
 
