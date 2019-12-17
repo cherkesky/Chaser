@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
-      "activeChat": false,
+      "activeChat": true,
       "id": 8
     },
     {
@@ -38,34 +38,10 @@
     }
   ],
   "drinks": [
-    {
-      "userId": 14,
-      "sentTo": 8,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-17T21:26:36.722Z",
-      "id": 1
-    },
-    {
-      "userId": 8,
-      "sentTo": 14,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "accepted",
-      "matchTime": "2019-12-17T21:26:55.137Z",
-      "id": 2
-    }
+    
   ],
   "messages": [
-    {
-      "userId": 14,
-      "message": "1",
-      "sent": "2019-12-17T21:55:41.002Z",
-      "id": 1
-    }
+   
   ],
   "bars": [
     {

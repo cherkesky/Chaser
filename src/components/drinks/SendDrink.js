@@ -4,7 +4,6 @@ import { createDateTimeToISO } from '../../modules/DateTime'
 import Coverflow from 'react-coverflow';
 import Button from '@material-ui/core/Button';
 import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
-import apikeys from '../../apikeys';
 
 
 export class SendDrink extends Component {
@@ -23,11 +22,13 @@ export class SendDrink extends Component {
   //*****************************************************************************************************
 
   sendDrink() {
+    // debugger
 
-    localStorage.getItem("active-chat") === null // checking if there is no active chat first
-
-      ?  // no active chat
+    if (localStorage.getItem("active-chat") === null) // checking if there is no active chat first
+    {
+      // no active chat 
       ApiManager.getAll("drinks", `sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
+
         .then((pendingDrinksArr) => {
           console.log("pendingDrinksArr", pendingDrinksArr)
           if (pendingDrinksArr.length === 0) {     // check if there is already a drink request for the user
@@ -44,13 +45,14 @@ export class SendDrink extends Component {
             }
             ApiManager.post("drinks", newDrinkObj)   // POSTing a new drink entity in the database
           } else {
-            window.alert("You already sent this user a drink")  
+            window.alert("You already sent this user a drink")
           }
         })
 
-      : window.alert("SOMEONE APPROVED YOUR DRINK!")
-      this.props.history.push("/chat") // hijacking the user to Chat if there is chat 
-
+    } else {
+      window.alert("SOMEONE APPROVED YOUR DRINK!")
+      this.props.history.push("/chat") // hijacking the user to Chat if there is chat
+    }
   }
 
   //*****************************************************************************************************
@@ -60,20 +62,23 @@ export class SendDrink extends Component {
 
     const barId = localStorage.getItem("active-bar")
     const userId = localStorage.getItem("userId")
-    
-    //http://localhost:5002/drinks?sentTo=14&status=accepted
-
+   
     // check if there is an active chat that skipped local storage
+    // http://localhost:5002/users/?id=14&activeChat=true
+    // debugger
     ApiManager.getAll("users", `id=${userId}&activeChat=true`)
-      .then((sctiveUsersArr) => {
-        if (sctiveUsersArr.length !== 0) {
-            ApiManager.getAll("drinks",`sentTo=${userId}&status=accepted`)
-            .then((activeChatsArr)=>{
+      .then((activeUsersArr) => {
+        if (activeUsersArr.length !== 0) {
+          ApiManager.getAll("drinks", `sentTo=${userId}&status=accepted`)
+            .then((activeChatsArr) => {
+              console.log("activeChatsArr", activeChatsArr)
               localStorage.setItem(
                 "active-chat",
                 JSON.stringify(activeChatsArr[0].id)
-            )})
-      }})
+              )
+            })
+        }
+      })
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
       .then((activeUsersArr) => {
