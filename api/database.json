@@ -232,6 +232,27 @@
       "message": "test",
       "sent": "2019-12-17T03:04:18.807Z",
       "id": 3
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "4",
+      "sent": "2019-12-17T03:19:25.059Z",
+      "id": 4
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "5",
+      "sent": "2019-12-17T03:19:33.271Z",
+      "id": 5
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "6",
+      "sent": "2019-12-17T03:19:37.848Z",
+      "id": 6
     }
   ],
   "bars": [

@@ -57,11 +57,23 @@ export class Chat extends Component {
             />
           )
         }
-        <Button variant="contained" color="secondary" onClick={() => {
-          this.props.history.push("/compose")
-        }}>
-          Compose
-          </Button>
+
+{        (this.state.messagesSentCounter + this.state.messagesReceivedCounter) === 6 
+
+? <Button variant="contained" color="secondary" onClick={() => { // reached 6 messages
+  this.handleClose()
+}}>
+  Close
+  </Button>
+
+: <Button variant="contained" color="secondary" onClick={() => { // chat is still active
+  this.props.history.push("/compose")
+}}>
+  Compose
+  </Button>
+}
+       
+       
       </>
     )
   }
