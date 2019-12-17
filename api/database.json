@@ -12,7 +12,7 @@
       "tagLine": "Stich Bitch",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576207308/avatars/asprq33pq2bjpveymllw.jpg",
       "barId": 8,
-      "drinkId": 1,
+      "drinkId": 3,
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
@@ -36,6 +36,24 @@
       "beenReported": 0,
       "chaserCoinCredit": 0,
       "id": 14
+    },
+    {
+      "firstName": "Chase",
+      "lastName": "Fite",
+      "age": "31",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "chase@chase.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Im Chase",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576614852/avatars/lejbmobqlf9e0njoxfzc.png",
+      "barId": 8,
+      "drinkId": 3,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 15
     }
   ],
   "drinks": [
@@ -45,7 +63,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "accepted",
+      "status": "pending",
       "matchTime": "2019-12-17T18:47:57.233Z",
       "id": 1
     },
@@ -58,44 +76,20 @@
       "status": "pending",
       "matchTime": "2019-12-17T18:49:08.027Z",
       "id": 2
+    },
+    {
+      "userId": 15,
+      "sentTo": 8,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-17T20:35:01.498Z",
+      "id": 3
     }
   ],
   "messages": [
-    {
-      "userId": 8,
-      "drinkId": 1,
-      "message": "1",
-      "sent": "2019-12-17T18:48:36.721Z",
-      "id": 1
-    },
-    {
-      "userId": 8,
-      "drinkId": 1,
-      "message": "2",
-      "sent": "2019-12-17T18:48:40.177Z",
-      "id": 2
-    },
-    {
-      "userId": 8,
-      "drinkId": 1,
-      "message": "3",
-      "sent": "2019-12-17T18:48:43.752Z",
-      "id": 3
-    },
-    {
-      "userId": 8,
-      "drinkId": 1,
-      "message": "4",
-      "sent": "2019-12-17T18:48:47.321Z",
-      "id": 4
-    },
-    {
-      "userId": 14,
-      "drinkId": 1,
-      "message": "werewr",
-      "sent": "2019-12-17T19:15:49.645Z",
-      "id": 5
-    }
+   
   ],
   "bars": [
     {

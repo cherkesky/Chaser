@@ -16,28 +16,36 @@ export class Chat extends Component {
   //*****************************************************************************************************
   // Handle Close
   //*****************************************************************************************************
-   handleClose () {
+  handleClose() {
 
-     // the party is over. time to clean up the mess....
+    // the party is over. time to clean up the mess....
 
-      let resetDrinkId = {}
-   
-      resetDrinkId = {   // resetting drinkId for the active user
-        id: this.state.activeUserId,
-        drinkId: 0
-      }
-      console.log("resetDrinkId", resetDrinkId)
-      
-       ApiManager.update("users", resetDrinkId) // PATCH
-       .then(()=>{
-         localStorage.removeItem("active-chat") // remove chat from local storage
+    let resetDrinkId = {}
+
+    resetDrinkId = {   // resetting drinkId for the active user
+      id: this.state.activeUserId,
+      drinkId: 0
+    }
+    console.log("resetDrinkId", resetDrinkId)
+
+    ApiManager.update("users", resetDrinkId) // PATCH
+      .then(() => {
+        for  (let i=0; i<this.state.messages.length; i++){
+           ApiManager.delete("messages", this.state.messages[i].id)// looping and deleting all messages
+             console.log('Message ID:', this.state.messages[i].id )}
+
+        localStorage.removeItem("active-chat") // remove chat from local storage
         this.props.history.push("/senddrinks") // go back to the SendDrinks view
-       })
+      })
 
-      for  (let i=0; i<this.state.messages.length; i++){
-        ApiManager.delete("messages", this.state.messages[i].id)// looping and deleting all messages
-        console.log('Message ID:', this.state.messages[i].id )
-      }
+      // this.state.messages.map(message =>
+      //   ApiManager.delete("messages", this.state.message.id))
+      
+
+    // for  (let i=0; i<this.state.messages.length; i++){
+    //   ApiManager.delete("messages", this.state.messages[i].id)// looping and deleting all messages
+    //   console.log('Message ID:', this.state.messages[i].id )
+    // }
   }
 
   //*****************************************************************************************************
@@ -45,12 +53,10 @@ export class Chat extends Component {
   //*****************************************************************************************************
   componentDidMount() {
 
-
     this.setState({
       activeChatId: parseInt(localStorage.getItem("active-chat")),
       activeUserId: parseInt(localStorage.getItem("userId"))
     })
-
 
 
     setTimeout(() => {
