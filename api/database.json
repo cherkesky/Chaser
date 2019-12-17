@@ -226,7 +226,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "rejected",
       "matchTime": "2019-12-16T01:38:50.344Z",
       "id": 4
     },
@@ -309,6 +309,41 @@
       "message": "ryan look at this",
       "sent": "2019-12-16T22:21:34.393Z",
       "id": 4
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "hbjhvbhjbvhj",
+      "sent": "2019-12-17T02:16:15.753Z",
+      "id": 5
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "jhbjhbvjhv",
+      "sent": "2019-12-17T02:16:20.851Z",
+      "id": 6
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "766",
+      "sent": "2019-12-17T02:16:27.831Z",
+      "id": 7
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "bv vb bv bv",
+      "sent": "2019-12-17T02:17:01.819Z",
+      "id": 8
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "dfdsfsdf",
+      "sent": "2019-12-17T02:29:56.378Z",
+      "id": 9
     }
   ],
   "bars": [
