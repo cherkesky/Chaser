@@ -23,6 +23,7 @@ export class Chat extends Component {
         ApiManager.delete("messages", this.state.messages[i].id)
         console.log('Message ID:', this.state.messages[i].id )
       }
+      this.props.history.push("/senddrinks")
     
     
   }

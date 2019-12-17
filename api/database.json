@@ -12,7 +12,7 @@
       "tagLine": "Stich Bitch",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576207308/avatars/asprq33pq2bjpveymllw.jpg",
       "barId": 8,
-      "drinkId": 1,
+      "drinkId": 4,
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
@@ -31,7 +31,7 @@
       "tagLine": "Guy!!!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576454414/avatars/xftnrqywcasuffzax0gi.jpg",
       "barId": 8,
-      "drinkId": 1,
+      "drinkId": 4,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -48,9 +48,54 @@
       "status": "accepted",
       "matchTime": "2019-12-17T02:57:53.438Z",
       "id": 1
+    },
+    {
+      "userId": 8,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "accepted",
+      "matchTime": "2019-12-17T16:28:39.798Z",
+      "id": 2
+    },
+    {
+      "userId": 14,
+      "sentTo": 8,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-17T16:28:42.619Z",
+      "id": 3
+    },
+    {
+      "userId": 8,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "accepted",
+      "matchTime": "2019-12-17T16:33:35.609Z",
+      "id": 4
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "userId": 14,
+      "drinkId": 4,
+      "message": "1",
+      "sent": "2019-12-17T16:51:20.031Z",
+      "id": 1
+    },
+    {
+      "userId": 14,
+      "drinkId": 4,
+      "message": "2",
+      "sent": "2019-12-17T16:51:23.952Z",
+      "id": 2
+    }
+  ],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",

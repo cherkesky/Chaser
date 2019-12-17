@@ -23,8 +23,6 @@ export class SendDrink extends Component {
 
   sendDrink() {
 
-    // /drinks?sentFrom=1&userId=11&status=pending
-
     ApiManager.getAll("drinks",`sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
     .then((pendingDrinksArr)=>{
       console.log("pendingDrinksArr",pendingDrinksArr)
@@ -43,16 +41,9 @@ export class SendDrink extends Component {
         ApiManager.post("drinks",newDrinkObj)   // creating a new drink entity in the database
       }else{
         window.alert("You already sent this user a drink")
-      }
-      
+      } 
     })
-
-
-   
   }
-
-  
-
 
   //*****************************************************************************************************
   //ComponentDidMount()
@@ -61,6 +52,22 @@ export class SendDrink extends Component {
 
     const barId = localStorage.getItem("active-bar")
     const userId = localStorage.getItem("userId")
+
+
+      // check if there is an active chat 
+          // http://localhost:5002/users/?userId=8&drinkId_ne=0   check if there is an active chat
+
+    ApiManager.getAll("users",`userID=${userId},&drinkId_ne=0`)
+    .then((res)=>{
+      if (res.length!==0){
+        localStorage.setItem(
+          "active-chat",
+          JSON.stringify(res[0].drinkId)
+        )
+      }
+    })
+
+
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
       .then((activeUsersArr) => {
