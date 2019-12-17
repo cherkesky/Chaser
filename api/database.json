@@ -50,7 +50,7 @@
       "tagLine": "Stich Bitch",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576207308/avatars/asprq33pq2bjpveymllw.jpg",
       "barId": 8,
-      "drinkId": 2,
+      "drinkId": 1,
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
@@ -164,7 +164,7 @@
       "tagLine": "Guy!!!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576454414/avatars/xftnrqywcasuffzax0gi.jpg",
       "barId": 8,
-      "drinkId": 2,
+      "drinkId": 1,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -196,29 +196,9 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "rejected",
-      "matchTime": "2019-12-16T00:22:46.360Z",
-      "id": 1
-    },
-    {
-      "userId": 8,
-      "sentTo": 14,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
       "status": "accepted",
-      "matchTime": "2019-12-16T00:22:46.360Z",
-      "id": 2
-    },
-    {
-      "userId": 14,
-      "sentTo": 9,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-16T01:37:10.506Z",
-      "id": 3
+      "matchTime": "2019-12-17T02:57:53.438Z",
+      "id": 1
     },
     {
       "userId": 11,
@@ -227,88 +207,31 @@
       "toggleUserB": true,
       "chatActive": false,
       "status": "pending",
-      "matchTime": "2019-12-16T01:38:50.344Z",
-      "id": 4
-    },
-    {
-      "userId": 14,
-      "sentTo": 4,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-16T02:43:50.241Z",
-      "id": 5
-    },
-    {
-      "userId": 13,
-      "sentTo": 11,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-16T16:12:32.115Z",
-      "id": 6
-    },
-    {
-      "userId": 14,
-      "sentTo": 11,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-16T16:22:08.772Z",
-      "id": 7
-    },
-    {
-      "userId": 14,
-      "sentTo": 13,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-16T16:25:30.862Z",
-      "id": 8
-    },
-    {
-      "userId": 14,
-      "sentTo": 12,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-16T21:22:35.068Z",
-      "id": 9
+      "matchTime": "2019-12-17T02:58:22.360Z",
+      "id": 2
     }
   ],
   "messages": [
     {
-      "id": 1,
+      "userId": 14,
+      "drinkId": 1,
+      "message": "hi",
+      "sent": "2019-12-17T03:02:23.765Z",
+      "id": 1
+    },
+    {
+      "userId": 14,
+      "drinkId": 1,
+      "message": "bye",
+      "sent": "2019-12-17T03:02:28.138Z",
+      "id": 2
+    },
+    {
       "userId": 8,
-      "drinkId": 2,
-      "message": "Hi!",
-      "sent": "2019-12-16T02:43:50.241Z"
-    },
-    {
-      "id": 2,
-      "userId": 14,
-      "drinkId": 2,
-      "message": "Bye!",
-      "sent": "2019-12-16T02:44:50.241Z"
-    },
-    {
-      "userId": 14,
-      "drinkId": 2,
-      "message": "bla bla",
-      "sent": "2019-12-16T22:21:15.970Z",
+      "drinkId": 1,
+      "message": "test",
+      "sent": "2019-12-17T03:04:18.807Z",
       "id": 3
-    },
-    {
-      "userId": 14,
-      "drinkId": 2,
-      "message": "ryan look at this",
-      "sent": "2019-12-16T22:21:34.393Z",
-      "id": 4
     }
   ],
   "bars": [

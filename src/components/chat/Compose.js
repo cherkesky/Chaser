@@ -8,10 +8,7 @@ export class Compose extends Component {
 
   state = {
     composedMessage: '',
-    activeChat: [],
-    messagesSentCounter: 0,
-    messagesReceivedCounter: 0
-
+    activeChat: []
   }
 //*****************************************************************************************************
   // Get Current User ID

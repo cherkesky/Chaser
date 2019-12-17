@@ -7,21 +7,36 @@ export class Chat extends Component {
 
   state = {
     activeChatId: 0,
+    activeUserId: 0,
+    messagesSentCounter: 0,
+    messagesReceivedCounter: 0,
     messages: []
   }
+
+
 //*****************************************************************************************************
  // componentDidMount()
  //*****************************************************************************************************
   componentDidMount() {
+
+
     this.setState({
-      activeChatId: parseInt(localStorage.getItem("active-chat"))
+      activeChatId: parseInt(localStorage.getItem("active-chat")),
+      activeUserId: parseInt(localStorage.getItem("userId"))
     })
+
+
 
     setTimeout(() => {
       ApiManager.getAll("messages", `drinkId=${this.state.activeChatId}&_expand=drink&_sort=sent`)
         .then((messagesArr) => {
+          console.log("messagesArr", messagesArr)
+          let messagesSentArr = messagesArr.filter(message=> 
+            message.userId === this.state.activeUserId)
           this.setState({
-            messages: messagesArr
+            messages: messagesArr,
+            messagesSentCounter: messagesSentArr.length,
+            messagesReceivedCounter: (messagesArr.length - messagesSentArr.length)
           })
         })
     }, 100)
