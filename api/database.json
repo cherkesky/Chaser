@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
-      "activeChat": true,
+      "activeChat": false,
       "id": 8
     },
     {
@@ -33,7 +33,7 @@
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
-      "activeChat": true,
+      "activeChat": false,
       "id": 14
     }
   ],
@@ -59,7 +59,14 @@
       "id": 2
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "userId": 14,
+      "message": "1",
+      "sent": "2019-12-17T21:55:41.002Z",
+      "id": 1
+    }
+  ],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",
