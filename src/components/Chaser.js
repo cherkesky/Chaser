@@ -30,12 +30,10 @@ export class Chaser extends Component {
       "credentials",
       JSON.stringify(authObj)
     )
-    console.log("1")
     this.setState({
       user: this.isAuthenticated(),
       userId: authObj.userId,
     })
-    console.log("2")
 
     ApiManager.get("users", loggedInUserId())
     .then((usersObj) => {
@@ -45,9 +43,6 @@ export class Chaser extends Component {
         }
       )
     })
-    console.log("3")
-
-     
     
     ApiManager.getAll("drinks", `sentTo=${loggedInUserId()}&status=pending&_expand=user`)
         .then((pendingDrinksArr) => {
