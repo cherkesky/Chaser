@@ -59,8 +59,9 @@ updateExistingProfile = () => {
   };
 
   ApiManager.update("users", (editedProfile)) // API PUT call
-  .then(() => this.props.history.push("/checkin"))  // re-routing
-    // .then(() => this.props.history.goback())  // NEED TO TRY WITH GOBACK() INSTEAD
+    .then(() => {
+      this.props.history.goBack()
+     }) // Go back to the last view
 
 }
 
@@ -68,7 +69,6 @@ updateExistingProfile = () => {
 //componentDidMount()
 //******************************************************************************
 componentDidMount() {
-  console.log(this.props)
   ApiManager.get("users", this.loggedInUserId())
   .then(user => {
       this.setState({
@@ -89,7 +89,6 @@ componentDidMount() {
   // Render()
   //*****************************************************************************************************
   render() {
-    //const { selected } = this.state;
     const { firstName, lastName, age, tagLine, gender, genderInterested } = this.state;
     const isEnabled = firstName !=="" && lastName !=="" && age !=="" && tagLine !=="" && gender !=="" && genderInterested!==""
 

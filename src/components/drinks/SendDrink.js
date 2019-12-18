@@ -14,7 +14,8 @@ export class SendDrink extends Component {
     barId: 0,
     barName: '',
     userId: 0,
-    selectedUser: 0
+    selectedUser: 0,
+    genderInterested: ''
   }
 
   //*****************************************************************************************************
@@ -22,7 +23,6 @@ export class SendDrink extends Component {
   //*****************************************************************************************************
 
   sendDrink() {
-    // debugger
 
     if (localStorage.getItem("active-chat") === null) // checking if there is no active chat first
     {
@@ -62,14 +62,18 @@ export class SendDrink extends Component {
 
     const barId = localStorage.getItem("active-bar")
     const userId = localStorage.getItem("userId")
+
+    // set the right gender the user interested in state
+    ApiManager.get("users",`${userId}`)
+    .then((userArr)=>{
+      this.setState({
+        genderInterested: userArr.genderInterested
+      })
+    })
    
     // check if there is an active chat that skipped local storage
-    // http://localhost:5002/users/?id=14&activeChat=true
-    // debugger
     ApiManager.getAll("users", `id=${userId}&activeChat=true`)
       .then((activeUsersArr) => {
-        console.log("activeUsersArr", activeUsersArr)
-
         if (activeUsersArr.length !== 0) {
           ApiManager.getAll("drinks", `userId=${userId}&status=accepted`)
             .then((activeChatsArr) => {
@@ -91,13 +95,22 @@ export class SendDrink extends Component {
         })
       })
       .then(() => {
-        let usersThatArentMe = this.state.activeUsers    // exclude the logged im user from the array
+        let usersThatArentMe = this.state.activeUsers    // excluding the logged in user from the array
+        
         usersThatArentMe = usersThatArentMe.filter((user) =>
           user.id !== parseInt(this.state.userId))
+          console.log("usersThatArentMe",usersThatArentMe)
+
+          let usersFromMyFavGender = usersThatArentMe.filter((user) => 
+          user.gender === this.state.genderInterested ) // excluding the gender the user not interested in 
+
+          console.log("usersFromMyFavGender",usersFromMyFavGender)
+
         this.setState({
-          activeUsers: usersThatArentMe  // setting the state accordinglly
+          activeUsers: usersFromMyFavGender  // setting the state accordinglly
         })
-      })
+
+        })
 
     ApiManager.get("bars", barId)
       .then((BarInfoArr) => {    // get the bar name for the header
@@ -124,7 +137,7 @@ export class SendDrink extends Component {
           displayQuantityOfSide={0.5}
           navigation={false}
           infiniteScroll={true}
-          enableHeading={false}
+          enableHeading={true}
           clickable={true}
         >
           {this.state.activeUsers.map((activeUser) => { // populating the images

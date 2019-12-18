@@ -103,7 +103,6 @@ export class CheckIn extends Component {
       )
         
       ApiManager.update("users", checkinObj)
-      .then ()
       .then(this.props.history.push("/senddrinks"))
       
     })
