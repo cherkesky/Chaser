@@ -42,6 +42,21 @@ export class Chaser extends Component {
    }
 
   render() {
+
+    console.log("      .")
+    console.log("     .")
+    console.log("  . .")
+    console.log("  ...")
+    console.log("\\~~~~~/")
+    console.log(" \\   /")
+    console.log("  \\ /")
+    console.log("   V")
+    console.log("   |")
+    console.log("   |")
+    console.log("  ---")
+
+
+
     return (
       <React.Fragment>
         <NavBar user={this.state.user} userId={this.state.userId}clearUser={this.clearUser} />

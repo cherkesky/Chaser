@@ -9,7 +9,7 @@ import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
 export class SendDrink extends Component {
 
   state = {
-    activeUsers: [], 
+    activeUsers: [],
     buttonDisabled: true,
     barId: 0,
     barName: '',
@@ -22,37 +22,38 @@ export class SendDrink extends Component {
   //*****************************************************************************************************
 
   sendDrink() {
+    // debugger
 
-    // /drinks?sentFrom=1&userId=11&status=pending
+    if (localStorage.getItem("active-chat") === null) // checking if there is no active chat first
+    {
+      // no active chat 
+      ApiManager.getAll("drinks", `sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
 
-    ApiManager.getAll("drinks",`sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
-    .then((pendingDrinksArr)=>{
-      console.log("pendingDrinksArr",pendingDrinksArr)
-      if (pendingDrinksArr.length === 0) {
-        console.log("User:", this.state.userId, "sent a drink to:", this.state.selectedUser)
-    
-        const newDrinkObj = {
-          userId: parseInt(this.state.userId),
-          sentTo: this.state.selectedUser,
-          toggleUserA: false,
-          toggleUserB: true,
-          chatActive: false,
-          status: "pending",
-          matchTime: createDateTimeToISO()
-        }
-        ApiManager.post("drinks",newDrinkObj)   // creating a new drink entity in the database
-      }else{
-        window.alert("You already sent this user a drink")
-      }
-      
-    })
+        .then((pendingDrinksArr) => {
+          console.log("pendingDrinksArr", pendingDrinksArr)
+          if (pendingDrinksArr.length === 0) {     // check if there is already a drink request for the user
+            console.log("User:", this.state.userId, "sent a drink to:", this.state.selectedUser)
 
+            const newDrinkObj = { // preparing the new drink obj
+              userId: parseInt(this.state.userId),
+              sentTo: this.state.selectedUser,
+              toggleUserA: false,
+              toggleUserB: true,
+              chatActive: false,
+              status: "pending",
+              matchTime: createDateTimeToISO()
+            }
+            ApiManager.post("drinks", newDrinkObj)   // POSTing a new drink entity in the database
+          } else {
+            window.alert("You already sent this user a drink")
+          }
+        })
 
-   
+    } else {
+      window.alert("SOMEONE APPROVED YOUR DRINK!")
+      this.props.history.push("/chat") // hijacking the user to Chat if there is chat
+    }
   }
-
-  
-
 
   //*****************************************************************************************************
   //ComponentDidMount()
@@ -61,6 +62,25 @@ export class SendDrink extends Component {
 
     const barId = localStorage.getItem("active-bar")
     const userId = localStorage.getItem("userId")
+   
+    // check if there is an active chat that skipped local storage
+    // http://localhost:5002/users/?id=14&activeChat=true
+    // debugger
+    ApiManager.getAll("users", `id=${userId}&activeChat=true`)
+      .then((activeUsersArr) => {
+        console.log("activeUsersArr", activeUsersArr)
+
+        if (activeUsersArr.length !== 0) {
+          ApiManager.getAll("drinks", `userId=${userId}&status=accepted`)
+            .then((activeChatsArr) => {
+              console.log("activeChatsArr", activeChatsArr)
+              localStorage.setItem(
+                "active-chat",
+                JSON.stringify(activeChatsArr[0].id)
+              )
+            })
+        }
+      })
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
       .then((activeUsersArr) => {
@@ -71,7 +91,6 @@ export class SendDrink extends Component {
         })
       })
       .then(() => {
-
         let usersThatArentMe = this.state.activeUsers    // exclude the logged im user from the array
         usersThatArentMe = usersThatArentMe.filter((user) =>
           user.id !== parseInt(this.state.userId))

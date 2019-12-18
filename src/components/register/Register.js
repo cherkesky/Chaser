@@ -88,7 +88,7 @@ export class Register extends Component {
         tagLine: this.state.tagLine,
         avatarUrl: this.state.avatarUrl,
         barId: 0,
-        drinkId: 0,
+        activeChat: false,
         timeOut: false,
         beenReported: 0,
         chaserCoinCredit: 0
