@@ -21,37 +21,13 @@ const useStyles = theme => ({
 });
 
 export class Navbar extends Component {
-  // state = {
-  //   users: [],
-  //   drinkNotif: 0
-
-  // }
+  
 
   //*****************************************************************************************************
   // Get Current User ID
   //*****************************************************************************************************
   loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
 
-
-  //*****************************************************************************************************
-  // componentDidMount()
-  //*****************************************************************************************************
-  // componentDidMount() {
-  //   ApiManager.get("users", this.loggedInUserId())
-  //     .then((usersObj) => {
-  //       this.setState(
-  //         {
-  //           users: usersObj
-  //         }
-  //       )
-  //       ApiManager.getAll("drinks", `sentTo=${this.loggedInUserId()}&status=pending&_expand=user`)
-  //         .then((pendingDrinksArr) => {
-  //           this.setState({
-  //             drinkNotif: pendingDrinksArr.length
-  //           })
-  //         })
-  //     })
-  // }
 
   //*****************************************************************************************************
   // Render()

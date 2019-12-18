@@ -16,12 +16,9 @@ export class Chaser extends Component {
     drinkNotif: 0
   }
 
-  
-
   //check for logged in user in local storage
   isAuthenticated = () => localStorage.getItem("credentials") !== null
 
-  //add entered or unentered user info into localStorage and calls isAuthenticated
 
   //*****************************************************************************************************
   // Set User
@@ -87,23 +84,6 @@ export class Chaser extends Component {
 
     })
 
-    // ApiManager.get("users", this.loggedInUserId())
-    //   .then((usersObj) => {
-    //     this.setState(
-    //       {
-    //         users: usersObj
-    //       }
-    //     )
-    //   })
-       
-      
-    //   ApiManager.getAll("drinks", `sentTo=${this.loggedInUserId()}&status=pending&_expand=user`)
-    //       .then((pendingDrinksArr) => {
-    //         this.setState({
-    //           drinkNotif: pendingDrinksArr.length
-    //         })
-    //       })
-      
   } // componentDidMount() closer
 
 
