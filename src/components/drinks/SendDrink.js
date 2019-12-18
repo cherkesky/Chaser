@@ -124,7 +124,7 @@ export class SendDrink extends Component {
           displayQuantityOfSide={0.5}
           navigation={false}
           infiniteScroll={true}
-          enableHeading={false}
+          enableHeading={true}
           clickable={true}
         >
           {this.state.activeUsers.map((activeUser) => { // populating the images

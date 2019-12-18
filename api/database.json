@@ -33,8 +33,134 @@
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
-      "activeChat": true,
+      "activeChat": false,
       "id": 14
+    },
+    {
+      "firstName": "Julian",
+      "lastName": "Garcia",
+      "age": "32",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "julian@julian.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Julian",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576641140/avatars/k08s6nvyrlk2vaax0a96.jpg",
+      "barId": 8,
+      "activeChat": true,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 15
+    },
+    {
+      "firstName": "Caroline",
+      "lastName": "Brownlee",
+      "age": "32",
+      "gender": "female",
+      "genderInterested": "male",
+      "email": "caroline@caroline.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Caroline",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576641192/avatars/ij7kq1atdl2vffqyeaof.jpg",
+      "barId": 8,
+      "activeChat": false,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 16
+    },
+    {
+      "firstName": "Charles",
+      "lastName": "Jackson",
+      "age": "32",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "charles@charles.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Charles",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576641269/avatars/s2qa0ox0m8jgd7xegxie.png",
+      "barId": 8,
+      "activeChat": false,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 17
+    },
+    {
+      "firstName": "John",
+      "lastName": "Long",
+      "age": "46",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "john@john.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "John",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576641340/avatars/nck4ag1xssd9kcmr534z.png",
+      "barId": 8,
+      "activeChat": false,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 18
+    },
+    {
+      "firstName": "Melody",
+      "lastName": "FakeName",
+      "age": "34",
+      "gender": "female",
+      "genderInterested": "male",
+      "email": "melody@melody.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Feeling cute... might do Python later... ;)",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576683864/avatars/dxkddqsdirbffmtay8xj.png",
+      "barId": 8,
+      "activeChat": false,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 19
+    },
+    {
+      "firstName": "John",
+      "lastName": "Wark",
+      "age": "22",
+      "gender": "male",
+      "genderInterested": "female",
+      "email": "john@mail1.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "NSS",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576685314/avatars/uyvtzogsdwvkvd7ljw4k.png",
+      "barId": 0,
+      "activeChat": false,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 20
+    },
+    {
+      "firstName": "Cassie",
+      "lastName": "Boys",
+      "age": "21",
+      "gender": "female",
+      "genderInterested": "male",
+      "email": "cassie@cassie.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "NSS is the best",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576687013/avatars/mrxvpqqioq1krwni21c3.png",
+      "barId": 8,
+      "activeChat": false,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 21
     }
   ],
   "drinks": [
@@ -87,9 +213,78 @@
       "status": "completed",
       "matchTime": "2019-12-18T01:48:29.741Z",
       "id": 5
+    },
+    {
+      "userId": 16,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-18T15:19:11.224Z",
+      "id": 6
+    },
+    {
+      "userId": 19,
+      "sentTo": 8,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-18T15:45:26.939Z",
+      "id": 7
+    },
+    {
+      "userId": 19,
+      "sentTo": 15,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-18T15:45:41.198Z",
+      "id": 8
+    },
+    {
+      "userId": 19,
+      "sentTo": 15,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-18T16:05:42.681Z",
+      "id": 9
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "userId": 19,
+      "drinkId": 8,
+      "message": "Hi Julian!!!",
+      "sent": "2019-12-18T15:47:29.987Z",
+      "id": 2
+    },
+    {
+      "userId": 19,
+      "drinkId": 9,
+      "message": "3",
+      "sent": "2019-12-18T16:06:36.330Z",
+      "id": 5
+    },
+    {
+      "userId": 19,
+      "drinkId": 9,
+      "message": "4",
+      "sent": "2019-12-18T16:06:39.093Z",
+      "id": 6
+    },
+    {
+      "userId": 19,
+      "drinkId": 9,
+      "message": "5",
+      "sent": "2019-12-18T16:06:41.537Z",
+      "id": 7
+    }
+  ],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",
@@ -162,6 +357,14 @@
       "barAddress": "26 Main Street, Cape Girardeau",
       "chaserCoinCredit": 0,
       "id": 9
+    },
+    {
+      "apiPlaceId": "ChIJJUN-5ZHJ5zsROZuci3TX-ks",
+      "openNow": true,
+      "barName": "तोलाराम सुथार",
+      "barAddress": "Kurla West, Kismat Nagar, Mumbai",
+      "chaserCoinCredit": 0,
+      "id": 10
     }
   ]
 }

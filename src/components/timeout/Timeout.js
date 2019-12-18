@@ -67,11 +67,15 @@ export class Timeout extends Component {
           displayQuantityOfSide={0.5}
           navigation={false}
           infiniteScroll={true}
-          enableHeading={false}
+          enableHeading={true}
           clickable={true}
         >
           {this.state.activeUsers.map((activeUser) => { // populating the images
-            return <img key={activeUser.id} id={activeUser.id} src={"https://res.cloudinary.com/datyxctgm/image/upload/v1576634091/avatars/jeptcdonjkhja5u3qndh.png"} alt={activeUser.tagLine} onClick={() => {
+            return <img key={activeUser.id}
+             id={activeUser.id}
+            src={"https://res.cloudinary.com/datyxctgm/image/upload/v1576634091/avatars/jeptcdonjkhja5u3qndh.png"} 
+            alt={activeUser.tagLine} 
+            onClick={() => {
               this.setState({
                 selectedUser: activeUser.id  // setting the selected user in state
               })
@@ -82,14 +86,13 @@ export class Timeout extends Component {
         </Coverflow>
 
         <Button variant="contained" color="secondary" disabled={!isEnabled} onClick={() => {
-          this.props.history.push("/checkin")
+          this.props.history.push("/senddrinks")
         }}>
-          Timed Out Until: 
+          Timed Out Ends In: 
           <Countdown 
           // date={Date.now() + 1800000}  // 30min
           date={Date.now() + 10000} 
           renderer={renderer}
-          // controlled ={true}
           onComplete={()=>{
             this.setState({
               buttonDisabled: false
@@ -97,7 +100,6 @@ export class Timeout extends Component {
           }}
           >
           </Countdown>
-
         </Button>
       </div>
     )
