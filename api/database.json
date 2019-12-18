@@ -131,7 +131,7 @@
       "lastName": "Wark",
       "age": "22",
       "gender": "male",
-      "genderInterested": "other",
+      "genderInterested": "female",
       "email": "wark@wark.com",
       "password": "123",
       "ageRange": 0,

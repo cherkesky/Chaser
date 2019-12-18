@@ -99,9 +99,12 @@ export class SendDrink extends Component {
         
         usersThatArentMe = usersThatArentMe.filter((user) =>
           user.id !== parseInt(this.state.userId))
+          console.log("usersThatArentMe",usersThatArentMe)
 
           let usersFromMyFavGender = usersThatArentMe.filter((user) => 
-          user.genderInterested !== this.state.genderInterested ) // excluding the gender the user not interested in 
+          user.gender === this.state.genderInterested ) // excluding the gender the user not interested in 
+
+          console.log("usersFromMyFavGender",usersFromMyFavGender)
 
         this.setState({
           activeUsers: usersFromMyFavGender  // setting the state accordinglly
