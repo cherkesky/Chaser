@@ -5,10 +5,13 @@ import Countdown from 'react-countdown-now';
 import Button from '@material-ui/core/Button';
 
 
-const renderer = ({minutes, seconds }) => {
-  
-    return <span>{minutes}:{seconds}</span>;
-  }
+//*****************************************************************************************************
+// Render Time
+//*****************************************************************************************************
+const renderer = ({ minutes, seconds }) => {
+
+  return <span>{minutes}:{seconds}</span>;
+}
 
 
 
@@ -24,8 +27,6 @@ export class Timeout extends Component {
 
     const barId = localStorage.getItem("active-bar")
     const userId = localStorage.getItem("userId")
-
-
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
       .then((activeUsersArr) => {
@@ -72,32 +73,31 @@ export class Timeout extends Component {
         >
           {this.state.activeUsers.map((activeUser) => { // populating the images
             return <img key={activeUser.id}
-             id={activeUser.id}
-            src={"https://res.cloudinary.com/datyxctgm/image/upload/v1576634091/avatars/jeptcdonjkhja5u3qndh.png"} 
-            alt={activeUser.tagLine} 
-            onClick={() => {
-              this.setState({
-                selectedUser: activeUser.id  // setting the selected user in state
-              })
-            }} />
+              id={activeUser.id}
+              src={"https://res.cloudinary.com/datyxctgm/image/upload/v1576634091/avatars/jeptcdonjkhja5u3qndh.png"}
+              alt={activeUser.tagLine}
+              onClick={() => {
+                this.setState({
+                  selectedUser: activeUser.id  // setting the selected user in state
+                })
+              }} />
           })}
-
 
         </Coverflow>
 
         <Button variant="contained" color="secondary" disabled={!isEnabled} onClick={() => {
-          this.props.history.push("/senddrinks")
+          this.props.history.push("/senddrinks")     // routing back to the drinks view
         }}>
-          Timed Out Ends In: 
-          <Countdown 
-          // date={Date.now() + 1800000}  // 30min
-          date={Date.now() + 10000} 
-          renderer={renderer}
-          onComplete={()=>{
-            this.setState({
-              buttonDisabled: false
-            })
-          }}
+          Timed Out Ends In:
+          <Countdown
+            // date={Date.now() + 1800000}  // 30min timeout
+            date={Date.now() + 10000}
+            renderer={renderer}
+            onComplete={() => {
+              this.setState({
+                buttonDisabled: false
+              })
+            }}
           >
           </Countdown>
         </Button>
