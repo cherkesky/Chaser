@@ -179,6 +179,24 @@
       "beenReported": 0,
       "chaserCoinCredit": 0,
       "id": 22
+    },
+    {
+      "firstName": "Erin",
+      "lastName": "Polley",
+      "age": "34",
+      "gender": "female",
+      "genderInterested": "male",
+      "email": "erin@erin.com",
+      "password": "123",
+      "ageRange": 0,
+      "tagLine": "Erin!!!!!!",
+      "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576700305/avatars/koc3bdusi7jnohsawkp4.png",
+      "barId": 8,
+      "activeChat": false,
+      "timeOut": false,
+      "beenReported": 0,
+      "chaserCoinCredit": 0,
+      "id": 23
     }
   ],
   "drinks": [
@@ -271,38 +289,19 @@
       "status": "completed",
       "matchTime": "2019-12-18T16:05:42.681Z",
       "id": 9
+    },
+    {
+      "userId": 23,
+      "sentTo": 15,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-18T20:20:36.891Z",
+      "id": 10
     }
   ],
-  "messages": [
-    {
-      "userId": 19,
-      "drinkId": 8,
-      "message": "Hi Julian!!!",
-      "sent": "2019-12-18T15:47:29.987Z",
-      "id": 2
-    },
-    {
-      "userId": 19,
-      "drinkId": 9,
-      "message": "3",
-      "sent": "2019-12-18T16:06:36.330Z",
-      "id": 5
-    },
-    {
-      "userId": 19,
-      "drinkId": 9,
-      "message": "4",
-      "sent": "2019-12-18T16:06:39.093Z",
-      "id": 6
-    },
-    {
-      "userId": 19,
-      "drinkId": 9,
-      "message": "5",
-      "sent": "2019-12-18T16:06:41.537Z",
-      "id": 7
-    }
-  ],
+  "messages": [],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",

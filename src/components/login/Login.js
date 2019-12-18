@@ -23,14 +23,16 @@ export class Login extends Component {
 		const { email, password } = this.state
 		ApiManager.getAll("users", `email=${email}&password=${password}`)
 		.then((user) => {
+      const userId = user[0].id
+      localStorage.setItem("userId", parseInt(userId))
+        
 			if (user.length > 0){
 				this.props.setUser({
 					email: email,
 					password: password,
 					userId: user[0].id
 				});
-				const userId = user[0].id
-				localStorage.setItem("userId", parseInt(userId))
+				
 				this.props.history.push('/checkin');
 			} else {
 				window.alert("Email and password not valid. Please try again")

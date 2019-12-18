@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router-dom"
-import ApiManager from '../../modules/ApiManager';
+// import ApiManager from '../../modules/ApiManager';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import AppBar from '@material-ui/core/AppBar';
@@ -21,11 +21,11 @@ const useStyles = theme => ({
 });
 
 export class Navbar extends Component {
-  state = {
-    users: {},
-    drinkNotif: 0
+  // state = {
+  //   users: [],
+  //   drinkNotif: 0
 
-  }
+  // }
 
   //*****************************************************************************************************
   // Get Current User ID
@@ -36,29 +36,33 @@ export class Navbar extends Component {
   //*****************************************************************************************************
   // componentDidMount()
   //*****************************************************************************************************
-  componentDidMount() {
-    ApiManager.get("users", this.loggedInUserId())
-      .then((usersObj) => {
-        this.setState(
-          {
-            users: usersObj
-          }
-        )
-        ApiManager.getAll("drinks", `sentTo=${this.loggedInUserId()}&status=pending&_expand=user`)
-          .then((pendingDrinksArr) => {
-            this.setState({
-              drinkNotif: pendingDrinksArr.length
-            })
-          })
-      })
-  }
+  // componentDidMount() {
+  //   ApiManager.get("users", this.loggedInUserId())
+  //     .then((usersObj) => {
+  //       this.setState(
+  //         {
+  //           users: usersObj
+  //         }
+  //       )
+  //       ApiManager.getAll("drinks", `sentTo=${this.loggedInUserId()}&status=pending&_expand=user`)
+  //         .then((pendingDrinksArr) => {
+  //           this.setState({
+  //             drinkNotif: pendingDrinksArr.length
+  //           })
+  //         })
+  //     })
+  // }
 
   //*****************************************************************************************************
   // Render()
   //*****************************************************************************************************
-
   render() {
-    const profileImageUrl = this.state.users.avatarUrl ? this.state.users.avatarUrl : "https://res.cloudinary.com/datyxctgm/image/upload/v1576165373/avatars/ofnmyyqseai0ho13jo4s.png" // noimage avatar
+    const profileImageUrl = this.props.users.avatarUrl 
+
+  //   ? this.state.users.avatarUrl
+  //  : "https://res.cloudinary.com/datyxctgm/image/upload/v1576165373/avatars/ofnmyyqseai0ho13jo4s.png" // noimage avatar
+
+
     const { classes } = this.props; // material ui styling dependency
 
     // console.log(this.state)    // <------------------------ run 3 times onload???
@@ -71,11 +75,11 @@ export class Navbar extends Component {
               <Toolbar>
                 <div className={classes.root}>
                   {/* Avatar */}
-                  <Badge className={classes.margin} badgeContent={this.state.drinkNotif} color="secondary">
+                  <Badge className={classes.margin} badgeContent={this.props.drinkNotif} color="secondary">
                     <Avatar alt="Avatar" src={(profileImageUrl)} variant="circle" // Show avatar with notif
                       className={classes.bigAvatar}
                       onClick={() => { 
-                        (this.state.drinkNotif===0) ? window.alert("No pending drinks") : this.props.history.push("/pendingdrinks") }}
+                        (this.props.drinkNotif===0) ? window.alert("No pending drinks") : this.props.history.push("/pendingdrinks") }}
                     /></Badge>
                   {/* Logo */}
                   <img alt="logo" src={require("../../assets/ChaserLogo.png")} width="200px" height="40px" onClick={() => { this.props.history.push("/checkin") }}></img>  
