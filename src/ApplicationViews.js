@@ -9,6 +9,7 @@ import SendDrink from "./components/drinks/SendDrink"
 import PendingDrinks from "./components/drinks/PendingDrinks"
 import Chat from "./components/chat/Chat"
 import Compose from "./components/chat/Compose"
+import Timeout from "./components/timeout/Timeout"
 
 export class ApplicationViews extends Component {
   render() {
@@ -59,6 +60,11 @@ export class ApplicationViews extends Component {
        <Route
         exact path="/compose" render={props => {
           return <Compose {...props} />
+        }}
+      />
+      <Route
+        exact path="/timeout" render={props => {
+          return <Timeout {...props} />
         }}
       />
       </React.Fragment>
