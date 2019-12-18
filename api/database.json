@@ -64,9 +64,19 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "completed",
       "matchTime": "2019-12-17T23:31:15.637Z",
       "id": 3
+    },
+    {
+      "userId": 8,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-18T01:05:39.536Z",
+      "id": 4
     }
   ],
   "messages": [],
