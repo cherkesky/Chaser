@@ -77,6 +77,16 @@
       "status": "completed",
       "matchTime": "2019-12-18T01:05:39.536Z",
       "id": 4
+    },
+    {
+      "userId": 8,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-18T01:48:29.741Z",
+      "id": 5
     }
   ],
   "messages": [],
