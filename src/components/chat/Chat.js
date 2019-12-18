@@ -44,7 +44,7 @@ export class Chat extends Component {
      })
      .then(()=>{
       localStorage.removeItem("active-chat") // remove chat from local storage
-      this.props.history.push("/senddrinks") // go back to the SendDrinks view
+      this.props.history.push("/timeout") // go back to the SendDrinks view
      })
      
   }
