@@ -9,7 +9,7 @@
       "email": "caty@caty.com",
       "password": "123",
       "ageRange": 0,
-      "tagLine": "Stich Bitch",
+      "tagLine": "I like Knitting",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576207308/avatars/asprq33pq2bjpveymllw.jpg",
       "barId": 8,
       "timeOut": false,
@@ -29,7 +29,7 @@
       "ageRange": 0,
       "tagLine": "Guy!!!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576454414/avatars/xftnrqywcasuffzax0gi.jpg",
-      "barId": 8,
+      "barId": 0,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -167,7 +167,7 @@
       "lastName": "Pita",
       "age": "26",
       "gender": "female",
-      "genderInterested": "other",
+      "genderInterested": "female",
       "email": "sam@sam.com",
       "password": "123",
       "ageRange": 0,
@@ -299,6 +299,46 @@
       "status": "completed",
       "matchTime": "2019-12-18T20:20:36.891Z",
       "id": 10
+    },
+    {
+      "userId": 14,
+      "sentTo": 19,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-19T01:35:02.908Z",
+      "id": 11
+    },
+    {
+      "userId": 14,
+      "sentTo": 16,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-19T01:35:12.165Z",
+      "id": 12
+    },
+    {
+      "userId": 14,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-19T01:36:10.114Z",
+      "id": 13
+    },
+    {
+      "userId": 8,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-19T01:38:11.192Z",
+      "id": 14
     }
   ],
   "messages": [],

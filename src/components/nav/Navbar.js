@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router-dom"
-// import ApiManager from '../../modules/ApiManager';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import AppBar from '@material-ui/core/AppBar';
@@ -34,14 +33,8 @@ export class Navbar extends Component {
   //*****************************************************************************************************
   render() {
     const profileImageUrl = this.props.users.avatarUrl 
-
-  //   ? this.state.users.avatarUrl
-  //  : "https://res.cloudinary.com/datyxctgm/image/upload/v1576165373/avatars/ofnmyyqseai0ho13jo4s.png" // noimage avatar
-
-
     const { classes } = this.props; // material ui styling dependency
 
-    // console.log(this.state)    // <------------------------ run 3 times onload???
     return (
       <>
         {
@@ -77,4 +70,3 @@ export class Navbar extends Component {
 }
 export default withRouter(withStyles(useStyles)(Navbar))
 
-// export default Navbar
