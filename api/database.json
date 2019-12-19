@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
-      "activeChat": false,
+      "activeChat": true,
       "id": 8
     },
     {
@@ -29,7 +29,7 @@
       "ageRange": 0,
       "tagLine": "Guy!!!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576454414/avatars/xftnrqywcasuffzax0gi.jpg",
-      "barId": 0,
+      "barId": 8,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -66,7 +66,7 @@
       "tagLine": "Caroline",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576641192/avatars/ij7kq1atdl2vffqyeaof.jpg",
       "barId": 8,
-      "activeChat": false,
+      "activeChat": true,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -120,7 +120,7 @@
       "tagLine": "Feeling cute... might do Python later... ;)",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576683864/avatars/dxkddqsdirbffmtay8xj.png",
       "barId": 8,
-      "activeChat": false,
+      "activeChat": true,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -192,7 +192,7 @@
       "tagLine": "Erin!!!!!!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576700305/avatars/koc3bdusi7jnohsawkp4.png",
       "barId": 8,
-      "activeChat": false,
+      "activeChat": true,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -256,7 +256,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "accepted",
       "matchTime": "2019-12-18T15:19:11.224Z",
       "id": 6
     },
@@ -306,7 +306,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "completed",
       "matchTime": "2019-12-19T01:35:02.908Z",
       "id": 11
     },
@@ -326,7 +326,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "completed",
       "matchTime": "2019-12-19T01:36:10.114Z",
       "id": 13
     },
@@ -336,12 +336,111 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "completed",
       "matchTime": "2019-12-19T01:38:11.192Z",
       "id": 14
+    },
+    {
+      "userId": 14,
+      "sentTo": 23,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-19T21:49:20.675Z",
+      "id": 15
+    },
+    {
+      "userId": 14,
+      "sentTo": 19,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-19T22:52:42.660Z",
+      "id": 16
+    },
+    {
+      "userId": 22,
+      "sentTo": 23,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-19T22:56:47.221Z",
+      "id": 17
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "userId": 14,
+      "drinkId": 6,
+      "message": "sdfdsfdsf",
+      "sent": "2019-12-19T22:21:00.750Z",
+      "id": 1
+    },
+    {
+      "userId": 14,
+      "drinkId": 6,
+      "message": "qwewqeqwe",
+      "sent": "2019-12-19T22:21:06.998Z",
+      "id": 2
+    },
+    {
+      "userId": 14,
+      "message": "dsfdsfsf",
+      "sent": "2019-12-19T22:32:59.921Z",
+      "id": 3
+    },
+    {
+      "userId": 22,
+      "drinkId": 13,
+      "message": "Hi",
+      "sent": "2019-12-19T22:45:56.968Z",
+      "id": 6
+    },
+    {
+      "userId": 22,
+      "drinkId": 13,
+      "message": "fjkbadss",
+      "sent": "2019-12-19T22:46:00.916Z",
+      "id": 7
+    },
+    {
+      "userId": 22,
+      "drinkId": 13,
+      "message": "dsadsadasd",
+      "sent": "2019-12-19T22:46:05.005Z",
+      "id": 8
+    },
+    {
+      "userId": 22,
+      "drinkId": 13,
+      "message": "dsadasdasd",
+      "sent": "2019-12-19T22:46:08.952Z",
+      "id": 9
+    },
+    {
+      "userId": 22,
+      "drinkId": 13,
+      "message": "asdasdasdasd",
+      "sent": "2019-12-19T22:46:12.733Z",
+      "id": 10
+    },
+    {
+      "userId": 22,
+      "drinkId": 13,
+      "message": "asdsadad",
+      "sent": "2019-12-19T22:46:16.454Z",
+      "id": 11
+    },
+    {
+      "userId": 22,
+      "message": "rewrwr",
+      "sent": "2019-12-19T22:49:11.858Z",
+      "id": 12
+    }
+  ],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",
@@ -422,6 +521,14 @@
       "barAddress": "Kurla West, Kismat Nagar, Mumbai",
       "chaserCoinCredit": 0,
       "id": 10
+    },
+    {
+      "apiPlaceId": "ChIJmUfCrotmZIgR26Qv7ecU6LQ",
+      "openNow": false,
+      "barName": "Gertie's Bar",
+      "barAddress": "507 12th Avenue South Fl 1, Nashville",
+      "chaserCoinCredit": 0,
+      "id": 11
     }
   ]
 }

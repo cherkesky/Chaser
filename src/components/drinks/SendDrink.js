@@ -5,6 +5,25 @@ import Coverflow from 'react-coverflow';
 import Button from '@material-ui/core/Button';
 import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
 
+const styles = {
+  parent: {
+    height: 732,
+    width: 375,
+    marginTop: "auto",
+    background: "lightgray",
+    display: "flex",
+    flexDirection: "column",
+    position: 'relative',
+  },
+  buttons: {
+    height: 50,
+    marginTop: "auto",
+    display: 'flex',
+    flexDirection: 'column',
+  }
+  
+}
+
 
 export class SendDrink extends Component {
 
@@ -125,7 +144,7 @@ export class SendDrink extends Component {
 
     return (
       <>
-
+        <div  style={styles.parent}>
         <h3>{this.state.barName}</h3>
 
         <Coverflow                // Image carousel initialization
@@ -147,13 +166,15 @@ export class SendDrink extends Component {
 
 
         </Coverflow>
-
-        <Button variant="contained" color="secondary" disabled={!isEnabled} onClick={() => {
+       
+        <Button variant="contained" color="secondary" disabled={!isEnabled}
+        style={styles.buttons}
+        onClick={() => {
           this.sendDrink()
         }}>
           {<LocalBarOutlinedIcon />}
         </Button>
-
+        </div>
       </>
     )
   }

@@ -4,8 +4,34 @@ import Button from '@material-ui/core/Button';
 import Coverflow from 'react-coverflow';
 import Container from '@material-ui/core/Container';
 
+const styles = {
+  parent: {
+    height: 732,
+    width: 375,
+    marginTop: "auto",
+    background: "lightgray",
+    display: "flex",
+    flexDirection: "column",
+    position: 'relative',
+    alignItems: "baseline",
+
+  },
+   buttonsgroup: {
+    marginTop: "auto",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'baseline',
+    padding: 30
+  },
+
+   buttons: {
+    height: 50,
+  }
+
+}
+
 export class PendingDrinks extends Component {
-  
+
   state = {
     pendingDrinks: [],
     selectedUser: 0,
@@ -22,7 +48,7 @@ export class PendingDrinks extends Component {
     console.log("RERENDERER")
 
     ApiManager.getAll("drinks", `sentTo=${sentFrom}&status=pending&_expand=user`)
-          .then((pendingDrinksArr) => {
+      .then((pendingDrinksArr) => {
         // console.log("pendingDrinksArr:", pendingDrinksArr)
         this.setState({
           pendingDrinks: pendingDrinksArr
@@ -55,8 +81,8 @@ export class PendingDrinks extends Component {
         }
         ApiManager.update("drinks", drinkToReject)  // PATCH
       })
-      .then(()=>{
-        setTimeout(()=>{ this.rerenderer() }, 100); // refresh the screen
+      .then(() => {
+        setTimeout(() => { this.rerenderer() }, 100); // refresh the screen
       })
       .then(() => {
         this.setState({
@@ -86,22 +112,22 @@ export class PendingDrinks extends Component {
         }
         ApiManager.update("drinks", drinkToAccept)  // PATCH
       })
-      .then(()=>{
+      .then(() => {
         setChatUserA = {   // updating the approved drinkId with the loggedin user
           id: userId,
           activeChat: true
         }
         ApiManager.update("users", setChatUserA) // PATCH
       })
-      .then(()=>{
+      .then(() => {
         setChatUserB = {
           id: this.state.selectedUser, // updating the approved drinkId with the user that sent the drink
-          activeChat:  true
+          activeChat: true
         }
         ApiManager.update("users", setChatUserB) // PATCH
       })
-      .then(()=>{
-        setTimeout(()=>{ this.rerenderer() }, 100); // refresh the screen
+      .then(() => {
+        setTimeout(() => { this.rerenderer() }, 100); // refresh the screen
       })
       .then(() => {
         localStorage.setItem(
@@ -112,11 +138,11 @@ export class PendingDrinks extends Component {
           selectedDrinkRequest: 0  // reset the state
         })
       })
-      .then(()=>{
+      .then(() => {
         this.props.history.push("/chat")
       })
   }
- 
+
   //*****************************************************************************************************
   //ComponentDidMount()
   //*****************************************************************************************************
@@ -140,7 +166,7 @@ export class PendingDrinks extends Component {
     const isEnabled = this.state.selectedUser !== 0
 
     return (
-      <div>
+      <div style={styles.parent}>
         <h3>Pending Drink Requests</h3>
         <Container>
           <hr />
@@ -163,15 +189,19 @@ export class PendingDrinks extends Component {
           </Coverflow>
           <hr />
         </Container>
-        <Container>
-          <Button variant="contained" color="secondary" disabled={!isEnabled} onClick={() => {
-            this.handleAccept()
-          }} >
+        <Container  style={styles.buttonsgroup}>
+          <Button variant="contained" color="secondary" disabled={!isEnabled}
+            style={styles.buttons}
+            onClick={() => {
+              this.handleAccept()
+            }} >
             Accept
           </Button>
-          <Button variant="contained" color="default" disabled={!isEnabled} onClick={() => {
-            this.handleReject()
-          }}>
+          <Button variant="contained" color="default" disabled={!isEnabled}
+            style={styles.buttons}
+            onClick={() => {
+              this.handleReject()
+            }}>
             Reject
           </Button>
         </Container>

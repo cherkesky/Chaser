@@ -6,6 +6,22 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 
+const styles = {
+  parent: {
+    height: 812,
+    width: 375,
+    marginTop: "auto",
+    background: "lightgray",
+    display: "flex",
+    flexDirection: "column",
+    position: 'relative',
+    justifyContent: 'center'  
+  },
+  loginbutton: {
+    height: 50
+  }
+}
+
 export class Login extends Component {
   state = {
     email: '',
@@ -29,7 +45,7 @@ export class Login extends Component {
       .then((user) => {
         console.log("user", user)
         if (user.length === 0) {  // no match
-          window.alert("Email and password not valid. Please try again1")
+          window.alert("Email and password not valid. Please try again.")
         } else {  // we found the user in the db
           const userId = user[0].id
           localStorage.setItem("userId", parseInt(userId)) // set the user in local stoarge
@@ -47,7 +63,8 @@ export class Login extends Component {
   //*****************************************************************************************************
   render() {
     return (
-      <div>
+      <>
+      <div style={styles.parent}>
         <FormControl component="fieldset">
           <FormGroup>
             <TextField
@@ -64,7 +81,7 @@ export class Login extends Component {
               autoComplete="current-password"
               onChange={this.handleFieldChange}
             /><br />
-            <Button variant="contained" color="secondary" onClick={
+            <Button variant="contained" color="secondary" style={styles.loginbutton} onClick={
               this.handleLogin
             }>
               Login
@@ -72,6 +89,7 @@ export class Login extends Component {
           </FormGroup>
         </FormControl>
       </div>
+      </>
     )
   }
 }

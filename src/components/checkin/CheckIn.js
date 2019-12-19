@@ -7,6 +7,41 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import apikeys from '../../apikeys'
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
+
+
+ const styles = {
+  parent: {
+    height: 812,
+    width: 375,
+    marginTop: "auto",
+    background: "lightgray",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "baseline",
+    position: 'relative',
+    justifyContent: 'center'  
+  },
+  buttonsgroup: {
+    marginTop: "auto",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'baseline',
+    padding: 30,
+    backgroundColor: "#F6F4F6",
+    opacity: 0.9,
+    boxShadow: 1
+    
+  },
+  buttons: {
+    height: 50
+  }
+  
+}
+
+
 
 export class CheckIn extends Component {
   
@@ -18,6 +53,8 @@ export class CheckIn extends Component {
     buttonDisabled: true,
     bars: []
   }
+
+  
   
   //*****************************************************************************************************
   // Get Current User ID
@@ -178,8 +215,12 @@ export class CheckIn extends Component {
           
         >
         </Map> 
-
-        <FormControl component="fieldset">   
+          <br /><br /><br /><br /><br /><br /><br /><br /><br />
+          <br /><br /><br /><br /><br /><br /><br /><br /><br />
+          <br /><br /><br /><br /><br /><br /><br /><br /><br />
+          <Card style={{"background": "gray"}}> 
+          <CardContent>
+        <FormControl component="fieldset"  style={styles.buttonsgroup}>   
           <FormGroup> 
           <FormControl variant="filled">
           <Select
@@ -187,6 +228,7 @@ export class CheckIn extends Component {
               id="bar-dropdown"
               value={this.state.selectedBar}
               name="bar"
+              variant="filled"
               onChange={this.handleBarDropdown}
             >
               {this.state.bars.map((bar) => { // populating the drop down menu
@@ -197,13 +239,17 @@ export class CheckIn extends Component {
             </Select>
             </FormControl>
 
-            <Button variant="contained" color="secondary"  disabled={!isEnabled} onClick={() => {
+            <Button variant="contained" color="secondary"  disabled={!isEnabled}  
+            style={styles.buttons}
+              onClick={() => {
               this.handleCheckIn()    // Check in button
             }
             }>
               Check In
           </Button>
-            <Button variant="contained" color="default" disabled={!isCheckedIn} onClick={() => {
+            <Button variant="contained" color="default" disabled={!isCheckedIn} 
+            style={styles.buttons}
+            onClick={() => {
              this.handleCheckOut()   // Check out button
             }
             }>
@@ -212,7 +258,8 @@ export class CheckIn extends Component {
 
           </FormGroup>
         </FormControl>
-
+        </CardContent>
+        </Card>
       </div>
     )
 
