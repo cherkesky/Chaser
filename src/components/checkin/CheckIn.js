@@ -44,6 +44,15 @@ export class CheckIn extends Component {
       activeBar: 0
     })
 
+    let whatUser = this.loggedInUserId()
+    
+      const checkOutObj = {
+        id: whatUser,
+        barId: 0
+      } 
+      ApiManager.update("users", checkOutObj)
+
+
   }
   //*****************************************************************************************************
   // Handle Check In
@@ -123,7 +132,7 @@ export class CheckIn extends Component {
       xCord: position.coords.latitude,
       yCord: position.coords.longitude
     })
-    // console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
+    // console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`); // uncomment for testing youre getting the rifht coordinates
     
     //*****************************************************************************************************
     // Get all the nearby bars (20m) and set them in state
@@ -170,8 +179,8 @@ export class CheckIn extends Component {
         >
         </Map> 
 
-        <FormControl component="fieldset">
-          <FormGroup>
+        <FormControl component="fieldset">   
+          <FormGroup> 
           <FormControl variant="filled">
           <Select
               labelId="bar-dropdown-label"
@@ -189,13 +198,13 @@ export class CheckIn extends Component {
             </FormControl>
 
             <Button variant="contained" color="secondary"  disabled={!isEnabled} onClick={() => {
-              this.handleCheckIn()
+              this.handleCheckIn()    // Check in button
             }
             }>
               Check In
           </Button>
             <Button variant="contained" color="default" disabled={!isCheckedIn} onClick={() => {
-             this.handleCheckOut()
+             this.handleCheckOut()   // Check out button
             }
             }>
               Check Out
