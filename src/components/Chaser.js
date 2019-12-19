@@ -84,18 +84,39 @@ export class Chaser extends Component {
 
   render() {
 
-    console.log("      .")
-    console.log("     .")
-    console.log("  . .")
-    console.log("  ...")
-    console.log("\\~~~~~/")
-    console.log(" \\   /")
-    console.log("  \\ /")
-    console.log("   V")
-    console.log("   |")
-    console.log("   |")
-    console.log("  ---")
+    console.log("%c      .", 'background: #222; color: #EF1CEF');
+    console.log('%c     .', 'background: #222; color: #EF1CEF')
+    console.log("%c  . .", 'background: #222; color: #EF1CEF')
+    console.log("%c  ...", 'background: #222; color: #EF1CEF');
+    console.log("%c\\~~~~~/", 'background: #222; color: #EF1CEF');
+    console.log("%c \\   /", 'background: #222; color: #EF1CEF');
+    console.log("%c  \\ /", 'background: #222; color: #EF1CEF');
+    console.log("%c   V", 'background: #222; color: #EF1CEF');
+    console.log("%c   |", 'background: #222; color: #EF1CEF');
+    console.log("%c   |", 'background: #222; color: #EF1CEF');
+    console.log("%c  ---", 'background: #222; color: #EF1CEF');
+    console.log("%c     ", 'background: #222; color: #EF1CEF');
 
+
+
+    // console.log("  ()   ()      ()     /")
+    // console.log("  ()      ()  ()     /")
+    // console.log("      ______________/___")
+    // console.log("     \\            /   /")
+    // console.log("      \\^^^^^^^^^^/^^^/")
+    // console.log("       \\     ___/   /")
+    // console.log("        \\   (   )  /")
+    // console.log("         \\  (___) /")
+    // console.log("          \\ /    /")
+    // console.log("           \\    /")
+    // console.log("            \\  /")
+    // console.log("             \\/")
+    // console.log("             ||")
+    // console.log("             ||")
+    // console.log("             ||")
+    // console.log("             /\\")
+    // console.log("            /;;\\")
+    // console.log("       ==============")
 
 
     return (

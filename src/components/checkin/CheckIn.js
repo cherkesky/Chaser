@@ -123,7 +123,7 @@ export class CheckIn extends Component {
       xCord: position.coords.latitude,
       yCord: position.coords.longitude
     })
-    console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
+    // console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`);
     
     //*****************************************************************************************************
     // Get all the nearby bars (20m) and set them in state
