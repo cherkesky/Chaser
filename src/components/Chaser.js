@@ -26,28 +26,28 @@ export class Chaser extends Component {
 
   setUser = (authObj) => {
     console.log("AUTHOBJ", authObj)
-    localStorage.setItem(
+    localStorage.setItem(   // set credentials in local storage 
       "credentials",
       JSON.stringify(authObj)
     )
-    this.setState({
-      user: this.isAuthenticated(),
+    this.setState({   
+      user: this.isAuthenticated(),  // set user in in state
       userId: authObj.userId,
     })
 
-    ApiManager.get("users", loggedInUserId())
+    ApiManager.get("users", loggedInUserId())   // fetch current user
     .then((usersObj) => {
       this.setState(
         {
-          users: usersObj
+          users: usersObj  // set user array in state
         }
       )
     })
     
     ApiManager.getAll("drinks", `sentTo=${loggedInUserId()}&status=pending&_expand=user`)
-        .then((pendingDrinksArr) => {
+        .then((pendingDrinksArr) => {   // fetch pending drinks
           this.setState({
-            drinkNotif: pendingDrinksArr.length
+            drinkNotif: pendingDrinksArr.length  // the lenght of the array is the number of the notif
           })
         })
   }
@@ -61,7 +61,7 @@ export class Chaser extends Component {
     localStorage.removeItem("userId")
     localStorage.removeItem("active-bar")
     localStorage.removeItem("active-chat")
-    this.setState({ 
+    this.setState({  // resetting the state
       user: this.isAuthenticated(),
       users: [],
       drinkNotif:0,
@@ -96,27 +96,6 @@ export class Chaser extends Component {
     console.log("%c   |", 'background: #222; color: #EF1CEF');
     console.log("%c  ---", 'background: #222; color: #EF1CEF');
     console.log("%c     ", 'background: #222; color: #EF1CEF');
-
-
-
-    // console.log("  ()   ()      ()     /")
-    // console.log("  ()      ()  ()     /")
-    // console.log("      ______________/___")
-    // console.log("     \\            /   /")
-    // console.log("      \\^^^^^^^^^^/^^^/")
-    // console.log("       \\     ___/   /")
-    // console.log("        \\   (   )  /")
-    // console.log("         \\  (___) /")
-    // console.log("          \\ /    /")
-    // console.log("           \\    /")
-    // console.log("            \\  /")
-    // console.log("             \\/")
-    // console.log("             ||")
-    // console.log("             ||")
-    // console.log("             ||")
-    // console.log("             /\\")
-    // console.log("            /;;\\")
-    // console.log("       ==============")
 
 
     return (
