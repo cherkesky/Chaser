@@ -8,61 +8,66 @@ import Button from '@material-ui/core/Button';
 
 export class Login extends Component {
   state = {
-		email: '',
-		password: ''
+    email: '',
+    password: ''
   };
-  
+  //*****************************************************************************************************
+  // Handle File Change
+  //*****************************************************************************************************
   handleFieldChange = (e) => {
-		const stateToChange = {};
-		stateToChange[e.target.id] = e.target.value;
-		this.setState(stateToChange);
+    const stateToChange = {};
+    stateToChange[e.target.id] = e.target.value;
+    this.setState(stateToChange);
   };
-  
+  //*****************************************************************************************************
+  // Handle Login
+  //*****************************************************************************************************
   handleLogin = (e) => {
     e.preventDefault();
-		const { email, password } = this.state
-		ApiManager.getAll("users", `email=${email}&password=${password}`)
-		.then((user) => {
-      const userId = user[0].id
-      localStorage.setItem("userId", parseInt(userId))
-        
-			if (user.length > 0){
-				this.props.setUser({
-					email: email,
-					password: password,
-					userId: user[0].id
-				});
-				
-				this.props.history.push('/checkin');
-			} else {
-				window.alert("Email and password not valid. Please try again")
-			}
-		});
-	};
-
+    const { email, password } = this.state
+    ApiManager.getAll("users", `email=${email}&password=${password}`) // check the database for match
+      .then((user) => {
+        console.log("user", user)
+        if (user.length === 0) {  // no match
+          window.alert("Email and password not valid. Please try again1")
+        } else {  // we found the user in the db
+          const userId = user[0].id
+          localStorage.setItem("userId", parseInt(userId)) // set the user in local stoarge
+            this.props.setUser({     // triggering the Chase.js SetUser() function
+              email: email,
+              password: password,
+              userId: user[0].id
+            })
+            this.props.history.push('/checkin'); // lets start the fun!
+        }
+      });
+  };
+  //*****************************************************************************************************
+  // Render()
+  //*****************************************************************************************************
   render() {
     return (
       <div>
         <FormControl component="fieldset">
-         <FormGroup>
-         <TextField
-          id="email"
-          label="Email"
-          type="email"
-          autoComplete="current-email"
-          onChange={this.handleFieldChange}
-        /><br />
-        <TextField
-          id="password"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-          onChange={this.handleFieldChange}
-        /><br />
-          <Button variant="contained" color="secondary" onClick={
-            this.handleLogin
-          }>
-           Login
+          <FormGroup>
+            <TextField
+              id="email"
+              label="Email"
+              type="email"
+              autoComplete="current-email"
+              onChange={this.handleFieldChange}
+            /><br />
+            <TextField
+              id="password"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              onChange={this.handleFieldChange}
+            /><br />
+            <Button variant="contained" color="secondary" onClick={
+              this.handleLogin
+            }>
+              Login
           </Button>
           </FormGroup>
         </FormControl>
