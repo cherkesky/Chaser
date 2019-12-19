@@ -4,6 +4,24 @@ import Coverflow from 'react-coverflow';
 import Countdown from 'react-countdown-now';
 import Button from '@material-ui/core/Button';
 
+const styles = {
+  parent: {
+    height: 732,
+    width: 375,
+    marginTop: "auto",
+    background: "lightgray",
+    display: "flex",
+    flexDirection: "column",
+    position: 'relative',
+  },
+  buttons: {
+    height: 50,
+    marginTop: "auto",
+    display: 'flex',
+    flexDirection: 'column',
+  }
+  
+}
 
 //*****************************************************************************************************
 // Render Time
@@ -12,8 +30,6 @@ const renderer = ({ minutes, seconds }) => {
 
   return <span>{minutes}:{seconds}</span>;
 }
-
-
 
 export class Timeout extends Component {
   state = {
@@ -30,6 +46,7 @@ export class Timeout extends Component {
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
       .then((activeUsersArr) => {
+        console.log("activeUsersArr",activeUsersArr)
         this.setState({
           activeUsers: activeUsersArr.users,
           barId: barId,
@@ -59,7 +76,7 @@ export class Timeout extends Component {
     const isEnabled = !this.state.buttonDisabled
 
     return (
-      <div>
+      <div  style={styles.parent}>
         <h3>Enjoy Your Drink</h3>
 
         <Coverflow                // Image carousel initialization
@@ -85,7 +102,9 @@ export class Timeout extends Component {
 
         </Coverflow>
 
-        <Button variant="contained" color="secondary" disabled={!isEnabled} onClick={() => {
+        <Button variant="contained" color="secondary" disabled={!isEnabled} 
+        style={styles.buttons}
+        onClick={() => {
           this.props.history.push("/senddrinks")     // routing back to the drinks view
         }}>
           Timed Out Ends In:
@@ -95,7 +114,7 @@ export class Timeout extends Component {
             renderer={renderer}
             onComplete={() => {
               this.setState({
-                buttonDisabled: false
+              buttonDisabled: false
               })
             }}
           >

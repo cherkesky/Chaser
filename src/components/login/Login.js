@@ -45,7 +45,7 @@ export class Login extends Component {
       .then((user) => {
         console.log("user", user)
         if (user.length === 0) {  // no match
-          window.alert("Email and password not valid. Please try again1")
+          window.alert("Email and password not valid. Please try again.")
         } else {  // we found the user in the db
           const userId = user[0].id
           localStorage.setItem("userId", parseInt(userId)) // set the user in local stoarge

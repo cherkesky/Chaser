@@ -2,7 +2,36 @@ import React, { Component } from 'react'
 import Button from '@material-ui/core/Button';
 import ApiManager from '../../modules/ApiManager';
 import Messages from '../chat/Messages'
+import { Container } from '@material-ui/core';
 
+
+const styles = {
+  parent: {
+    height: 732,
+    width: 375,
+    marginTop: "auto",
+    background: "lightgray",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: 'flex-end'
+  },
+  buttons: {
+    marginTop: "auto",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'baseline',
+    padding: 30
+    
+  },
+
+  button: {
+    marginTop: "auto",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'baseline',
+    height: 50
+  }
+}
 export class Chat extends Component {
 
   state = {
@@ -36,17 +65,18 @@ export class Chat extends Component {
     }
     console.log("resetActiveChat", resetActiveChat)
     ApiManager.update("users", resetActiveChat) // PATCH user
-     .then(()=>{
+      .then(() => {
 
-      for  (let i=0; i<this.state.messages.length; i++){
-        ApiManager.delete("messages", this.state.messages[i].id)// looping and deleting all messages
-          console.log('Message ID:', this.state.messages[i].id )}
-     })
-     .then(()=>{
-      localStorage.removeItem("active-chat") // remove chat from local storage
-      this.props.history.push("/timeout") // go back to the SendDrinks view
-     })
-     
+        for (let i = 0; i < this.state.messages.length; i++) {
+          ApiManager.delete("messages", this.state.messages[i].id)// looping and deleting all messages
+          console.log('Message ID:', this.state.messages[i].id)
+        }
+      })
+      .then(() => {
+        localStorage.removeItem("active-chat") // remove chat from local storage
+        this.props.history.push("/timeout") // go back to the SendDrinks view
+      })
+
   }
 
   //*****************************************************************************************************
@@ -81,6 +111,7 @@ export class Chat extends Component {
   render() {
     return (
       <>
+      <div style={styles.parent}>
         {
           this.state.messages.map(message =>
             <Messages
@@ -90,21 +121,27 @@ export class Chat extends Component {
             />
           )
         }
-
+        <Container style={styles.buttons}>
         {(this.state.messagesSentCounter + this.state.messagesReceivedCounter) === 6
 
-          ? <Button variant="contained" color="secondary" onClick={() => { // reached 6 messages
-            this.handleClose()
-          }}>
+          ? <Button variant="contained" color="secondary"
+            style={styles.button}
+            onClick={() => { // reached 6 messages
+              this.handleClose()
+            }}>
             Close
-  </Button>
+         </Button>
 
-          : <Button variant="contained" color="secondary" onClick={() => { // chat is still active
-            this.props.history.push("/compose")
-          }}>
+          : <Button variant="contained" color="secondary"
+            style={styles.button}
+            onClick={() => { // chat is still active
+              this.props.history.push("/compose")
+            }}>
             Compose
-  </Button>
+        </Button>
         }
+       </Container>
+        </div>
       </>
     )
   }
