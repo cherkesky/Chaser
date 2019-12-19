@@ -9,6 +9,22 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio'
 import Button from '@material-ui/core/Button';
 
+const styles = {
+  parent: {
+    height: 812,
+    width: 375,
+    marginTop: "auto",
+    background: "lightgray",
+    display: "flex",
+    flexDirection: "column",
+    position: 'relative',
+    justifyContent: 'center'  
+  },
+  buttons: {
+    height: 50
+  }
+}
+
 export class Register extends Component {
   state = {
     firstName: '',
@@ -124,7 +140,7 @@ export class Register extends Component {
     const isEnabled = email.length > 0 && password.length > 0 && passwordB.length > 0 && password === passwordB  && avatarUrl !== "" && avatarUrl !== undefined;
 
     return (
-      <div>
+      <div style={styles.parent}>
         <FormControl component="fieldset">
           <FormGroup>
             <TextField required
@@ -243,7 +259,10 @@ export class Register extends Component {
              </Button>
             </label> <br/>
 
-            <Button disabled={!isEnabled} variant="contained" color="secondary"
+            <Button disabled={!isEnabled} 
+            style={styles.buttons}
+             variant="contained"
+              color="secondary"
               onClick={() => {
                 this.handleRegister()
               }}>

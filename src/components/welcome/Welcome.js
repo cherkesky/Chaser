@@ -17,7 +17,6 @@ const styles = {
     height: 812,
     width: 375,
     margin: 0,
-    padding: 10,
     display: "flex",
     flexDirection: "column",
     backgroundPosition: "center center",
@@ -30,6 +29,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'baseline',
+    padding: 30
     
   },
   welcomebutton:{
