@@ -21,7 +21,6 @@ import CardContent from '@material-ui/core/CardContent';
     display: "flex",
     flexDirection: "column",
     alignItems: "baseline",
-
     position: 'relative',
     justifyContent: 'center'  
   },
@@ -39,11 +38,7 @@ import CardContent from '@material-ui/core/CardContent';
   buttons: {
     height: 50
   }
-  // barselector: {
-  //   flexDirection: 'column',
-  //   justifyContent: 'baseline',
-  //   height: 50
-  // }
+  
 }
 
 
@@ -235,7 +230,6 @@ export class CheckIn extends Component {
               name="bar"
               variant="filled"
               onChange={this.handleBarDropdown}
-              style={styles.barselector}
             >
               {this.state.bars.map((bar) => { // populating the drop down menu
                 return <MenuItem key={bar.id} value={bar.place_id}>  
