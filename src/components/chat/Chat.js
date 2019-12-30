@@ -69,12 +69,12 @@ export class Chat extends Component {
 
         for (let i = 0; i < this.state.messages.length; i++) {
           ApiManager.delete("messages", this.state.messages[i].id)// looping and deleting all messages
-          console.log('Message ID:', this.state.messages[i].id)
+          console.log('Deleting message ID:', this.state.messages[i].id)
         }
       })
       .then(() => {
         localStorage.removeItem("active-chat") // remove chat from local storage
-        this.props.history.push("/timeout") // go back to the SendDrinks view
+        this.props.history.push("/timeout") // sending user to the timeout view
       })
 
   }

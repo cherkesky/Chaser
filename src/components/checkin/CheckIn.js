@@ -169,10 +169,10 @@ export class CheckIn extends Component {
       xCord: position.coords.latitude,
       yCord: position.coords.longitude
     })
-    // console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`); // uncomment for testing youre getting the rifht coordinates
+    // console.log(`longitude: ${this.state.yCord} | latitude: ${this.state.xCord}`); // uncomment for testing youre getting the right coordinates
     
     //*****************************************************************************************************
-    // Get all the nearby bars (20m) and set them in state
+    // Get all the nearby bars (200m) and set them in state
     //*****************************************************************************************************
     ApiManager.getBars(this.state.xCord, this.state.yCord)
       .then((bars) => {
