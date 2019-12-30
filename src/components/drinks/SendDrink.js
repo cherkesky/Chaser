@@ -67,14 +67,14 @@ export class SendDrink extends Component {
           } else {
             // window.alert("You already sent this user a drink")
             alertify.set('notifier','position', 'top-center');
-            alertify.notify('You already sent this user a drink', 'error', 5, function(){  console.log('stop harrasing that user'); });
+            alertify.notify('You already sent this user a drink', 'error', 5, ()=>{  console.log('stop harrasing that user'); });
           }
         })
 
     } else {
       alertify.set('notifier','position', 'top-center');
       alertify.notify('SOMEONE APPROVED YOUR DRINK!', 'success', 5, 
-      function(){  this.props.history.push("/chat"); }); // hijacking the user to Chat if there is chat
+      ()=>{  this.props.history.push("/chat"); }); // hijacking the user to Chat if there is chat
       
       // window.alert("SOMEONE APPROVED YOUR DRINK!")
       // this.props.history.push("/chat") 
