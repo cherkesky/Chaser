@@ -4,6 +4,7 @@ import { createDateTimeToISO } from '../../modules/DateTime'
 import Coverflow from 'react-coverflow';
 import Button from '@material-ui/core/Button';
 import LocalBarOutlinedIcon from '@material-ui/icons/LocalBarOutlined';
+import alertify from 'alertifyjs';
 
 const styles = {
   parent: {
@@ -64,13 +65,19 @@ export class SendDrink extends Component {
             }
             ApiManager.post("drinks", newDrinkObj)   // POSTing a new drink entity in the database
           } else {
-            window.alert("You already sent this user a drink")
+            // window.alert("You already sent this user a drink")
+            alertify.set('notifier','position', 'top-center');
+            alertify.notify('You already sent this user a drink', 'error', 5, function(){  console.log('stop harrasing that user'); });
           }
         })
 
     } else {
-      window.alert("SOMEONE APPROVED YOUR DRINK!")
-      this.props.history.push("/chat") // hijacking the user to Chat if there is chat
+      alertify.set('notifier','position', 'top-center');
+      alertify.notify('SOMEONE APPROVED YOUR DRINK!', 'success', 5, 
+      function(){  this.props.history.push("/chat"); }); // hijacking the user to Chat if there is chat
+      
+      // window.alert("SOMEONE APPROVED YOUR DRINK!")
+      // this.props.history.push("/chat") 
     }
   }
 

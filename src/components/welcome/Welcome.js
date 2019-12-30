@@ -4,6 +4,7 @@ import Logo from '../../assets/ChaserLogo.png'
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 
+
 const styles = {
   parent: {
     display: "flex",
@@ -55,8 +56,8 @@ export class Welcome extends Component {
               this.props.history.push("/register")
             }}>
               Sign Up
-          </Button
-            >
+          </Button>
+
           </Container>
 
         </Container>
