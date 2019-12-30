@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 1,
       "chaserCoinCredit": 0,
-      "activeChat": true,
+      "activeChat": false,
       "id": 8
     },
     {
@@ -48,7 +48,7 @@
       "tagLine": "Julian",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576641140/avatars/k08s6nvyrlk2vaax0a96.jpg",
       "barId": 8,
-      "activeChat": true,
+      "activeChat": false,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -66,7 +66,7 @@
       "tagLine": "Caroline",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576641192/avatars/ij7kq1atdl2vffqyeaof.jpg",
       "barId": 8,
-      "activeChat": true,
+      "activeChat": false,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -120,7 +120,7 @@
       "tagLine": "Feeling cute... might do Python later... ;)",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576683864/avatars/dxkddqsdirbffmtay8xj.png",
       "barId": 8,
-      "activeChat": true,
+      "activeChat": false,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -167,7 +167,7 @@
       "lastName": "Pita",
       "age": "26",
       "gender": "female",
-      "genderInterested": "female",
+      "genderInterested": "male",
       "email": "sam@sam.com",
       "password": "123",
       "ageRange": 0,
@@ -192,7 +192,7 @@
       "tagLine": "Erin!!!!!!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576700305/avatars/koc3bdusi7jnohsawkp4.png",
       "barId": 8,
-      "activeChat": true,
+      "activeChat": false,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -266,7 +266,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "completed",
       "matchTime": "2019-12-18T15:45:26.939Z",
       "id": 7
     },
@@ -369,78 +369,89 @@
       "status": "completed",
       "matchTime": "2019-12-19T22:56:47.221Z",
       "id": 17
+    },
+    {
+      "userId": 14,
+      "sentTo": 21,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-20T03:38:40.668Z",
+      "id": 18
+    },
+    {
+      "userId": 14,
+      "sentTo": 8,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-20T03:45:15.220Z",
+      "id": 19
+    },
+    {
+      "userId": 15,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "rejected",
+      "matchTime": "2019-12-20T17:15:09.345Z",
+      "id": 20
+    },
+    {
+      "userId": 14,
+      "sentTo": 21,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-20T17:15:44.239Z",
+      "id": 21
+    },
+    {
+      "userId": 14,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "rejected",
+      "matchTime": "2019-12-20T17:30:06.872Z",
+      "id": 22
+    },
+    {
+      "userId": 14,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-20T17:55:09.664Z",
+      "id": 23
+    },
+    {
+      "userId": 8,
+      "sentTo": 15,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "rejected",
+      "matchTime": "2019-12-22T00:27:13.765Z",
+      "id": 24
+    },
+    {
+      "userId": 22,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2019-12-30T00:42:45.646Z",
+      "id": 25
     }
   ],
-  "messages": [
-    {
-      "userId": 14,
-      "drinkId": 6,
-      "message": "sdfdsfdsf",
-      "sent": "2019-12-19T22:21:00.750Z",
-      "id": 1
-    },
-    {
-      "userId": 14,
-      "drinkId": 6,
-      "message": "qwewqeqwe",
-      "sent": "2019-12-19T22:21:06.998Z",
-      "id": 2
-    },
-    {
-      "userId": 14,
-      "message": "dsfdsfsf",
-      "sent": "2019-12-19T22:32:59.921Z",
-      "id": 3
-    },
-    {
-      "userId": 22,
-      "drinkId": 13,
-      "message": "Hi",
-      "sent": "2019-12-19T22:45:56.968Z",
-      "id": 6
-    },
-    {
-      "userId": 22,
-      "drinkId": 13,
-      "message": "fjkbadss",
-      "sent": "2019-12-19T22:46:00.916Z",
-      "id": 7
-    },
-    {
-      "userId": 22,
-      "drinkId": 13,
-      "message": "dsadsadasd",
-      "sent": "2019-12-19T22:46:05.005Z",
-      "id": 8
-    },
-    {
-      "userId": 22,
-      "drinkId": 13,
-      "message": "dsadasdasd",
-      "sent": "2019-12-19T22:46:08.952Z",
-      "id": 9
-    },
-    {
-      "userId": 22,
-      "drinkId": 13,
-      "message": "asdasdasdasd",
-      "sent": "2019-12-19T22:46:12.733Z",
-      "id": 10
-    },
-    {
-      "userId": 22,
-      "drinkId": 13,
-      "message": "asdsadad",
-      "sent": "2019-12-19T22:46:16.454Z",
-      "id": 11
-    },
-    {
-      "userId": 22,
-      "message": "rewrwr",
-      "sent": "2019-12-19T22:49:11.858Z",
-      "id": 12
-    }
-  ],
+  "messages": [],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",

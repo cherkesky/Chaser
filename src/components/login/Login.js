@@ -4,6 +4,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 
 const styles = {
@@ -65,6 +66,11 @@ export class Login extends Component {
     return (
       <>
       <div style={styles.parent}>
+      <Typography variant="overline" gutterBottom>
+         Welcome back!
+         Please fill in your login information and lets see what's going on here
+        </Typography> <br/>
+
         <FormControl component="fieldset">
           <FormGroup>
             <TextField

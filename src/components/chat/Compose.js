@@ -3,7 +3,6 @@ import ApiManager from '../../modules/ApiManager';
 import { createDateTimeToISO } from '../../modules/DateTime'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
 
 
 const styles = {
@@ -14,11 +13,6 @@ const styles = {
     background: "lightgray",
     display: "flex",
     flexDirection: "column",
-  },
-
-
-  message: {
-  fontSize: "30px !important"
   },
 
   button: {
@@ -92,16 +86,16 @@ export class Compose extends Component {
         <div >
           <p>Message: x of 3</p>
         </div>
-        <TextField style={styles.message}
+        <TextField 
           id="composedMessage"
           label=""
           multiline
-          rows="16"
+          rows="3"
           defaultValue=""
           margin="normal"
           variant="outlined"
           fullWidth
-          // style={{'font-size': '72px'}}
+          InputProps={{ style: { fontSize: 100 } }}
           onChange={this.handleFieldChange}
         />
         <hr />
