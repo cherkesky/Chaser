@@ -98,13 +98,13 @@ export class SendDrink extends Component {
     })
    
     // check if there is an active chat that skipped local storage
-    ApiManager.getAll("users", `id=${userId}&activeChat=true`)
+    ApiManager.getAll("users", `id=${userId}&activeChat=true`) // checking for an active chat
       .then((activeUsersArr) => {
-        if (activeUsersArr.length !== 0) {
-          ApiManager.getAll("drinks", `userId=${userId}&status=accepted`)
+        if (activeUsersArr.length !== 0) {  // 
+          ApiManager.getAll("drinks", `sentTo=${userId}&status=accepted`) // chat found. get info.
             .then((activeChatsArr) => {
               console.log("activeChatsArr", activeChatsArr)
-              localStorage.setItem(
+              localStorage.setItem( // set the chat id in local storage
                 "active-chat",
                 JSON.stringify(activeChatsArr[0].id)
               )
