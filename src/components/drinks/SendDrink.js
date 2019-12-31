@@ -65,7 +65,6 @@ export class SendDrink extends Component {
             }
             ApiManager.post("drinks", newDrinkObj)   // POSTing a new drink entity in the database
           } else {
-            // window.alert("You already sent this user a drink")
             alertify.set('notifier','position', 'top-center');
             alertify.notify('You already sent this user a drink', 'error', 5, ()=>{  console.log('stop harrasing that user'); });
           }
@@ -73,11 +72,8 @@ export class SendDrink extends Component {
 
     } else {
       alertify.set('notifier','position', 'top-center');
-      alertify.notify('SOMEONE APPROVED YOUR DRINK!', 'success', 5, 
+      alertify.notify('WAIT! SOMEONE APPROVED YOUR DRINK!', 'success', 5, 
       ()=>{  this.props.history.push("/chat"); }); // hijacking the user to Chat if there is chat
-      
-      // window.alert("SOMEONE APPROVED YOUR DRINK!")
-      // this.props.history.push("/chat") 
     }
   }
 
@@ -100,16 +96,28 @@ export class SendDrink extends Component {
     // check if there is an active chat that skipped local storage
     ApiManager.getAll("users", `id=${userId}&activeChat=true`) // checking for an active chat
       .then((activeUsersArr) => {
-        if (activeUsersArr.length !== 0) {  // 
-          ApiManager.getAll("drinks", `sentTo=${userId}&status=accepted`) // chat found. get info.
-            .then((activeChatsArr) => {
-              console.log("activeChatsArr", activeChatsArr)
+        if (activeUsersArr.length !== 0) {  // there is an active chat going on
+
+          ApiManager.getAll("drinks", `userId=${userId}&status=accepted`) // abandoned chat found!
+          .then((activeChatApprovedByMeArr)=>{
+            if (activeChatApprovedByMeArr.length!==0) {
+              console.log("activeChatApprovedByMeArr", activeChatApprovedByMeArr)
               localStorage.setItem( // set the chat id in local storage
                 "active-chat",
-                JSON.stringify(activeChatsArr[0].id)
+                JSON.stringify(activeChatApprovedByMeArr[0].id)
               )
-            })
-        }
+            }else {
+              ApiManager.getAll("drinks", `sentTo=${userId}&status=accepted`) // someone approved my drink!
+              .then((activeChatApprovedByOtherArr) => {
+                console.log("activeChatApprovedByOtherArr", activeChatApprovedByOtherArr)
+                localStorage.setItem( // set the chat id in local storage
+                  "active-chat",
+                  JSON.stringify(activeChatApprovedByOtherArr[0].id)
+                )
+              })
+            }
+          })  
+        } // parent if closer
       })
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in

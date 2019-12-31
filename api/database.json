@@ -23,7 +23,7 @@
       "lastName": "Garcia",
       "age": "32",
       "gender": "male",
-      "genderInterested": "female",
+      "genderInterested": "male",
       "email": "julian@julian.com",
       "password": "123",
       "ageRange": 0,
@@ -183,34 +183,14 @@
   ],
   "drinks": [
     {
-      "userId": 14,
-      "sentTo": 22,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-30T02:40:45.250Z",
-      "id": 1
-    },
-    {
-      "userId": 22,
-      "sentTo": 17,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-30T17:53:26.252Z",
-      "id": 2
-    },
-    {
-      "userId": 22,
+      "userId": 15,
       "sentTo": 14,
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
       "status": "completed",
-      "matchTime": "2019-12-31T01:27:18.220Z",
-      "id": 3
+      "matchTime": "2019-12-31T16:27:07.833Z",
+      "id": 1
     }
   ],
   "messages": [],
