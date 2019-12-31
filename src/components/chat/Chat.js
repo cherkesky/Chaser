@@ -135,7 +135,10 @@ export class Chat extends Component {
           : <Button variant="contained" color="secondary"
             style={styles.button}
             onClick={() => { // chat is still active
-              this.props.history.push("/compose")
+              this.props.history.push({
+                pathname: '/compose',  // passing the counter as an argument to the history stack
+                state: { messagesSentCounter: this.state.messagesSentCounter }
+              });
             }}>
             Compose
         </Button>
