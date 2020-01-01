@@ -19,8 +19,26 @@ const useStyles = theme => ({
   },
 });
 
+const styles = {
+  parent: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "baseline",
+    position: 'relative'
+  },
+
+  navbuttons: {
+    marginTop: "auto",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'baseline',
+    paddingLeft: '30px'
+
+  }
+}
+
 export class Navbar extends Component {
-  
+
 
   //*****************************************************************************************************
   // Get Current User ID
@@ -32,7 +50,7 @@ export class Navbar extends Component {
   // Render()
   //*****************************************************************************************************
   render() {
-    const profileImageUrl = this.props.users.avatarUrl 
+    const profileImageUrl = this.props.users.avatarUrl
     const { classes } = this.props; // material ui styling dependency
 
     return (
@@ -41,24 +59,27 @@ export class Navbar extends Component {
           (this.props.user) // have anyone logged in?
             ? // yes? good. show the nav bar
             <AppBar position="static" style={{ background: 'transparent' }}>
-              <Toolbar>
+              <Toolbar id="toolbar" style={styles.parent}>
                 <div className={classes.root}>
                   {/* Avatar */}
                   <Badge className={classes.margin} badgeContent={this.props.drinkNotif} color="secondary">
                     <Avatar alt="Avatar" src={(profileImageUrl)} variant="circle" // Show avatar with notif
                       className={classes.bigAvatar}
-                      onClick={() => { 
-                        (this.props.drinkNotif===0) ? window.alert("No pending drinks") : this.props.history.push("/pendingdrinks") }}
+                      onClick={() => {
+                        (this.props.drinkNotif === 0) ? window.alert("No pending drinks") : this.props.history.push("/pendingdrinks")
+                      }}
                     /></Badge>
                   {/* Logo */}
-                  <img alt="logo" src={require("../../assets/ChaserLogo.png")} width="200px" height="40px" onClick={() => { this.props.history.push("/checkin") }}></img>  
-                  {/* Preferences */}      
-                  <img alt="gears" src={require("../../assets/gears.png")} width="20px" height="20px" onClick={() => { this.props.history.push("/editprofile") }}></img>
-                   {/* logout */}     
-                  <img alt="logout" src={require("../../assets/logout.png")} width="20px" height="20px" onClick={() => { 
-                     this.props.clearUser()     // log out
-                     this.props.history.push("/") // go back to main screen
-                  }}></img>
+                  <img alt="logo" src={require("../../assets/ChaserLogo.png")} width="200px" height="40px" onClick={() => { this.props.history.push("/checkin") }}></img>
+                  <div id="navbuttons" style={styles.navbuttons}>
+                    {/* Preferences */}
+                    <img alt="gears" src={require("../../assets/gears.png")} width="20px" height="20px" onClick={() => { this.props.history.push("/editprofile") }}></img>
+                    {/* logout */}   <br />
+                    <img alt="logout" src={require("../../assets/logout.png")} width="20px" height="20px" onClick={() => {
+                      this.props.clearUser()     // log out
+                      this.props.history.push("/") // go back to main screen
+                    }}></img>
+                  </div>
                 </div>
               </Toolbar>
             </AppBar>
