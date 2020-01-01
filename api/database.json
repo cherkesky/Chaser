@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
-      "activeChat": false,
+      "activeChat": true,
       "id": 14
     },
     {
@@ -156,7 +156,7 @@
       "tagLine": "I like hats!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576697532/avatars/c7w6ngkduhcyommrnyah.jpg",
       "barId": 8,
-      "activeChat": false,
+      "activeChat": true,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -208,12 +208,30 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "accepted",
       "matchTime": "2019-12-31T17:25:06.182Z",
       "id": 3
+    },
+    {
+      "userId": 14,
+      "sentTo": 21,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-01T23:08:49.291Z",
+      "id": 4
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "userId": 22,
+      "drinkId": 3,
+      "message": "hi",
+      "sent": "2020-01-01T23:39:26.034Z",
+      "id": 1
+    }
+  ],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",

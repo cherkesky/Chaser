@@ -16,7 +16,7 @@ const styles = {
     alignItems: "baseline",
 
   },
-   buttonsgroup: {
+  buttonsgroup: {
     marginTop: "auto",
     display: 'flex',
     flexDirection: 'column',
@@ -24,8 +24,13 @@ const styles = {
     padding: 30
   },
 
-   buttons: {
+  buttons: {
     height: 50,
+  },
+  headline: {
+    textAlign: 'center',
+    paddingLeft: '80px'
+
   }
 
 }
@@ -166,8 +171,12 @@ export class PendingDrinks extends Component {
     const isEnabled = this.state.selectedUser !== 0
 
     return (
-      <div style={styles.parent}>
-        <h3>Pending Drink Requests</h3>
+      <div id="parent" style={styles.parent}>
+
+        <div id="headline" style={styles.headline}>
+          <h3>Pending Drink Requests</h3>
+        </div>
+
         <Container>
           <hr />
           <Coverflow                // Image carousel initialization
@@ -189,7 +198,7 @@ export class PendingDrinks extends Component {
           </Coverflow>
           <hr />
         </Container>
-        <Container  style={styles.buttonsgroup}>
+        <Container style={styles.buttonsgroup}>
           <Button variant="contained" color="secondary" disabled={!isEnabled}
             style={styles.buttons}
             onClick={() => {
