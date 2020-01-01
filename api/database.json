@@ -201,6 +201,16 @@
       "status": "pending",
       "matchTime": "2019-12-31T17:14:48.690Z",
       "id": 2
+    },
+    {
+      "userId": 14,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2019-12-31T17:25:06.182Z",
+      "id": 3
     }
   ],
   "messages": [],
