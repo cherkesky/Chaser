@@ -271,17 +271,29 @@
       "status": "completed",
       "matchTime": "2020-01-03T21:27:48.085Z",
       "id": 9
-    }
-  ],
-  "messages": [
+    },
     {
       "userId": 14,
-      "drinkId": 7,
-      "message": "hi4",
-      "sent": "2020-01-03T21:28:33.258Z",
-      "id": 4
+      "sentTo": 19,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-03T22:56:38.662Z",
+      "id": 10
+    },
+    {
+      "userId": 19,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-03T22:57:02.062Z",
+      "id": 11
     }
   ],
+  "messages": [],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",
