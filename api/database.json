@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
-      "activeChat": true,
+      "activeChat": false,
       "id": 14
     },
     {
@@ -221,9 +221,67 @@
       "status": "pending",
       "matchTime": "2020-01-01T23:08:49.291Z",
       "id": 4
+    },
+    {
+      "userId": 14,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-03T21:25:02.657Z",
+      "id": 5
+    },
+    {
+      "userId": 23,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "rejected",
+      "matchTime": "2020-01-03T21:25:55.734Z",
+      "id": 6
+    },
+    {
+      "userId": 22,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-03T21:26:21.410Z",
+      "id": 7
+    },
+    {
+      "userId": 21,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-03T21:26:49.240Z",
+      "id": 8
+    },
+    {
+      "userId": 19,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-03T21:27:48.085Z",
+      "id": 9
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "userId": 14,
+      "drinkId": 7,
+      "message": "hi4",
+      "sent": "2020-01-03T21:28:33.258Z",
+      "id": 4
+    }
+  ],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",

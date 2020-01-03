@@ -19,6 +19,9 @@ const styles = {
     marginTop: "auto",
     display: 'flex',
     flexDirection: 'column',
+  },
+  headline: {
+    textAlign: 'center'
   }
   
 }
@@ -77,7 +80,7 @@ export class Timeout extends Component {
 
     return (
       <div  style={styles.parent}>
-        <h3>Enjoy Your Drink</h3>
+        <h3 style={styles.headline}>Enjoy Your Drink</h3>
 
         <Coverflow                // Image carousel initialization
           width={600}
