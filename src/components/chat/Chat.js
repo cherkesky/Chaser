@@ -38,6 +38,7 @@ export class Chat extends Component {
   state = {
     activeChatId: 0,
     activeUserId: 0,
+    theOtherUserId: 0,
     messagesSentCounter: 0,
     messagesReceivedCounter: 0,
     messages: []
@@ -102,6 +103,23 @@ export class Chat extends Component {
             alertify.set('notifier', 'position', 'top-center');
             alertify.notify('Be the first one to compose a message!', 'info', 5,
               () => { console.log("empty chat") });
+          } else {
+            console.log("messages found")
+            if (this.state.activeUserId === messagesArr[0].drink.sentTo){
+              console.log("Im the one that approved the drink")
+              this.setState({
+                theOtherUserId: messagesArr[0].drink.userId
+              })
+            } else {
+              console.log("Im the one that sent the drink")
+              this.setState({
+                theOtherUserId: messagesArr[0].drink.sentTo
+              })
+            }
+
+
+
+
           }
           this.setState({
             messages: messagesArr,
