@@ -14,15 +14,18 @@ const styles = {
     background: "lightgray",
     display: "flex",
     flexDirection: "column",
-    position: 'relative',
+    position: 'relative'
   },
   buttons: {
     height: 50,
     marginTop: "auto",
     display: 'flex',
     flexDirection: 'column',
+  },
+  headline: {
+    textAlign: 'center'
   }
-  
+
 }
 
 
@@ -65,19 +68,15 @@ export class SendDrink extends Component {
             }
             ApiManager.post("drinks", newDrinkObj)   // POSTing a new drink entity in the database
           } else {
-            // window.alert("You already sent this user a drink")
-            alertify.set('notifier','position', 'top-center');
-            alertify.notify('You already sent this user a drink', 'error', 5, ()=>{  console.log('stop harrasing that user'); });
+            alertify.set('notifier', 'position', 'top-center');
+            alertify.notify('You already sent this user a drink', 'error', 5, () => { console.log('stop harrasing that user'); });
           }
         })
 
     } else {
-      alertify.set('notifier','position', 'top-center');
-      alertify.notify('SOMEONE APPROVED YOUR DRINK!', 'success', 5, 
-      ()=>{  this.props.history.push("/chat"); }); // hijacking the user to Chat if there is chat
-      
-      // window.alert("SOMEONE APPROVED YOUR DRINK!")
-      // this.props.history.push("/chat") 
+      alertify.set('notifier', 'position', 'top-center');
+      alertify.notify('WAIT! SOMEONE APPROVED YOUR DRINK!', 'success', 5,
+        () => { this.props.history.push("/chat"); }); // hijacking the user to Chat if there is chat
     }
   }
 
@@ -90,26 +89,38 @@ export class SendDrink extends Component {
     const userId = localStorage.getItem("userId")
 
     // set the right gender the user interested in state
-    ApiManager.get("users",`${userId}`)
-    .then((userArr)=>{
-      this.setState({
-        genderInterested: userArr.genderInterested
+    ApiManager.get("users", `${userId}`)
+      .then((userArr) => {
+        this.setState({
+          genderInterested: userArr.genderInterested
+        })
       })
-    })
-   
+
     // check if there is an active chat that skipped local storage
-    ApiManager.getAll("users", `id=${userId}&activeChat=true`)
+    ApiManager.getAll("users", `id=${userId}&activeChat=true`) // checking for an active chat
       .then((activeUsersArr) => {
-        if (activeUsersArr.length !== 0) {
-          ApiManager.getAll("drinks", `userId=${userId}&status=accepted`)
-            .then((activeChatsArr) => {
-              console.log("activeChatsArr", activeChatsArr)
-              localStorage.setItem(
-                "active-chat",
-                JSON.stringify(activeChatsArr[0].id)
-              )
+        if (activeUsersArr.length !== 0) {  // there is an active chat going on
+
+          ApiManager.getAll("drinks", `userId=${userId}&status=accepted`) // abandoned chat found!
+            .then((activeChatApprovedByMeArr) => {
+              if (activeChatApprovedByMeArr.length !== 0) {
+                console.log("activeChatApprovedByMeArr", activeChatApprovedByMeArr)
+                localStorage.setItem( // set the chat id in local storage
+                  "active-chat",
+                  JSON.stringify(activeChatApprovedByMeArr[0].id)
+                )
+              } else {
+                ApiManager.getAll("drinks", `sentTo=${userId}&status=accepted`) // someone approved my drink!
+                  .then((activeChatApprovedByOtherArr) => {
+                    console.log("activeChatApprovedByOtherArr", activeChatApprovedByOtherArr)
+                    localStorage.setItem( // set the chat id in local storage
+                      "active-chat",
+                      JSON.stringify(activeChatApprovedByOtherArr[0].id)
+                    )
+                  })
+              }
             })
-        }
+        } // parent if closer
       })
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
@@ -122,18 +133,18 @@ export class SendDrink extends Component {
       })
       .then(() => {
         let usersThatArentMe = this.state.activeUsers    // excluding the logged in user from the array
-        
+
         usersThatArentMe = usersThatArentMe.filter((user) =>
           user.id !== parseInt(this.state.userId))
 
-          let usersFromMyFavGender = usersThatArentMe.filter((user) => 
-          user.gender === this.state.genderInterested ) // excluding the gender the user not interested in 
+        let usersFromMyFavGender = usersThatArentMe.filter((user) =>
+          user.gender === this.state.genderInterested) // excluding the gender the user not interested in 
 
         this.setState({
           activeUsers: usersFromMyFavGender  // setting the state accordinglly
         })
 
-        })
+      })
 
     ApiManager.get("bars", barId)
       .then((BarInfoArr) => {    // get the bar name for the header
@@ -151,36 +162,37 @@ export class SendDrink extends Component {
 
     return (
       <>
-        <div  style={styles.parent}>
-        <h3>{this.state.barName}</h3>
+        <div id="parent" style={styles.parent}>
+          <div id="headline" style={styles.headline}>
+            <h3>{this.state.barName}</h3>
+          </div>
+          <Coverflow                // Image carousel initialization
+            width={600}
+            height={300}
+            displayQuantityOfSide={0.5}
+            navigation={false}
+            infiniteScroll={true}
+            enableHeading={true}
+            clickable={true}
+          >
+            {this.state.activeUsers.map((activeUser) => { // populating the images
+              return <img key={activeUser.id} id={activeUser.id} src={activeUser.avatarUrl} alt={activeUser.tagLine} onClick={() => {
+                this.setState({
+                  selectedUser: activeUser.id  // setting the selected user in state
+                })
+              }} />
+            })}
 
-        <Coverflow                // Image carousel initialization
-          width={600}
-          height={300}
-          displayQuantityOfSide={0.5}
-          navigation={false}
-          infiniteScroll={true}
-          enableHeading={true}
-          clickable={true}
-        >
-          {this.state.activeUsers.map((activeUser) => { // populating the images
-            return <img key={activeUser.id} id={activeUser.id} src={activeUser.avatarUrl} alt={activeUser.tagLine} onClick={() => {
-              this.setState({
-                selectedUser: activeUser.id  // setting the selected user in state
-              })
-            }} />
-          })}
 
+          </Coverflow>
 
-        </Coverflow>
-       
-        <Button variant="contained" color="secondary" disabled={!isEnabled}
-        style={styles.buttons}
-        onClick={() => {
-          this.sendDrink()
-        }}>
-          {<LocalBarOutlinedIcon />}
-        </Button>
+          <Button variant="contained" color="secondary" disabled={!isEnabled}
+            style={styles.buttons}
+            onClick={() => {
+              this.sendDrink()
+            }}>
+            {<LocalBarOutlinedIcon />}
+          </Button>
         </div>
       </>
     )

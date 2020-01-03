@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import ApiManager from '../../modules/ApiManager';
 import Messages from '../chat/Messages'
 import { Container } from '@material-ui/core';
+import alertify from 'alertifyjs';
 
 
 const styles = {
@@ -21,7 +22,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'baseline',
     padding: 30
-    
+
   },
 
   button: {
@@ -96,6 +97,12 @@ export class Chat extends Component {
           console.log("messagesArr", messagesArr)
           let messagesSentArr = messagesArr.filter(message =>
             message.userId === this.state.activeUserId)
+
+          if (messagesArr.length === 0) {
+            alertify.set('notifier', 'position', 'top-center');
+            alertify.notify('Be the first one to compose a message!', 'info', 5,
+              () => { console.log("empty chat") });
+          }
           this.setState({
             messages: messagesArr,
             messagesSentCounter: messagesSentArr.length,
@@ -111,36 +118,40 @@ export class Chat extends Component {
   render() {
     return (
       <>
-      <div style={styles.parent}>
-        {
-          this.state.messages.map(message =>
-            <Messages
-              key={message.id}
-              message={message}
-              {...this.props}
-            />
-          )
-        }
-        <Container style={styles.buttons}>
-        {(this.state.messagesSentCounter + this.state.messagesReceivedCounter) === 6
+        <div style={styles.parent}>
+          {
+            this.state.messages.map(message =>
+              <Messages
+                key={message.id}
+                message={message}
+                {...this.props}
+              />
+            )
+          }
 
-          ? <Button variant="contained" color="secondary"
-            style={styles.button}
-            onClick={() => { // reached 6 messages
-              this.handleClose()
-            }}>
-            Close
+          <Container style={styles.buttons}>
+            {(this.state.messagesSentCounter + this.state.messagesReceivedCounter) === 6
+
+              ? <Button variant="contained" color="secondary"
+                style={styles.button}
+                onClick={() => { // reached 6 messages
+                  this.handleClose()
+                }}>
+                Close
          </Button>
 
-          : <Button variant="contained" color="secondary"
-            style={styles.button}
-            onClick={() => { // chat is still active
-              this.props.history.push("/compose")
-            }}>
-            Compose
+              : <Button variant="contained" color="secondary"
+                style={styles.button}
+                onClick={() => { // chat is still active
+                  this.props.history.push({
+                    pathname: '/compose',  // passing the counter as an argument to the history stack
+                    state: { messagesSentCounter: this.state.messagesSentCounter }
+                  });
+                }}>
+                Compose
         </Button>
-        }
-       </Container>
+            }
+          </Container>
         </div>
       </>
     )

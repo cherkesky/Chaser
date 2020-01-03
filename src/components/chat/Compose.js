@@ -29,6 +29,7 @@ export class Compose extends Component {
 
   state = {
     composedMessage: '',
+    messagesSentCounter: 0,
     activeChat: []
   }
 //*****************************************************************************************************
@@ -84,7 +85,7 @@ export class Compose extends Component {
       <div style={styles.parent}>
         <hr />
         <div >
-          <p>Message: x of 3</p>
+          <p>Message: {this.props.history.location.state.messagesSentCounter+1} of 3</p>
         </div>
         <TextField 
           id="composedMessage"

@@ -48,11 +48,9 @@ export class Messages extends Component {
     return (
       <div>
         <Paper >
-          <Typography variant="h5" component="h3">
           <Avatar alt="Avatar" src={(this.state.currentUserAvatar)} variant="circle" // Show avatar 
             className={classes.smallAvatar} />
-          </Typography>
-          <Typography component="p"> 
+          <Typography variant="h4" gutterBottom > 
           {/* show message */}
             {this.props.message.message}  
          </Typography>
