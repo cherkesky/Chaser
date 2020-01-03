@@ -51,22 +51,30 @@ export class Chat extends Component {
 
     // the party is over. time to clean up the mess....
 
-    let resetActiveChat = {}
+    let resetActiveChatForMe = {}
+    let resetActiveChatForOtherUser = {}
     let setChatCompleted = {}
 
     setChatCompleted = {
       id: this.state.activeChatId,
-      status: "completed"
-    }
-
+      status: "completed" }
     ApiManager.update("drinks", setChatCompleted) // PATCH drinks
 
-    resetActiveChat = {   // resetting drinkId for the active user
+    resetActiveChatForMe = {   // resetting drinkId for the active user
       id: this.state.activeUserId,
       activeChat: false
     }
-    console.log("resetActiveChat", resetActiveChat)
-    ApiManager.update("users", resetActiveChat) // PATCH user
+    resetActiveChatForOtherUser = {   // resetting drinkId for the other user
+      id: this.state.theOtherUserId,
+      activeChat: false
+    }
+
+    ApiManager.update("users",resetActiveChatForOtherUser) // PATCH the other user
+    .then(()=>{
+      console.log("the other user ActiveChat has been reset")
+    })
+    
+    ApiManager.update("users", resetActiveChatForMe) // PATCH my user
       .then(() => {
 
         for (let i = 0; i < this.state.messages.length; i++) {
@@ -95,31 +103,26 @@ export class Chat extends Component {
     setTimeout(() => {
       ApiManager.getAll("messages", `drinkId=${this.state.activeChatId}&_expand=drink&_sort=sent`)
         .then((messagesArr) => {
-          console.log("messagesArr", messagesArr)
+          // console.log("The messages thread", messagesArr)   
           let messagesSentArr = messagesArr.filter(message =>
             message.userId === this.state.activeUserId)
-
           if (messagesArr.length === 0) {
             alertify.set('notifier', 'position', 'top-center');
             alertify.notify('Be the first one to compose a message!', 'info', 5,
               () => { console.log("empty chat") });
           } else {
-            console.log("messages found")
+            // console.log("messages found")
             if (this.state.activeUserId === messagesArr[0].drink.sentTo){
-              console.log("Im the one that approved the drink")
+              // console.log("Im the one that approved the drink")
               this.setState({
                 theOtherUserId: messagesArr[0].drink.userId
               })
             } else {
-              console.log("Im the one that sent the drink")
+              // console.log("Im the one that sent the drink")
               this.setState({
                 theOtherUserId: messagesArr[0].drink.sentTo
               })
             }
-
-
-
-
           }
           this.setState({
             messages: messagesArr,

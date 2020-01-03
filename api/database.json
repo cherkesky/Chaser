@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
-      "activeChat": true,
+      "activeChat": false,
       "id": 14
     },
     {
@@ -102,7 +102,7 @@
       "tagLine": "Feeling cute... might do Python later... ;)",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576683864/avatars/dxkddqsdirbffmtay8xj.png",
       "barId": 8,
-      "activeChat": true,
+      "activeChat": false,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -268,7 +268,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "accepted",
+      "status": "completed",
       "matchTime": "2020-01-03T21:27:48.085Z",
       "id": 9
     }
@@ -280,48 +280,6 @@
       "message": "hi4",
       "sent": "2020-01-03T21:28:33.258Z",
       "id": 4
-    },
-    {
-      "userId": 14,
-      "drinkId": 9,
-      "message": "hi",
-      "sent": "2020-01-03T21:59:02.942Z",
-      "id": 5
-    },
-    {
-      "userId": 14,
-      "drinkId": 9,
-      "message": "2",
-      "sent": "2020-01-03T21:59:06.138Z",
-      "id": 6
-    },
-    {
-      "userId": 14,
-      "drinkId": 9,
-      "message": "3",
-      "sent": "2020-01-03T21:59:10.285Z",
-      "id": 7
-    },
-    {
-      "userId": 14,
-      "drinkId": 9,
-      "message": "4",
-      "sent": "2020-01-03T21:59:13.844Z",
-      "id": 8
-    },
-    {
-      "userId": 14,
-      "drinkId": 9,
-      "message": "5",
-      "sent": "2020-01-03T21:59:16.250Z",
-      "id": 9
-    },
-    {
-      "userId": 14,
-      "drinkId": 9,
-      "message": "6",
-      "sent": "2020-01-03T21:59:19.618Z",
-      "id": 10
     }
   ],
   "bars": [
