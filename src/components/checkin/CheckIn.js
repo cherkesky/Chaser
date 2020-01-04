@@ -59,16 +59,16 @@ export class CheckIn extends Component {
   //*****************************************************************************************************
   // Get Current User ID
   //*****************************************************************************************************
-  loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
+  loggedInUserId() { return parseInt(sessionStorage.getItem("userId")) }
   
   //*****************************************************************************************************
   // Get Current Checked In Active Bar 
   //*****************************************************************************************************
   checkedInBar() { 
-      if (isNaN(parseInt(localStorage.getItem("active-bar")))){ // no active bars in local storage
+      if (isNaN(parseInt(sessionStorage.getItem("active-bar")))){ // no active bars in local storage
         return 0
       } else{
-        return parseInt(localStorage.getItem("active-bar")) // there is an active bar
+        return parseInt(sessionStorage.getItem("active-bar")) // there is an active bar
       }
 }
   
@@ -76,7 +76,7 @@ export class CheckIn extends Component {
   // Handle Checkout
   //*****************************************************************************************************
   handleCheckOut = () => {
-    localStorage.removeItem("active-bar")
+    sessionStorage.removeItem("active-bar")
     this.setState({
       activeBar: 0
     })
@@ -143,7 +143,7 @@ export class CheckIn extends Component {
         id: whatUser,
         barId: toWhatBar
       }
-      localStorage.setItem(
+      sessionStorage.setItem(
         "active-bar",
         JSON.stringify(checkinObj.barId)
       )

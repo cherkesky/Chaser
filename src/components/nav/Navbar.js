@@ -5,6 +5,7 @@ import Avatar from '@material-ui/core/Avatar';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Badge from '@material-ui/core/Badge';
+import alertify from 'alertifyjs';
 
 const useStyles = theme => ({
   root: {
@@ -43,7 +44,7 @@ export class Navbar extends Component {
   //*****************************************************************************************************
   // Get Current User ID
   //*****************************************************************************************************
-  loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
+  loggedInUserId() { return parseInt(sessionStorage.getItem("userId")) }
 
 
   //*****************************************************************************************************
@@ -52,6 +53,7 @@ export class Navbar extends Component {
   render() {
     const profileImageUrl = this.props.users.avatarUrl
     const { classes } = this.props; // material ui styling dependency
+    alertify.set('notifier', 'position', 'top-center')
 
     return (
       <>
@@ -66,8 +68,12 @@ export class Navbar extends Component {
                     <Avatar alt="Avatar" src={(profileImageUrl)} variant="circle" // Show avatar with notif
                       className={classes.bigAvatar}
                       onClick={() => {
-                        (this.props.drinkNotif === 0) ? window.alert("No pending drinks") : this.props.history.push("/pendingdrinks")
-                      }}
+                        (this.props.drinkNotif === 0)
+                          ? alertify.notify('No pending drinks', 'info', 5,
+                          () => { console.log("empty chat") })
+                          
+                        : this.props.history.push("/pendingdrinks")
+                  }}
                     /></Badge>
                   {/* Logo */}
                   <img alt="logo" src={require("../../assets/ChaserLogo.png")} width="200px" height="40px" onClick={() => { this.props.history.push("/checkin") }}></img>

@@ -56,8 +56,8 @@ export class Timeout extends Component {
   //*****************************************************************************************************
   componentDidMount() {
 
-    const barId = localStorage.getItem("active-bar")
-    const userId = localStorage.getItem("userId")
+    const barId = sessionStorage.getItem("active-bar")
+    const userId = sessionStorage.getItem("userId")
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
       .then((activeUsersArr) => {

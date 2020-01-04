@@ -119,7 +119,7 @@ export class Register extends Component {
             .then((user) => {
               // console.log('user registration', user)
               const userId = user[0].id
-              localStorage.setItem("userId", parseInt(userId))
+              sessionStorage.setItem("userId", parseInt(userId))
             })
         })
         .then(() => {
