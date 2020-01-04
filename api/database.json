@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
-      "activeChat": false,
+      "activeChat": true,
       "id": 14
     },
     {
@@ -138,7 +138,7 @@
       "tagLine": "NSS is the best",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576687013/avatars/mrxvpqqioq1krwni21c3.png",
       "barId": 8,
-      "activeChat": false,
+      "activeChat": true,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -258,7 +258,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "accepted",
       "matchTime": "2020-01-03T21:26:49.240Z",
       "id": 8
     },
@@ -293,7 +293,15 @@
       "id": 11
     }
   ],
-  "messages": [],
+  "messages": [
+    {
+      "userId": 14,
+      "drinkId": 8,
+      "message": "1",
+      "sent": "2020-01-04T00:22:42.704Z",
+      "id": 1
+    }
+  ],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",
