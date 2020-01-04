@@ -3,6 +3,7 @@ import ApiManager from '../../modules/ApiManager';
 import Coverflow from 'react-coverflow';
 import Countdown from 'react-countdown-now';
 import Button from '@material-ui/core/Button';
+import alertify from 'alertifyjs';
 
 const styles = {
   parent: {
@@ -19,9 +20,13 @@ const styles = {
     marginTop: "auto",
     display: 'flex',
     flexDirection: 'column',
+  },
+  headline: {
+    textAlign: 'center'
   }
-  
+
 }
+
 
 //*****************************************************************************************************
 // Render Time
@@ -36,6 +41,16 @@ export class Timeout extends Component {
     activeUsers: [],
     buttonDisabled: true,
   }
+
+  //*****************************************************************************************************
+  //noTimeoutAlert()
+  //*****************************************************************************************************
+  noTimeoutAlert = () => {
+    alertify.set('notifier', 'position', 'top-center');
+    alertify.notify('Timeout is over. Drink Responsibly!', 'success', 8,
+      () => { this.props.history.push("/senddrinks"); }); // hijacking the user to Chat if there is chat
+
+  }
   //*****************************************************************************************************
   //ComponentDidMount()
   //*****************************************************************************************************
@@ -46,7 +61,7 @@ export class Timeout extends Component {
 
     ApiManager.get("bars", barId, `_embed=users`)    // get all the users that are checked in
       .then((activeUsersArr) => {
-        console.log("activeUsersArr",activeUsersArr)
+        console.log("activeUsersArr", activeUsersArr)
         this.setState({
           activeUsers: activeUsersArr.users,
           barId: barId,
@@ -76,8 +91,8 @@ export class Timeout extends Component {
     const isEnabled = !this.state.buttonDisabled
 
     return (
-      <div  style={styles.parent}>
-        <h3>Enjoy Your Drink</h3>
+      <div style={styles.parent}>
+        <h3 style={styles.headline}>Enjoy Your Drink</h3>
 
         <Coverflow                // Image carousel initialization
           width={600}
@@ -102,11 +117,13 @@ export class Timeout extends Component {
 
         </Coverflow>
 
-        <Button variant="contained" color="secondary" disabled={!isEnabled} 
-        style={styles.buttons}
-        onClick={() => {
-          this.props.history.push("/senddrinks")     // routing back to the drinks view
-        }}>
+
+          {this.state.buttonDisabled // checking if the button is still disables (countdown is active)
+          ?  <Button variant="contained" color="secondary" disabled={!isEnabled}   // countdown button
+          style={styles.buttons}
+          onClick={() => {
+            this.props.history.push("/senddrinks")     // routing back to the drinks view
+          }}>
           Timed Out Ends In:
           <Countdown
             // date={Date.now() + 1800000}  // 30min timeout
@@ -114,12 +131,24 @@ export class Timeout extends Component {
             renderer={renderer}
             onComplete={() => {
               this.setState({
-              buttonDisabled: false
+                buttonDisabled: false
               })
+              this.noTimeoutAlert()
             }}
           >
           </Countdown>
         </Button>
+
+          : <Button variant="contained" color="secondary" disabled={!isEnabled} // goback button
+          style={styles.buttons}
+          onClick={() => {
+            this.props.history.push("/senddrinks")     // routing back to the drinks view
+          }}>
+            Go Back
+        </Button>
+  }
+
+
       </div>
     )
   }

@@ -15,7 +15,7 @@
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
-      "activeChat": true,
+      "activeChat": false,
       "id": 14
     },
     {
@@ -156,7 +156,7 @@
       "tagLine": "I like hats!",
       "avatarUrl": "https://res.cloudinary.com/datyxctgm/image/upload/v1576697532/avatars/c7w6ngkduhcyommrnyah.jpg",
       "barId": 8,
-      "activeChat": true,
+      "activeChat": false,
       "timeOut": false,
       "beenReported": 0,
       "chaserCoinCredit": 0,
@@ -208,7 +208,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "accepted",
+      "status": "completed",
       "matchTime": "2019-12-31T17:25:06.182Z",
       "id": 3
     },
@@ -221,17 +221,79 @@
       "status": "pending",
       "matchTime": "2020-01-01T23:08:49.291Z",
       "id": 4
-    }
-  ],
-  "messages": [
+    },
+    {
+      "userId": 14,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-03T21:25:02.657Z",
+      "id": 5
+    },
+    {
+      "userId": 23,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "rejected",
+      "matchTime": "2020-01-03T21:25:55.734Z",
+      "id": 6
+    },
     {
       "userId": 22,
-      "drinkId": 3,
-      "message": "hi",
-      "sent": "2020-01-01T23:39:26.034Z",
-      "id": 1
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-03T21:26:21.410Z",
+      "id": 7
+    },
+    {
+      "userId": 21,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-03T21:26:49.240Z",
+      "id": 8
+    },
+    {
+      "userId": 19,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-03T21:27:48.085Z",
+      "id": 9
+    },
+    {
+      "userId": 14,
+      "sentTo": 19,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-03T22:56:38.662Z",
+      "id": 10
+    },
+    {
+      "userId": 19,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-03T22:57:02.062Z",
+      "id": 11
     }
   ],
+  "messages": [],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",

@@ -20,6 +20,9 @@ const styles = {
   },
   loginbutton: {
     height: 50
+  },
+  headline: {
+    textAlign: 'center'
   }
 }
 
@@ -66,7 +69,7 @@ export class Login extends Component {
     return (
       <>
       <div style={styles.parent}>
-      <Typography variant="overline" gutterBottom>
+      <Typography variant="overline" gutterBottom style={styles.headline}>
          Welcome back!
          Please fill in your login information and lets see what's going on here
         </Typography> <br/>
