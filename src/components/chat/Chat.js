@@ -151,7 +151,7 @@ export class Chat extends Component {
           }
 
           <Container style={styles.buttons}>
-            {(this.state.messagesSentCounter + this.state.messagesReceivedCounter) === 6
+            {(this.state.messagesSentCounter + this.state.messagesReceivedCounter) >= 6
 
               ? <Button variant="contained" color="secondary"
                 style={styles.button}
