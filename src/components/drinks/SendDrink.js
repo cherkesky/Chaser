@@ -78,7 +78,7 @@ export class SendDrink extends Component {
       alertify.notify('WAIT! SOMEONE APPROVED YOUR DRINK!', 'success', 5,
         () => { this.props.history.push("/chat"); }); // hijacking the user to Chat if there is chat
     }
-  }
+  }  
 
   //*****************************************************************************************************
   //ComponentDidMount()
