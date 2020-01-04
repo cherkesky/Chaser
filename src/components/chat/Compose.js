@@ -35,7 +35,7 @@ export class Compose extends Component {
 //*****************************************************************************************************
   // Get Current User ID
   //*****************************************************************************************************
-  loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
+  loggedInUserId() { return parseInt(sessionStorage.getItem("userId")) }
 
   //*****************************************************************************************************
   // Handle Field Change
@@ -66,7 +66,7 @@ export class Compose extends Component {
   // componentDidMount()
   //*****************************************************************************************************
     componentDidMount(){
-      let activeChatId= parseInt(localStorage.getItem("active-chat"))
+      let activeChatId= parseInt(sessionStorage.getItem("active-chat"))
       ApiManager.get("drinks", `${activeChatId}`)
       .then((res)=>{
         this.setState({

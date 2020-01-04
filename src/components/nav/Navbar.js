@@ -44,7 +44,7 @@ export class Navbar extends Component {
   //*****************************************************************************************************
   // Get Current User ID
   //*****************************************************************************************************
-  loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
+  loggedInUserId() { return parseInt(sessionStorage.getItem("userId")) }
 
 
   //*****************************************************************************************************

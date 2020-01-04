@@ -83,7 +83,7 @@ export class Chat extends Component {
         }
       })
       .then(() => {
-        localStorage.removeItem("active-chat") // remove chat from local storage
+        sessionStorage.removeItem("active-chat") // remove chat from local storage
         this.props.history.push("/timeout") // sending user to the timeout view
       })
 
@@ -95,8 +95,8 @@ export class Chat extends Component {
   componentDidMount() {
 
     this.setState({
-      activeChatId: parseInt(localStorage.getItem("active-chat")),
-      activeUserId: parseInt(localStorage.getItem("userId"))
+      activeChatId: parseInt(sessionStorage.getItem("active-chat")),
+      activeUserId: parseInt(sessionStorage.getItem("userId"))
     })
 
 

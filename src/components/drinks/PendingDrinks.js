@@ -48,7 +48,7 @@ export class PendingDrinks extends Component {
   //*****************************************************************************************************
   rerenderer = () => {
 
-    const sentFrom = localStorage.getItem("userId")
+    const sentFrom = sessionStorage.getItem("userId")
 
     console.log("RERENDERER")
 
@@ -64,7 +64,7 @@ export class PendingDrinks extends Component {
   //*****************************************************************************************************
   // Get Current User ID
   //*****************************************************************************************************
-  loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
+  loggedInUserId() { return parseInt(sessionStorage.getItem("userId")) }
 
   //*****************************************************************************************************
   // Handle Reject
@@ -135,7 +135,7 @@ export class PendingDrinks extends Component {
         setTimeout(() => { this.rerenderer() }, 100); // refresh the screen
       })
       .then(() => {
-        localStorage.setItem(
+        sessionStorage.setItem(
           "active-chat",
           JSON.stringify(this.state.selectedDrinkRequest)
         )
@@ -153,7 +153,7 @@ export class PendingDrinks extends Component {
   //*****************************************************************************************************
   componentDidMount() {
 
-    const sentFrom = localStorage.getItem("userId")
+    const sentFrom = sessionStorage.getItem("userId")
 
     ApiManager.getAll("drinks", `sentTo=${sentFrom}&status=pending&_expand=user`) // get all pending drinks
       .then((pendingDrinksArr) => {

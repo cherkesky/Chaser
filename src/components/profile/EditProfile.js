@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 
 export class EditProfile extends Component {
 
-loggedInUserId() { return parseInt(localStorage.getItem("userId")) }
+loggedInUserId() { return parseInt(sessionStorage.getItem("userId")) }
 
   state = {
     id: '',

@@ -52,7 +52,7 @@ export class Login extends Component {
           window.alert("Email and password not valid. Please try again.")
         } else {  // we found the user in the db
           const userId = user[0].id
-          localStorage.setItem("userId", parseInt(userId)) // set the user in local stoarge
+          sessionStorage.setItem("userId", parseInt(userId)) // set the user in local stoarge
             this.props.setUser({     // triggering the Chase.js SetUser() function
               email: email,
               password: password,

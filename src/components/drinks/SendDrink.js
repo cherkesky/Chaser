@@ -47,7 +47,7 @@ export class SendDrink extends Component {
 
   sendDrink() {
 
-    if (localStorage.getItem("active-chat") === null) // checking if there is no active chat first
+    if (sessionStorage.getItem("active-chat") === null) // checking if there is no active chat first
     {
       // no active chat 
       ApiManager.getAll("drinks", `sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
@@ -85,8 +85,8 @@ export class SendDrink extends Component {
   //*****************************************************************************************************
   componentDidMount() {
 
-    const barId = localStorage.getItem("active-bar")
-    const userId = localStorage.getItem("userId")
+    const barId = sessionStorage.getItem("active-bar")
+    const userId = sessionStorage.getItem("userId")
 
     // set the right gender the user interested in state
     ApiManager.get("users", `${userId}`)
@@ -105,7 +105,7 @@ export class SendDrink extends Component {
             .then((activeChatApprovedByMeArr) => {
               if (activeChatApprovedByMeArr.length !== 0) {
                 console.log("activeChatApprovedByMeArr", activeChatApprovedByMeArr)
-                localStorage.setItem( // set the chat id in local storage
+                sessionStorage.setItem( // set the chat id in local storage
                   "active-chat",
                   JSON.stringify(activeChatApprovedByMeArr[0].id)
                 )
@@ -113,7 +113,7 @@ export class SendDrink extends Component {
                 ApiManager.getAll("drinks", `sentTo=${userId}&status=accepted`) // someone approved my drink!
                   .then((activeChatApprovedByOtherArr) => {
                     console.log("activeChatApprovedByOtherArr", activeChatApprovedByOtherArr)
-                    localStorage.setItem( // set the chat id in local storage
+                    sessionStorage.setItem( // set the chat id in local storage
                       "active-chat",
                       JSON.stringify(activeChatApprovedByOtherArr[0].id)
                     )

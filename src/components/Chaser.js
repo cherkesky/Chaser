@@ -6,7 +6,7 @@ import ApplicationViews from '../ApplicationViews'
 //*****************************************************************************************************
   // Get Current User ID
   //*****************************************************************************************************
-  const loggedInUserId=() => { return parseInt(localStorage.getItem("userId")) }
+  const loggedInUserId=() => { return parseInt(sessionStorage.getItem("userId")) }
 
 export class Chaser extends Component {
   state = {
@@ -17,7 +17,7 @@ export class Chaser extends Component {
   }
 
   //check for logged in user in local storage
-  isAuthenticated = () => localStorage.getItem("credentials") !== null
+  isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
 
   //*****************************************************************************************************
@@ -26,7 +26,7 @@ export class Chaser extends Component {
 
   setUser = (authObj) => {
     console.log("AUTHOBJ", authObj)
-    localStorage.setItem(   // set credentials in local storage 
+    sessionStorage.setItem(   // set credentials in local storage 
       "credentials",
       JSON.stringify(authObj)
     )
@@ -57,10 +57,10 @@ export class Chaser extends Component {
   //*****************************************************************************************************
   
   clearUser = () => {
-    localStorage.removeItem("credentials") //handle logout functionality
-    localStorage.removeItem("userId")
-    localStorage.removeItem("active-bar")
-    localStorage.removeItem("active-chat")
+    sessionStorage.removeItem("credentials") //handle logout functionality
+    sessionStorage.removeItem("userId")
+    sessionStorage.removeItem("active-bar")
+    sessionStorage.removeItem("active-chat")
     this.setState({  // resetting the state
       user: this.isAuthenticated(),
       users: [],
