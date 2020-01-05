@@ -47,18 +47,15 @@ export class Chat extends Component {
   // Rerenderer
   //*****************************************************************************************************
 
-  rerenderer = () => {
-
-    console.log("RERENDERER")
+  rerenderer = () => {  // refreshing the view
     setTimeout(() => {
-
-    ApiManager.getAll("messages", `drinkId=${this.state.activeChatId}&_expand=drink&_sort=sent`)
-    .then((messagesArr) => {
-        this.setState({
-          messages: messagesArr
+      ApiManager.getAll("messages", `drinkId=${this.state.activeChatId}&_expand=drink&_sort=sent`)
+        .then((messagesArr) => {
+          this.setState({
+            messages: messagesArr
+          })
         })
-      })
-    },100) // timeout closer
+    }, 100)
   }
   //*****************************************************************************************************
   // Handle Close
@@ -73,7 +70,8 @@ export class Chat extends Component {
 
     setChatCompleted = {
       id: this.state.activeChatId,
-      status: "completed" }
+      status: "completed"
+    }
     ApiManager.update("drinks", setChatCompleted) // PATCH drinks
 
     resetActiveChatForMe = {   // resetting drinkId for the active user
@@ -85,11 +83,11 @@ export class Chat extends Component {
       activeChat: false
     }
 
-    ApiManager.update("users",resetActiveChatForOtherUser) // PATCH the other user
-    .then(()=>{
-      console.log("the other user ActiveChat has been reset")
-    })
-    
+    ApiManager.update("users", resetActiveChatForOtherUser) // PATCH the other user
+      .then(() => {
+        console.log("the other user ActiveChat has been reset")
+      })
+
     ApiManager.update("users", resetActiveChatForMe) // PATCH my user
       .then(() => {
 
@@ -109,11 +107,11 @@ export class Chat extends Component {
   // componentDidMount()
   //*****************************************************************************************************
   componentDidMount() {
-    window.addEventListener('storage',(e) => {
-      this.rerenderer()
-      console.log(e)
+    window.addEventListener('storage', () => { // New message changed LocalStorage
+      console.log("LocalStorage EventListener - On")
+      this.rerenderer() // refresh the other tab Chat view
     })
-  
+
     this.setState({
       activeChatId: parseInt(sessionStorage.getItem("active-chat")),
       activeUserId: parseInt(sessionStorage.getItem("userId"))
@@ -132,7 +130,7 @@ export class Chat extends Component {
               () => { console.log("empty chat") });
           } else {
             // console.log("messages found")
-            if (this.state.activeUserId === messagesArr[0].drink.sentTo){
+            if (this.state.activeUserId === messagesArr[0].drink.sentTo) {
               // console.log("Im the one that approved the drink")
               this.setState({
                 theOtherUserId: messagesArr[0].drink.userId
@@ -154,49 +152,56 @@ export class Chat extends Component {
   } // componentDidMount() closer 
 
   //*****************************************************************************************************
-  // render()
+  // componentWillUnmount
   //*****************************************************************************************************
-  render() {
-    return (
-      <>
-        <div style={styles.parent}>
-          {
-            this.state.messages.map(message =>
-              <Messages
-                key={message.id}
-                message={message}
-                {...this.props}
-              />
-            )
-          }
+  componentWillUnmount() {
 
-          <Container style={styles.buttons}>
-            {(this.state.messagesSentCounter + this.state.messagesReceivedCounter) >= 6
+    window.removeEventListener('storage', console.log("LocalStorage EventListener - Off"))
+  }
+    //*****************************************************************************************************
+    // render()
+    //*****************************************************************************************************
+    render() {
+      return (
+        <>
+          <div style={styles.parent}>
+            {
+              this.state.messages.map(message =>
+                <Messages
+                  key={message.id}
+                  message={message}
+                  {...this.props}
+                />
+              )
+            }
 
-              ? <Button variant="contained" color="secondary"
-                style={styles.button}
-                onClick={() => { // reached 6 messages
-                  this.handleClose()
-                }}>
-                Close
+            <Container style={styles.buttons}>
+              {(this.state.messagesSentCounter + this.state.messagesReceivedCounter) >= 6
+
+                ? <Button variant="contained" color="secondary"
+                  style={styles.button}
+                  onClick={() => { // reached 6 messages
+                    this.handleClose()
+                  }}>
+                  Close
          </Button>
 
-              : <Button variant="contained" color="secondary"
-                style={styles.button}
-                onClick={() => { // chat is still active
-                  this.props.history.push({
-                    pathname: '/compose',  // passing the counter as an argument to the history stack
-                    state: { messagesSentCounter: this.state.messagesSentCounter }
-                  });
-                }}>
-                Compose
+                : <Button variant="contained" color="secondary"
+                  style={styles.button}
+                  onClick={() => { // chat is still active
+                    this.props.history.push({
+                      pathname: '/compose',  // passing the counter as an argument to the history stack
+                      state: { messagesSentCounter: this.state.messagesSentCounter }
+                    });
+                  }}>
+                  Compose
         </Button>
-            }
-          </Container>
-        </div>
-      </>
-    )
+              }
+            </Container>
+          </div>
+        </>
+      )
+    }
   }
-}
 
-export default Chat
+  export default Chat
