@@ -128,7 +128,7 @@
     },
     {
       "firstName": "Cassie",
-      "lastName": "Boys",
+      "lastName": "Boyd",
       "age": "21",
       "gender": "female",
       "genderInterested": "male",
@@ -182,116 +182,7 @@
     }
   ],
   "drinks": [
-    {
-      "userId": 15,
-      "sentTo": 14,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "completed",
-      "matchTime": "2019-12-31T16:27:07.833Z",
-      "id": 1
-    },
-    {
-      "userId": 14,
-      "sentTo": 23,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2019-12-31T17:14:48.690Z",
-      "id": 2
-    },
-    {
-      "userId": 14,
-      "sentTo": 22,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "completed",
-      "matchTime": "2019-12-31T17:25:06.182Z",
-      "id": 3
-    },
-    {
-      "userId": 14,
-      "sentTo": 21,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2020-01-01T23:08:49.291Z",
-      "id": 4
-    },
-    {
-      "userId": 14,
-      "sentTo": 22,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2020-01-03T21:25:02.657Z",
-      "id": 5
-    },
-    {
-      "userId": 23,
-      "sentTo": 14,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "rejected",
-      "matchTime": "2020-01-03T21:25:55.734Z",
-      "id": 6
-    },
-    {
-      "userId": 22,
-      "sentTo": 14,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "completed",
-      "matchTime": "2020-01-03T21:26:21.410Z",
-      "id": 7
-    },
-    {
-      "userId": 21,
-      "sentTo": 14,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "completed",
-      "matchTime": "2020-01-03T21:26:49.240Z",
-      "id": 8
-    },
-    {
-      "userId": 19,
-      "sentTo": 14,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "completed",
-      "matchTime": "2020-01-03T21:27:48.085Z",
-      "id": 9
-    },
-    {
-      "userId": 14,
-      "sentTo": 19,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "completed",
-      "matchTime": "2020-01-03T22:56:38.662Z",
-      "id": 10
-    },
-    {
-      "userId": 19,
-      "sentTo": 14,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2020-01-03T22:57:02.062Z",
-      "id": 11
-    }
+    
   ],
   "messages": [],
   "bars": [

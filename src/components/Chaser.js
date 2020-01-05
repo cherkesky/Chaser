@@ -61,6 +61,7 @@ export class Chaser extends Component {
     sessionStorage.removeItem("userId")
     sessionStorage.removeItem("active-bar")
     sessionStorage.removeItem("active-chat")
+    localStorage.removeItem("lastMessageByUser")
     this.setState({  // resetting the state
       user: this.isAuthenticated(),
       users: [],
