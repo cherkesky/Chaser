@@ -128,7 +128,7 @@
     },
     {
       "firstName": "Cassie",
-      "lastName": "Boys",
+      "lastName": "Boyd",
       "age": "21",
       "gender": "female",
       "genderInterested": "male",
@@ -198,7 +198,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "completed",
       "matchTime": "2019-12-31T17:14:48.690Z",
       "id": 2
     },
@@ -288,12 +288,34 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "completed",
       "matchTime": "2020-01-03T22:57:02.062Z",
       "id": 11
+    },
+    {
+      "userId": 23,
+      "sentTo": 17,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-04T21:50:28.100Z",
+      "id": 12
+    },
+    {
+      "userId": 14,
+      "sentTo": 19,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-04T22:44:15.028Z",
+      "id": 13
     }
   ],
-  "messages": [],
+  "messages": [
+   
+  ],
   "bars": [
     {
       "apiPlaceId": "ChIJDZFj5YpmZIgRYc19M9dZr-k",

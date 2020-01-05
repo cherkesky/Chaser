@@ -58,6 +58,10 @@ export class Compose extends Component {
       sent: createDateTimeToISO()
     }
     console.log(newMessage)
+    
+    localStorage.setItem( 
+      "lastMessageByUser", JSON.stringify(newMessage.userId)
+    )
 
     ApiManager.post("messages",newMessage)
     .then(this.props.history.push("/chat"))
@@ -67,6 +71,7 @@ export class Compose extends Component {
   //*****************************************************************************************************
     componentDidMount(){
       let activeChatId= parseInt(sessionStorage.getItem("active-chat"))
+
       ApiManager.get("drinks", `${activeChatId}`)
       .then((res)=>{
         this.setState({
@@ -103,6 +108,7 @@ export class Compose extends Component {
         
 
         <Button variant="contained" color="secondary" onClick={() => {
+
           this.handleSend()
         }}>
           Send

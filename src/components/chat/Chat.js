@@ -43,7 +43,23 @@ export class Chat extends Component {
     messagesReceivedCounter: 0,
     messages: []
   }
+  //*****************************************************************************************************
+  // Rerenderer
+  //*****************************************************************************************************
 
+  rerenderer = () => {
+
+    console.log("RERENDERER")
+    setTimeout(() => {
+
+    ApiManager.getAll("messages", `drinkId=${this.state.activeChatId}&_expand=drink&_sort=sent`)
+    .then((messagesArr) => {
+        this.setState({
+          messages: messagesArr
+        })
+      })
+    },100) // timeout closer
+  }
   //*****************************************************************************************************
   // Handle Close
   //*****************************************************************************************************
@@ -93,7 +109,11 @@ export class Chat extends Component {
   // componentDidMount()
   //*****************************************************************************************************
   componentDidMount() {
-
+    window.addEventListener('storage',(e) => {
+      this.rerenderer()
+      console.log(e)
+    })
+  
     this.setState({
       activeChatId: parseInt(sessionStorage.getItem("active-chat")),
       activeUserId: parseInt(sessionStorage.getItem("userId"))
@@ -105,7 +125,7 @@ export class Chat extends Component {
         .then((messagesArr) => {
           // console.log("The messages thread", messagesArr)   
           let messagesSentArr = messagesArr.filter(message =>
-            message.userId === this.state.activeUserId)
+            message.userId === this.state.activeUserId)  // checking how many messeges sent
           if (messagesArr.length === 0) {
             alertify.set('notifier', 'position', 'top-center');
             alertify.notify('Be the first one to compose a message!', 'info', 5,
