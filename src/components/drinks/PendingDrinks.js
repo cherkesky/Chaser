@@ -50,6 +50,8 @@ export class PendingDrinks extends Component {
 
     const sentFrom = sessionStorage.getItem("userId")
 
+    this.props.updateDrinkNotif()
+
     console.log("RERENDERER")
 
     ApiManager.getAll("drinks", `sentTo=${sentFrom}&status=pending&_expand=user`)
@@ -72,6 +74,8 @@ export class PendingDrinks extends Component {
   handleReject() {
     const userId = this.loggedInUserId()
     let drinkToReject = {}
+
+    this.props.updateDrinkNotif()
 
     ApiManager.getAll("drinks", `userId=${this.state.selectedUser}&sentTo=${userId}&status=pending`)
       .then((drinkRequestArr) => {  // fetch the relevant drink to REJECT and set it in state
@@ -103,6 +107,8 @@ export class PendingDrinks extends Component {
     let drinkToAccept = {}
     let setChatUserA = {}
     let setChatUserB = {}
+
+    this.props.updateDrinkNotif()
 
     ApiManager.getAll("drinks", `userId=${this.state.selectedUser}&sentTo=${userId}&status=pending`)
       .then((drinkRequestArr) => {  // fetch the relevant drink to ACCEPT and set it in state

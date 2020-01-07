@@ -42,16 +42,47 @@ export class SendDrink extends Component {
   }
 
   //*****************************************************************************************************
+  // Abandoned Chat Finder
+  //*****************************************************************************************************
+  abandonedChatFinder() {
+    const userId = sessionStorage.getItem("userId")
+    // check if there is an active chat that skipped local storage
+    ApiManager.getAll("users", `id=${userId}&activeChat=true`) // checking for an active chat
+      .then((activeUsersArr) => {
+        if (activeUsersArr.length !== 0) {  // there is an active chat going on
+          ApiManager.getAll("drinks", `userId=${userId}&status=accepted`)
+            .then((activeChatApprovedByMeArr) => { // abandoned chat found! Get the relevant drinkId
+              if (activeChatApprovedByMeArr.length !== 0) {
+                console.log("activeChatApprovedByMeArr", activeChatApprovedByMeArr)
+                sessionStorage.setItem( // set the chat id in session storage
+                  "active-chat",
+                  JSON.stringify(activeChatApprovedByMeArr[0].id)
+                )
+              } else {
+                ApiManager.getAll("drinks", `sentTo=${userId}&status=accepted`) // someone approved my drink!
+                  .then((activeChatApprovedByOtherArr) => {
+                    console.log("activeChatApprovedByOtherArr", activeChatApprovedByOtherArr)
+                    sessionStorage.setItem( // set the chat id in session storage
+                      "active-chat",
+                      JSON.stringify(activeChatApprovedByOtherArr[0].id)
+                    )
+                  })
+              }
+            })
+        } // parent if closer
+      })
+  }
+
+  //*****************************************************************************************************
   // Send Drink
   //*****************************************************************************************************
-
   sendDrink() {
-
+    this.abandonedChatFinder()
+    
     if (sessionStorage.getItem("active-chat") === null) // checking if there is no active chat first
     {
       // no active chat 
       ApiManager.getAll("drinks", `sentTo=${this.state.selectedUser}&userId=${this.state.userId}&status=pending`)
-
         .then((pendingDrinksArr) => {
           console.log("pendingDrinksArr", pendingDrinksArr)
           if (pendingDrinksArr.length === 0) {     // check if there is already a drink request for the user
@@ -78,7 +109,7 @@ export class SendDrink extends Component {
       alertify.notify('WAIT! SOMEONE APPROVED YOUR DRINK!', 'success', 5,
         () => { this.props.history.push("/chat"); }); // hijacking the user to Chat if there is chat
     }
-  }  
+  }
 
   //*****************************************************************************************************
   //ComponentDidMount()
@@ -100,12 +131,11 @@ export class SendDrink extends Component {
     ApiManager.getAll("users", `id=${userId}&activeChat=true`) // checking for an active chat
       .then((activeUsersArr) => {
         if (activeUsersArr.length !== 0) {  // there is an active chat going on
-
-          ApiManager.getAll("drinks", `userId=${userId}&status=accepted`) // abandoned chat found!
-            .then((activeChatApprovedByMeArr) => {
+          ApiManager.getAll("drinks", `userId=${userId}&status=accepted`)
+            .then((activeChatApprovedByMeArr) => { // abandoned chat found! Get the relevant drinkId
               if (activeChatApprovedByMeArr.length !== 0) {
                 console.log("activeChatApprovedByMeArr", activeChatApprovedByMeArr)
-                sessionStorage.setItem( // set the chat id in local storage
+                sessionStorage.setItem( // set the chat id in session storage
                   "active-chat",
                   JSON.stringify(activeChatApprovedByMeArr[0].id)
                 )
@@ -113,7 +143,7 @@ export class SendDrink extends Component {
                 ApiManager.getAll("drinks", `sentTo=${userId}&status=accepted`) // someone approved my drink!
                   .then((activeChatApprovedByOtherArr) => {
                     console.log("activeChatApprovedByOtherArr", activeChatApprovedByOtherArr)
-                    sessionStorage.setItem( // set the chat id in local storage
+                    sessionStorage.setItem( // set the chat id in session storage
                       "active-chat",
                       JSON.stringify(activeChatApprovedByOtherArr[0].id)
                     )

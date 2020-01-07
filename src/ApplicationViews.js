@@ -49,7 +49,7 @@ export class ApplicationViews extends Component {
         />
         <Route
           exact path="/pendingdrinks" render={props => {
-            return <PendingDrinks {...props} />
+            return <PendingDrinks updateDrinkNotif={this.props.updateDrinkNotif} {...props} />
           }}
         />
         <Route

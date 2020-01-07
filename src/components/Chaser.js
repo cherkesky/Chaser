@@ -4,9 +4,9 @@ import NavBar from './nav/Navbar'
 import ApplicationViews from '../ApplicationViews'
 
 //*****************************************************************************************************
-  // Get Current User ID
-  //*****************************************************************************************************
-  const loggedInUserId=() => { return parseInt(sessionStorage.getItem("userId")) }
+// Get Current User ID
+//*****************************************************************************************************
+const loggedInUserId = () => { return parseInt(sessionStorage.getItem("userId")) }
 
 export class Chaser extends Component {
   state = {
@@ -19,6 +19,19 @@ export class Chaser extends Component {
   //check for logged in user in local storage
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
+  //*****************************************************************************************************
+  // Update Drink Notifications
+  //*****************************************************************************************************
+
+  updateDrinkNotif = () => {
+    console.log("updateDrinkNotif")
+    ApiManager.getAll("drinks", `sentTo=${loggedInUserId()}&status=pending&_expand=user`)
+      .then((pendingDrinksArr) => {   // fetch pending drinks
+        this.setState({
+          drinkNotif: pendingDrinksArr.length  // the lenght of the array is the number of the notif
+        })
+      })
+  }
 
   //*****************************************************************************************************
   // Set User
@@ -30,32 +43,32 @@ export class Chaser extends Component {
       "credentials",
       JSON.stringify(authObj)
     )
-    this.setState({   
+    this.setState({
       user: this.isAuthenticated(),  // set user in in state
       userId: authObj.userId,
     })
 
     ApiManager.get("users", loggedInUserId())   // fetch current user
-    .then((usersObj) => {
-      this.setState(
-        {
-          users: usersObj  // set user array in state
-        }
-      )
-    })
-    
+      .then((usersObj) => {
+        this.setState(
+          {
+            users: usersObj  // set user array in state
+          }
+        )
+      })
+
     ApiManager.getAll("drinks", `sentTo=${loggedInUserId()}&status=pending&_expand=user`)
-        .then((pendingDrinksArr) => {   // fetch pending drinks
-          this.setState({
-            drinkNotif: pendingDrinksArr.length  // the lenght of the array is the number of the notif
-          })
+      .then((pendingDrinksArr) => {   // fetch pending drinks
+        this.setState({
+          drinkNotif: pendingDrinksArr.length  // the lenght of the array is the number of the notif
         })
+      })
   }
 
   //*****************************************************************************************************
   // Clear User
   //*****************************************************************************************************
-  
+
   clearUser = () => {
     sessionStorage.removeItem("credentials") //handle logout functionality
     sessionStorage.removeItem("userId")
@@ -65,7 +78,7 @@ export class Chaser extends Component {
     this.setState({  // resetting the state
       user: this.isAuthenticated(),
       users: [],
-      drinkNotif:0,
+      drinkNotif: 0,
       userId: 0
     })
   }
@@ -102,7 +115,7 @@ export class Chaser extends Component {
     return (
       <React.Fragment>
         <NavBar user={this.state.user} userId={this.state.userId} users={this.state.users} drinkNotif={this.state.drinkNotif} clearUser={this.clearUser} />
-        <ApplicationViews user={this.state.user} setUser={this.setUser} />
+        <ApplicationViews user={this.state.user} setUser={this.setUser} updateDrinkNotif={this.updateDrinkNotif}/>
       </React.Fragment>
     )
   }

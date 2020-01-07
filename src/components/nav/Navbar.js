@@ -47,6 +47,10 @@ export class Navbar extends Component {
   loggedInUserId() { return parseInt(sessionStorage.getItem("userId")) }
 
 
+  rerenderer() {
+    this.forceUpdate()
+  }
+
   //*****************************************************************************************************
   // Render()
   //*****************************************************************************************************
@@ -87,6 +91,7 @@ export class Navbar extends Component {
                     }}></img>
                   </div>
                 </div>
+
               </Toolbar>
             </AppBar>
             : null // no one logged in? dont show the nav bar
