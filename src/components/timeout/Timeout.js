@@ -47,7 +47,7 @@ export class Timeout extends Component {
   //*****************************************************************************************************
   noTimeoutAlert = () => {
     alertify.set('notifier', 'position', 'top-center');
-    alertify.notify('Timeout is over. Drink Responsibly!', 'success', 8,
+    alertify.notify('Timeout is over. Drink Responsibly!', 'success', 5,
       () => { this.props.history.push("/senddrinks"); }); // hijacking the user to Chat if there is chat
 
   }

@@ -219,26 +219,6 @@
   ],
   "drinks": [
     {
-      "userId": 14,
-      "sentTo": 22,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "rejected",
-      "matchTime": "2020-01-05T22:56:11.189Z",
-      "id": 1
-    },
-    {
-      "userId": 14,
-      "sentTo": 22,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "rejected",
-      "matchTime": "2020-01-05T22:57:33.152Z",
-      "id": 2
-    },
-    {
       "userId": 15,
       "sentTo": 22,
       "toggleUserA": false,
@@ -280,16 +260,6 @@
     },
     {
       "userId": 14,
-      "sentTo": 22,
-      "toggleUserA": false,
-      "toggleUserB": true,
-      "chatActive": false,
-      "status": "pending",
-      "matchTime": "2020-01-05T23:06:49.695Z",
-      "id": 7
-    },
-    {
-      "userId": 14,
       "sentTo": 23,
       "toggleUserA": false,
       "toggleUserB": true,
@@ -324,7 +294,7 @@
       "toggleUserA": false,
       "toggleUserB": true,
       "chatActive": false,
-      "status": "pending",
+      "status": "rejected",
       "matchTime": "2020-01-05T23:10:26.236Z",
       "id": 11
     },
@@ -337,10 +307,99 @@
       "status": "pending",
       "matchTime": "2020-01-06T00:26:03.735Z",
       "id": 12
+    },
+    {
+      "userId": 14,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-06T15:33:28.456Z",
+      "id": 14
+    },
+    {
+      "userId": 22,
+      "sentTo": 24,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-06T16:22:33.972Z",
+      "id": 15
+    },
+    {
+      "userId": 22,
+      "sentTo": 18,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-06T20:25:58.902Z",
+      "id": 16
+    },
+    {
+      "userId": 22,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-06T20:35:53.290Z",
+      "id": 17
+    },
+    {
+      "userId": 22,
+      "sentTo": 15,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-06T23:47:22.612Z",
+      "id": 18
+    },
+    {
+      "userId": 22,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-07T02:25:41.271Z",
+      "id": 19
+    },
+    {
+      "userId": 22,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-07T02:30:16.912Z",
+      "id": 20
+    },
+    {
+      "userId": 22,
+      "sentTo": 17,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-07T02:34:29.653Z",
+      "id": 21
+    },
+    {
+      "userId": 22,
+      "sentTo": 14,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "rejected",
+      "matchTime": "2020-01-07T02:57:04.899Z",
+      "id": 22
     }
   ],
   "messages": [
-   
   ],
   "bars": [
     {
