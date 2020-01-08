@@ -8,9 +8,9 @@ Chaser is an in-bar drinks sending app. It grabs you geolocation and allows you 
 
 I built this app after I noticed that conventional dating apps does not answer the need of a real world interaction kindler, and allow the users to dragged into an infinite corresponding that in most of the time leads to no real world connection. 
 
-![Screencast](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/ChaserLogo.png)
-![Screencast](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/ChaserLogo.png)
-![Screencast](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/ChaserLogo.png)
+![Screencast 1](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif1.gif)
+![Screencast 2](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif2.gif)
+![Screencast 3](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif3.gif)
 
 ## Details
 
