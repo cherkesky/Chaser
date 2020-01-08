@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Chaser 
 
-## Available Scripts
+![Logo](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/ChaserLogo.png)
+
+### by Guy Cherkesky | [LinkedIn](http://linkedin.com/cherkesky) | [Website](http://cherkesky.com)
+
+Chaser is an in-bar drinks sending app. It grabs you geolocation and allows you to 'check-in' to a bar in your proximity. Once your'e checked-in you will see all the other user from the gender of your choice that been checked in as well. You can send them a drink request and you can recieve drink request from others. Approving a drink request will open a limited chat with 3 messages per user (just for basic communicaiton like 'where are you sitting', 'what do you want to drink?') that will destruct itself after the chat is over. The users will be placed in a 30 minutes time out to allow them to get to know each other and not be destracted by other users.
+
+I built this app after I noticed that conventional dating apps does not answer the need of a real world interaction kindler, and allow the users to dragged into an infinite corresponding that in most of the time leads to no real world connection. 
+
+![Screencast](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/ChaserLogo.png)
+![Screencast](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/ChaserLogo.png)
+![Screencast](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/ChaserLogo.png)
+
+## Details
+
+
+#### Technology Stack: 
+- JS: Vanilla Javascript, React
+- Styles: Styled Components, Framer Motion (for some of the animations)
+- Textures/Icons: All SVGs created by me in Figma
+- API: Google Places, Google Maps, Cloudinary, WebAPI
+- DB: JSON Server
+
+## Running Locally
 
 In the project directory, you can run:
 
-### `yarn start`
+first run from the /api directory:
+### `json-server -p 5002 -w database.json`
+
+and then from the project root directory:
+### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Cheers!
