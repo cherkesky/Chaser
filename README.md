@@ -1,8 +1,7 @@
-Chaser 
 
-![Logo](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/ChaserLogo.png)
+![Chaser](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/ChaserLogo.png)
 
-### by Guy Cherkesky | [LinkedIn](http://linkedin.com/cherkesky) | [Website](http://cherkesky.com)
+### by Guy Cherkesky | [LinkedIn](http://linkedin.com/in/cherkesky) | [Website](http://cherkesky.com)
 
 Chaser is an in-bar drinks sending app. It grabs you geolocation and allows you to 'check-in' to a bar in your proximity. Once your'e checked-in you will see all the other user from the gender of your choice that been checked in as well. You can send them a drink request and you can recieve drink request from others. Approving a drink request will open a limited chat with 3 messages per user (just for basic communicaiton like 'where are you sitting', 'what do you want to drink?') that will destruct itself after the chat is over. The users will be placed in a 30 minutes time out to allow them to get to know each other and not be destracted by other users.
 
