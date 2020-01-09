@@ -3,9 +3,9 @@
 
 ### by Guy Cherkesky | [LinkedIn](http://linkedin.com/in/cherkesky) | [Website](http://cherkesky.com)
 
-Chaser is an in-bar drink sending app. It grabs your geolocation and allows you to 'check-in' to a bar in your proximity. Once you're checked-in, you will see all the other users from the gender of your choice that been checked in as well. You can send them a drink request and you can receive drink requests from others. Approving a drink request will open a limited chat with 3 messages per user (just for basic communication like 'where are you sitting', 'what do you want to drink?') that will destruct itself after the chat is over. The users will be placed in a 30 minutes time out to allow them to get to know each other and not be distracted by other users.
+Chaser is an in-bar drink sending app. It grabs your geolocation and allows you to 'check-in' to a bar in your proximity. Once you're checked-in, you will see all the other users who are checked in as well. You can send a drink request, and you can receive drink requests from others. Approving a drink request will open a limited chat with 3 messages per user (just for basic communication like 'where are you sitting', 'what do you want to drink?') that will self destruct after the chat is over. The users are then placed in a 30 minute time out to allow them to get to know each other and not be distracted by other users.
 
-I built this app after I noticed that conventional dating apps does not answer the need of a real world interaction kindler, and allow the users to dragged into an infinite corresponding that in most of the time leads to no real world connection. 
+I built this app after I noticed that conventional dating apps do not answer the need of a real world interaction kindler and allow the users to be dragged into an infinite correspondance that most of the time leads to no real world connection. 
 
 ![Screencast 1](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif1.gif)
 ![Screencast 2](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif2.gif)
