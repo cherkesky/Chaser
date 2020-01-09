@@ -16,7 +16,7 @@ I built this app after I noticed that conventional dating apps does not answer t
 
 #### Technology Stack: 
 - JS: Vanilla Javascript, React
-- Styles: Styled Components, Framer Motion (for some of the animations)
+- Styles: CSS, Material UI
 - Textures/Icons: All SVGs created by me in Figma
 - API: Google Places, Google Maps, Cloudinary, WebAPI
 - DB: JSON Server
