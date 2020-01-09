@@ -19,6 +19,7 @@ I built this app after I noticed that conventional dating apps do not answer the
 - Styles: CSS, Material UI
 - Textures/Icons: All SVGs created by me in Figma
 - API: Google Places, Google Maps, Cloudinary, WebAPI
+- Version Control: Git, GitHub
 - DB: JSON Server
 
 ## Running Locally
