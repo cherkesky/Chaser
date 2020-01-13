@@ -9,7 +9,7 @@ I built this app after I noticed that conventional dating apps do not answer the
 
 ![Screencast 1](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif1.gif)
 ![Screencast 2](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif2.gif)
-![Screencast 3](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif4.gif)
+![Screencast 3](https://raw.githubusercontent.com/cherkesky/chaser/master/src/assets/chaser_gif3.gif)
 
 ## Details
 
