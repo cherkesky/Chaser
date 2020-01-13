@@ -407,16 +407,29 @@
       "status": "completed",
       "matchTime": "2020-01-08T18:59:52.654Z",
       "id": 23
+    },
+    {
+      "userId": 14,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "completed",
+      "matchTime": "2020-01-13T02:33:39.942Z",
+      "id": 24
+    },
+    {
+      "userId": 14,
+      "sentTo": 22,
+      "toggleUserA": false,
+      "toggleUserB": true,
+      "chatActive": false,
+      "status": "pending",
+      "matchTime": "2020-01-13T02:34:44.954Z",
+      "id": 25
     }
   ],
   "messages": [
-    {
-      "userId": 22,
-      "drinkId": 23,
-      "message": "hi!",
-      "sent": "2020-01-08T19:03:51.435Z",
-      "id": 1
-    },
     {
       "userId": 14,
       "drinkId": 23,
@@ -432,25 +445,46 @@
       "id": 3
     },
     {
+      "userId": 22,
+      "drinkId": 24,
+      "message": "hi!",
+      "sent": "2020-01-13T02:34:40.407Z",
+      "id": 7
+    },
+    {
       "userId": 14,
-      "drinkId": 23,
-      "message": "great! where are you sitting?",
-      "sent": "2020-01-08T19:06:46.953Z",
-      "id": 4
+      "drinkId": 24,
+      "message": "Hi! Thanks for approving me. What do you want to drink?",
+      "sent": "2020-01-13T02:35:46.373Z",
+      "id": 8
     },
     {
       "userId": 22,
-      "drinkId": 23,
-      "message": "next to the exit. i'm wearing a hat",
-      "sent": "2020-01-08T19:07:17.203Z",
-      "id": 5
+      "drinkId": 24,
+      "message": "Red wine is fine! :)",
+      "sent": "2020-01-13T02:36:22.193Z",
+      "id": 9
     },
     {
       "userId": 14,
-      "drinkId": 23,
-      "message": "I'm coming. hang on!",
-      "sent": "2020-01-08T19:08:19.592Z",
-      "id": 6
+      "drinkId": 24,
+      "message": "Great! where are you sitting?",
+      "sent": "2020-01-13T02:36:53.003Z",
+      "id": 10
+    },
+    {
+      "userId": 22,
+      "drinkId": 24,
+      "message": "next to the exit. i'm wearing a hat",
+      "sent": "2020-01-13T02:37:36.704Z",
+      "id": 11
+    },
+    {
+      "userId": 14,
+      "drinkId": 24,
+      "message": "hang on. I'm coming!",
+      "sent": "2020-01-13T02:39:06.895Z",
+      "id": 12
     }
   ],
   "bars": [
