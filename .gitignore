@@ -19,7 +19,6 @@
 .env.production.local
 
 # api keys file
- apikeys.js
 /api
 
 npm-debug.log*
